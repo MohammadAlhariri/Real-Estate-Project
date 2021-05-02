@@ -135,11 +135,11 @@
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(876, 245);
+            this.button1.Location = new System.Drawing.Point(813, 245);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 54);
+            this.button1.Size = new System.Drawing.Size(306, 54);
             this.button1.TabIndex = 76;
-            this.button1.Text = "Add Rental";
+            this.button1.Text = "Add RealEstateExpense";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
