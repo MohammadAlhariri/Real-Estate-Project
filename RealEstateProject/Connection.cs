@@ -144,7 +144,7 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("date", v4);
             sqlCommand.Parameters.AddWithValue("detail", text2);
             sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
-            sqlCommand.Parameters.AddWithValue("receiptNumber", v);
+            sqlCommand.Parameters.AddWithValue("idE", v);
 
             int a = sqlCommand.ExecuteNonQuery();
             return a;
