@@ -187,6 +187,7 @@
             this.editRealEstateExpenceToolStripMenuItem.Name = "editRealEstateExpenceToolStripMenuItem";
             this.editRealEstateExpenceToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.editRealEstateExpenceToolStripMenuItem.Text = "Edit RealEstate Expence";
+            this.editRealEstateExpenceToolStripMenuItem.Click += new System.EventHandler(this.EditRealEstateExpenceToolStripMenuItem_Click);
             // 
             // editMonthlyRentalPaymentToolStripMenuItem
             // 

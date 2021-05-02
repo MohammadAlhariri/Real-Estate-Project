@@ -121,5 +121,12 @@ namespace RealEstateProject
             editRental.MdiParent = this;
             editRental.Show();
         }
+
+        private void EditRealEstateExpenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditRealEstateExpense editRealEstateExpense = new EditRealEstateExpense();
+            editRealEstateExpense.MdiParent = this;
+            editRealEstateExpense.Show();
+        }
     }
 }

@@ -110,6 +110,16 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
+        internal void deleteRealEstateExpense(string v)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deleteRealEstateExpense");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("idE", v);
+            int a = sqlCommand.ExecuteNonQuery();
+            
+        }
+
         internal DataTable getRenterPersons()
         {
             DataSet dataset = new DataSet();
@@ -120,6 +130,24 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
+        }
+
+        internal int updateRealEstateExpense(string v1, string v2, string text1, string v3, string v4, string text2, string moneyType, string v)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("updateRealestaeExpence");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("realestateID", v1);
+            sqlCommand.Parameters.AddWithValue("personID", v2);
+            sqlCommand.Parameters.AddWithValue("ExpenseType", text1);
+            sqlCommand.Parameters.AddWithValue("amount", v3);
+            sqlCommand.Parameters.AddWithValue("date", v4);
+            sqlCommand.Parameters.AddWithValue("detail", text2);
+            sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
+            sqlCommand.Parameters.AddWithValue("receiptNumber", v);
+
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
         }
 
         internal int updatePerson(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8, string text9, string text10, string text)

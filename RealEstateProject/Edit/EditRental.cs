@@ -114,7 +114,8 @@ namespace RealEstateProject.Edit
                 rentalType.Text = dataRow["rentalType"].ToString();
                 type.Text = dataRow["type"].ToString();
                 paymentMethod.Text = dataRow["paymentMethod"].ToString();
-                startDate.Text = dataRow["rentDate"].ToString();
+                startDate.Value =  Convert.ToDateTime(dataRow["rentDate"]);
+
             }
             catch
             {

@@ -75,6 +75,7 @@
             this.button1.TabIndex = 101;
             this.button1.Text = "Update RealEstate Expense";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label5
             // 
@@ -99,6 +100,7 @@
             this.button2.TabIndex = 112;
             this.button2.Text = "Delete RealEstate Expense";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
@@ -111,6 +113,7 @@
             this.button3.TabIndex = 113;
             this.button3.Text = "Get RealEstate Expense";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // groupBox1
             // 
@@ -202,6 +205,7 @@
             this.expenseType.Size = new System.Drawing.Size(199, 28);
             this.expenseType.TabIndex = 118;
             this.expenseType.ValueMember = "(none)";
+            this.expenseType.SelectedIndexChanged += new System.EventHandler(this.ExpenseType_SelectedIndexChanged);
             // 
             // date
             // 
@@ -330,6 +334,7 @@
             this.Name = "EditRealEstateExpense";
             this.Text = "EditRealEstateExpense";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.EditRealEstateExpense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amount)).EndInit();
