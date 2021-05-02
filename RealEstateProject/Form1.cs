@@ -100,11 +100,6 @@ namespace RealEstateProject
 
         }
 
-        private void EditAppartmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void EditAppartmentToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -118,6 +113,13 @@ namespace RealEstateProject
             EditPerson editPerson = new EditPerson();
             editPerson.MdiParent = this;
             editPerson.Show();
+        }
+
+        private void EditRentalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditRental editRental = new EditRental();
+            editRental.MdiParent = this;
+            editRental.Show();
         }
     }
 }

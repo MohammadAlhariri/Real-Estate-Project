@@ -52,6 +52,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.rentalNumber = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentDuration)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +81,7 @@
             this.button1.TabIndex = 78;
             this.button1.Text = "Update Rental";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -91,18 +94,20 @@
             this.button2.TabIndex = 90;
             this.button2.Text = "Delete Rental";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(872, 33);
+            this.button3.Location = new System.Drawing.Point(834, 48);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(243, 54);
             this.button3.TabIndex = 91;
             this.button3.Text = "Get Rental";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // groupBox1
             // 
@@ -155,6 +160,7 @@
             this.realestateNumber.Size = new System.Drawing.Size(199, 28);
             this.realestateNumber.TabIndex = 107;
             this.realestateNumber.ValueMember = "(none)";
+            this.realestateNumber.SelectedIndexChanged += new System.EventHandler(this.RealestateNumber_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -222,6 +228,7 @@
             // startDate
             // 
             this.startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.startDate.Location = new System.Drawing.Point(167, 102);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(296, 26);
@@ -281,6 +288,7 @@
             this.appartmentNumber.Size = new System.Drawing.Size(199, 28);
             this.appartmentNumber.TabIndex = 96;
             this.appartmentNumber.ValueMember = "(none)";
+            this.appartmentNumber.SelectedIndexChanged += new System.EventHandler(this.AppartmentNumber_SelectedIndexChanged);
             // 
             // renter
             // 
@@ -350,10 +358,38 @@
             this.label1.TabIndex = 90;
             this.label1.Text = "Type";
             // 
+            // rentalNumber
+            // 
+            this.rentalNumber.BackColor = System.Drawing.Color.White;
+            this.rentalNumber.DisplayMember = "(none)";
+            this.rentalNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentalNumber.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rentalNumber.FormattingEnabled = true;
+            this.rentalNumber.Items.AddRange(new object[] {
+            "select one"});
+            this.rentalNumber.Location = new System.Drawing.Point(607, 117);
+            this.rentalNumber.Name = "rentalNumber";
+            this.rentalNumber.Size = new System.Drawing.Size(199, 28);
+            this.rentalNumber.TabIndex = 109;
+            this.rentalNumber.ValueMember = "(none)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(419, 121);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 20);
+            this.label12.TabIndex = 110;
+            this.label12.Text = "Rental Number";
+            // 
             // EditRental
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1243, 567);
+            this.Controls.Add(this.rentalNumber);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.realestateNumber);
@@ -366,6 +402,7 @@
             this.Name = "EditRental";
             this.Text = "EditRental";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.EditRental_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentDuration)).EndInit();
@@ -400,5 +437,7 @@
         private System.Windows.Forms.ComboBox realestateNumber;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox appartmentNumber;
+        private System.Windows.Forms.ComboBox rentalNumber;
+        private System.Windows.Forms.Label label12;
     }
 }

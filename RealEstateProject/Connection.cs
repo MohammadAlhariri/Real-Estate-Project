@@ -80,6 +80,15 @@ namespace RealEstateProject
             return a;
         }
 
+        internal void deleteRental(string v)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deleteRental");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("rentalID", v);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
         internal void deletePerson(string v)
         {
             MySqlCommand sqlCommand = new MySqlCommand("deletePerson");
@@ -129,6 +138,24 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("phone", text9);
             sqlCommand.Parameters.AddWithValue("email", text10);
             sqlCommand.Parameters.AddWithValue("role", text);
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
+        }
+
+        internal int updateRental(string v1, string v2, string text1, string v3, string text2, string text3, string text4, string text5)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("updateRental");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("rentalID", v1);
+            sqlCommand.Parameters.AddWithValue("renterID", v2);
+            sqlCommand.Parameters.AddWithValue("type", text1);
+            sqlCommand.Parameters.AddWithValue("rentDuration", v3);
+            sqlCommand.Parameters.AddWithValue("rentalType", text2);
+            sqlCommand.Parameters.AddWithValue("details", text3);
+            sqlCommand.Parameters.AddWithValue("rentDate", text4);
+            sqlCommand.Parameters.AddWithValue("paymentMethod", text5);
+    
             int a = sqlCommand.ExecuteNonQuery();
             return a;
         }

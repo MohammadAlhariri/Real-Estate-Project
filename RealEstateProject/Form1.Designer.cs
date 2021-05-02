@@ -180,6 +180,7 @@
             this.editRentalToolStripMenuItem.Name = "editRentalToolStripMenuItem";
             this.editRentalToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.editRentalToolStripMenuItem.Text = "Edit Rental";
+            this.editRentalToolStripMenuItem.Click += new System.EventHandler(this.EditRentalToolStripMenuItem_Click);
             // 
             // editRealEstateExpenceToolStripMenuItem
             // 

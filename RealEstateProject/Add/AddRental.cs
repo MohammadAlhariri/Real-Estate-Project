@@ -90,7 +90,7 @@ namespace RealEstateProject
                 //public int insertRental(string renterID, string appartmentNumber, string type,
                 //string rentDuration, string rentalType, string details, string rentDate,
                 // string paymentMethod)
-                int results = Connection.insertRental(renter.Text, appartmentNumber.Text, type.Text,
+                int results = Connection.insertRental(renter.SelectedValue.ToString(), appartmentNumber.SelectedValue.ToString(), type.Text,
                     rentDuration.Value.ToString(), rentalType.Text, detail.Text, startDate.Value.Date.ToString("yyyy-MM-dd HH:mm"), paymentMethod.Text);
 
                 if (results == 0)
