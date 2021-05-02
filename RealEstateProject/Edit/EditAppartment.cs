@@ -102,7 +102,10 @@ namespace RealEstateProject.Edit
 
 
                 int results = Connection.updateDepartment(
-                    AppartmentNumber.SelectedValue.ToString(), owner.SelectedValue.ToString(), floor.Text, buildingNumber.SelectedValue.ToString(), type.Text, numberOfRooms.Value.ToString(), dInDollar.Text, mInDollar.Text, yInDollar.Text, dInLera.Text, mInLera.Text, yInLera.Text, details.Text);
+                    AppartmentNumber.SelectedValue.ToString(), owner.SelectedValue.ToString(), 
+                    floor.Text, buildingNumber.SelectedValue.ToString(), type.Text,
+                    numberOfRooms.Value.ToString(), dInDollar.Text, mInDollar.Text, 
+                    yInDollar.Text, dInLera.Text, mInLera.Text, yInLera.Text, details.Text);
 
                 if (results == 0)
                 {
