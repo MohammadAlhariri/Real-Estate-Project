@@ -377,7 +377,7 @@ namespace RealEstateProject
      
         }
         public int insertRealEstateExpense
-            (string realestateID, string personID, string ExpenseType, string amount, string date, string detail, string moneyType)
+            (string realestateID, string personID, string ExpenseType, string amount, string date, string detail, string moneyType, string receiptNumber)
         {
             if (!checkEmpty(realestateID, personID, ExpenseType, amount, date, detail))
             {
@@ -392,6 +392,7 @@ namespace RealEstateProject
                 sqlCommand.Parameters.AddWithValue("date", date);
                 sqlCommand.Parameters.AddWithValue("detail", detail);
                 sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
+                sqlCommand.Parameters.AddWithValue("receiptNumber", receiptNumber);
 
                 int a = sqlCommand.ExecuteNonQuery();
                 return a;

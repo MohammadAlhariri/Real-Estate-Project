@@ -46,6 +46,8 @@
             this.detail = new System.Windows.Forms.TextBox();
             this.leb = new System.Windows.Forms.RadioButton();
             this.dollar = new System.Windows.Forms.RadioButton();
+            this.receiptNumber = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.expences)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +89,7 @@
             // date
             // 
             this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(174, 166);
+            this.date.Location = new System.Drawing.Point(522, 158);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(296, 26);
             this.date.TabIndex = 81;
@@ -158,7 +160,7 @@
             this.amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.amount.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.amount.Location = new System.Drawing.Point(567, 167);
+            this.amount.Location = new System.Drawing.Point(911, 158);
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(110, 26);
             this.amount.TabIndex = 74;
@@ -194,7 +196,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(496, 169);
+            this.label7.Location = new System.Drawing.Point(832, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 71;
@@ -205,7 +207,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 169);
+            this.label4.Location = new System.Drawing.Point(398, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 20);
             this.label4.TabIndex = 69;
@@ -234,7 +236,7 @@
             // 
             this.leb.AutoSize = true;
             this.leb.Checked = true;
-            this.leb.Location = new System.Drawing.Point(722, 172);
+            this.leb.Location = new System.Drawing.Point(1035, 163);
             this.leb.Name = "leb";
             this.leb.Size = new System.Drawing.Size(45, 17);
             this.leb.TabIndex = 90;
@@ -245,7 +247,7 @@
             // dollar
             // 
             this.dollar.AutoSize = true;
-            this.dollar.Location = new System.Drawing.Point(812, 172);
+            this.dollar.Location = new System.Drawing.Point(1094, 163);
             this.dollar.Name = "dollar";
             this.dollar.Size = new System.Drawing.Size(37, 17);
             this.dollar.TabIndex = 91;
@@ -253,11 +255,32 @@
             this.dollar.UseVisualStyleBackColor = true;
             this.dollar.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
             // 
+            // receiptNumber
+            // 
+            this.receiptNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptNumber.Location = new System.Drawing.Point(165, 158);
+            this.receiptNumber.Name = "receiptNumber";
+            this.receiptNumber.Size = new System.Drawing.Size(219, 26);
+            this.receiptNumber.TabIndex = 93;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 161);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 20);
+            this.label1.TabIndex = 92;
+            this.label1.Text = "Receipt Number";
+            // 
             // AddRealstateExpense
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1255, 556);
+            this.Controls.Add(this.receiptNumber);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dollar);
             this.Controls.Add(this.leb);
             this.Controls.Add(this.detail);
@@ -304,5 +327,7 @@
         private System.Windows.Forms.TextBox detail;
         private System.Windows.Forms.RadioButton leb;
         private System.Windows.Forms.RadioButton dollar;
+        private System.Windows.Forms.TextBox receiptNumber;
+        private System.Windows.Forms.Label label1;
     }
 }
