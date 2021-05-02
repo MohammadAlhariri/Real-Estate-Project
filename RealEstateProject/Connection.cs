@@ -80,6 +80,15 @@ namespace RealEstateProject
             return a;
         }
 
+        internal void deletePerson(string v)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deletePerson");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("personID", v);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
         internal DataTable getExpenseTypes()
         {
             DataSet dataset = new DataSet();
@@ -102,6 +111,26 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
+        }
+
+        internal int updatePerson(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8, string text9, string text10, string text)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("updatePerson");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("personID", text1);
+            sqlCommand.Parameters.AddWithValue("fName", text2);
+            sqlCommand.Parameters.AddWithValue("mName", text3);
+            sqlCommand.Parameters.AddWithValue("lName", text4);
+            sqlCommand.Parameters.AddWithValue("country", text5);
+            sqlCommand.Parameters.AddWithValue("state", text6);
+            sqlCommand.Parameters.AddWithValue("city", text7);
+            sqlCommand.Parameters.AddWithValue("address", text8);
+            sqlCommand.Parameters.AddWithValue("phone", text9);
+            sqlCommand.Parameters.AddWithValue("email", text10);
+            sqlCommand.Parameters.AddWithValue("role", text);
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
         }
 
         internal int updateDepartment(string v1, string v2, string text1, string v3, string text2, string v4, string text3, string text4, string text5, string text6, string text7, string text8, string text9)
