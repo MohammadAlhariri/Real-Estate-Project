@@ -505,7 +505,7 @@ namespace RealEstateProject
 
         }
         public int insertMonthlyRentalPayments(string renterID, string appartmentID, string amount,
-            string date, string details, string payMethod, string checkNumber, string bank)
+            string date, string details, string payMethod, string checkNumber, string bank, string text)
 
         {
 
@@ -521,6 +521,7 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("payMethod", payMethod);
             sqlCommand.Parameters.AddWithValue("checkNumber", checkNumber);
             sqlCommand.Parameters.AddWithValue("bank", bank);
+            sqlCommand.Parameters.AddWithValue("receiptNumber", text);
             int a = sqlCommand.ExecuteNonQuery();
             return a;
 

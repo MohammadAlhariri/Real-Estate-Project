@@ -65,7 +65,7 @@ namespace RealEstateProject
             {
                 int results = Connection.insertMonthlyRentalPayments(
                     renterName.SelectedValue.ToString(), AppartmentNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    details.Text, payMethod.Text, checkNumber.Text, bank.Text);
+                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text);
                 if (results == 0)
                 {
 
@@ -155,6 +155,31 @@ namespace RealEstateProject
                     //predefinedOptions.Close();
                 }
             }
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Amount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PayDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
