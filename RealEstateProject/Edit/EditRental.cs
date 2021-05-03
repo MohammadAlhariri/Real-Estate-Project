@@ -115,6 +115,8 @@ namespace RealEstateProject.Edit
                 type.Text = dataRow["type"].ToString();
                 paymentMethod.Text = dataRow["paymentMethod"].ToString();
                 startDate.Value =  Convert.ToDateTime(dataRow["rentDate"]);
+                graceMonth.Value= Convert.ToInt32(dataRow["graceMonth"]);
+                rentPercentage.Value= Convert.ToInt32(dataRow["rentPercentage"]);
 
             }
             catch
@@ -151,7 +153,7 @@ namespace RealEstateProject.Edit
                 int results = Connection.updateRental(rentalNumber.SelectedValue.ToString(),
                     renter.SelectedValue.ToString(),
                     type.Text, rentDuration.Value.ToString(), rentalType.Text, detail.Text,
-                    startDate.Text, paymentMethod.Text);
+                    startDate.Text, paymentMethod.Text, rentPercentage.Value.ToString(), graceMonth.Value.ToString());
                 if (results == 0)
                 {
                     message = "There are error";

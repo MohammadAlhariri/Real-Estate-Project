@@ -98,7 +98,9 @@ namespace RealEstateProject.Edit
             expenseType.Text = dataRow["ExpenseType"].ToString();
             amount.Text = dataRow["amount"].ToString();
             detail.Text = dataRow["detail"].ToString();
+            receiptNumber.Text = dataRow["receiptNumber"].ToString();
             date.Value = Convert.ToDateTime(dataRow["date"]);
+
             if (dataRow["moneyType"].ToString().Equals("$$"))
                 dollar.Checked = true;
             else
@@ -129,7 +131,7 @@ namespace RealEstateProject.Edit
 
                 int results = Connection.updateRealEstateExpense(
                      realestateNumber.SelectedValue.ToString(), person.SelectedValue.ToString(), expenseType.Text, amount.Value.ToString(), date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    detail.Text, moneyType,receiptNumber.SelectedValue.ToString());
+                    detail.Text, moneyType, receiptNumber.SelectedValue.ToString());
 
                 if (results == 0)
                 {

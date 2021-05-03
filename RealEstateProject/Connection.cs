@@ -170,7 +170,7 @@ namespace RealEstateProject
             return a;
         }
 
-        internal int updateRental(string v1, string v2, string text1, string v3, string text2, string text3, string text4, string text5)
+        internal int updateRental(string v1, string v2, string text1, string v3, string text2, string text3, string text4, string text5, string v, string v4)
         {
             MySqlCommand sqlCommand = new MySqlCommand("updateRental");
             sqlCommand.Connection = realEstate;
@@ -183,6 +183,8 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("details", text3);
             sqlCommand.Parameters.AddWithValue("rentDate", text4);
             sqlCommand.Parameters.AddWithValue("paymentMethod", text5);
+            sqlCommand.Parameters.AddWithValue("rentPercentage", v);
+            sqlCommand.Parameters.AddWithValue("graceMonth", v4);
     
             int a = sqlCommand.ExecuteNonQuery();
             return a;
@@ -481,7 +483,7 @@ namespace RealEstateProject
         }
         public int insertRental(string renterID, string appartmentNumber, string type,
             string rentDuration, string rentalType, string details, string rentDate,
-            string paymentMethod)
+            string paymentMethod, string v, string v1)
 
         {
 
@@ -498,6 +500,8 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("details", details);
             sqlCommand.Parameters.AddWithValue("rentDate", rentDate);
             sqlCommand.Parameters.AddWithValue("paymentMethod", paymentMethod);
+            sqlCommand.Parameters.AddWithValue("rentPercentage", v);
+            sqlCommand.Parameters.AddWithValue("graceMonth", v1);
             int a = sqlCommand.ExecuteNonQuery();
             return a;
 

@@ -51,8 +51,16 @@
             this.realestateNumber = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.type = new System.Windows.Forms.TextBox();
+            this.graceMonth = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.rentPercentage = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rentals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graceMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentPercentage)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -60,7 +68,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(50, 195);
+            this.label11.Location = new System.Drawing.Point(53, 182);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 20);
             this.label11.TabIndex = 58;
@@ -120,7 +128,7 @@
             this.rentDuration.BackColor = System.Drawing.Color.White;
             this.rentDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentDuration.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rentDuration.Location = new System.Drawing.Point(655, 153);
+            this.rentDuration.Location = new System.Drawing.Point(655, 140);
             this.rentDuration.Name = "rentDuration";
             this.rentDuration.Size = new System.Drawing.Size(63, 26);
             this.rentDuration.TabIndex = 43;
@@ -158,7 +166,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(520, 156);
+            this.label7.Location = new System.Drawing.Point(520, 143);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 20);
             this.label7.TabIndex = 38;
@@ -169,7 +177,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(744, 156);
+            this.label6.Location = new System.Drawing.Point(744, 143);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 20);
             this.label6.TabIndex = 37;
@@ -180,7 +188,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(50, 156);
+            this.label4.Location = new System.Drawing.Point(50, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 20);
             this.label4.TabIndex = 36;
@@ -200,7 +208,7 @@
             // startDate
             // 
             this.startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startDate.Location = new System.Drawing.Point(198, 153);
+            this.startDate.Location = new System.Drawing.Point(198, 140);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(296, 26);
             this.startDate.TabIndex = 60;
@@ -210,7 +218,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(469, 221);
+            this.label3.Location = new System.Drawing.Point(472, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 62;
@@ -223,7 +231,7 @@
             this.rentalType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentalType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rentalType.FormattingEnabled = true;
-            this.rentalType.Location = new System.Drawing.Point(607, 217);
+            this.rentalType.Location = new System.Drawing.Point(624, 175);
             this.rentalType.Name = "rentalType";
             this.rentalType.Size = new System.Drawing.Size(199, 28);
             this.rentalType.TabIndex = 61;
@@ -233,7 +241,7 @@
             // detail
             // 
             this.detail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detail.Location = new System.Drawing.Point(125, 196);
+            this.detail.Location = new System.Drawing.Point(128, 183);
             this.detail.Multiline = true;
             this.detail.Name = "detail";
             this.detail.Size = new System.Drawing.Size(337, 118);
@@ -244,7 +252,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(821, 217);
+            this.label8.Location = new System.Drawing.Point(474, 216);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 20);
             this.label8.TabIndex = 65;
@@ -263,7 +271,7 @@
             "6 Months in adcance",
             "1 Year in advance",
             "Other"});
-            this.paymentMethod.Location = new System.Drawing.Point(971, 214);
+            this.paymentMethod.Location = new System.Drawing.Point(624, 213);
             this.paymentMethod.Name = "paymentMethod";
             this.paymentMethod.Size = new System.Drawing.Size(199, 28);
             this.paymentMethod.TabIndex = 64;
@@ -302,7 +310,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(832, 156);
+            this.label1.Location = new System.Drawing.Point(832, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 33;
@@ -311,10 +319,76 @@
             // type
             // 
             this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type.Location = new System.Drawing.Point(901, 153);
+            this.type.Location = new System.Drawing.Point(901, 140);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(300, 26);
             this.type.TabIndex = 59;
+            // 
+            // graceMonth
+            // 
+            this.graceMonth.BackColor = System.Drawing.Color.White;
+            this.graceMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.graceMonth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.graceMonth.Location = new System.Drawing.Point(1025, 176);
+            this.graceMonth.Name = "graceMonth";
+            this.graceMonth.Size = new System.Drawing.Size(73, 26);
+            this.graceMonth.TabIndex = 70;
+            this.graceMonth.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(871, 178);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(102, 20);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Grace month";
+            this.label12.Click += new System.EventHandler(this.Label12_Click);
+            // 
+            // rentPercentage
+            // 
+            this.rentPercentage.BackColor = System.Drawing.Color.White;
+            this.rentPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentPercentage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rentPercentage.Location = new System.Drawing.Point(1025, 213);
+            this.rentPercentage.Name = "rentPercentage";
+            this.rentPercentage.Size = new System.Drawing.Size(73, 26);
+            this.rentPercentage.TabIndex = 72;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(871, 215);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(129, 20);
+            this.label13.TabIndex = 71;
+            this.label13.Text = "Rent percentage";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(1113, 178);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 20);
+            this.label14.TabIndex = 73;
+            this.label14.Text = "Months";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(1113, 215);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(24, 20);
+            this.label15.TabIndex = 74;
+            this.label15.Text = "%";
             // 
             // AddRental
             // 
@@ -322,6 +396,12 @@
             this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1317, 635);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.rentPercentage);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.graceMonth);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.realestateNumber);
             this.Controls.Add(this.label8);
@@ -350,6 +430,8 @@
             this.Load += new System.EventHandler(this.AddRental_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graceMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentPercentage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +461,11 @@
         private System.Windows.Forms.ComboBox realestateNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox type;
+        private System.Windows.Forms.NumericUpDown graceMonth;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown rentPercentage;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

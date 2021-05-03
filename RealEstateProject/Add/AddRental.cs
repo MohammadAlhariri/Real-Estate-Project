@@ -91,7 +91,8 @@ namespace RealEstateProject
                 //string rentDuration, string rentalType, string details, string rentDate,
                 // string paymentMethod)
                 int results = Connection.insertRental(renter.SelectedValue.ToString(), appartmentNumber.SelectedValue.ToString(), type.Text,
-                    rentDuration.Value.ToString(), rentalType.Text, detail.Text, startDate.Value.Date.ToString("yyyy-MM-dd HH:mm"), paymentMethod.Text);
+                    rentDuration.Value.ToString(), rentalType.Text, detail.Text, startDate.Value.Date.ToString("yyyy-MM-dd HH:mm"), paymentMethod.Text,
+                    rentPercentage.Value.ToString(), graceMonth.Value.ToString());
 
                 if (results == 0)
                 {
@@ -178,6 +179,16 @@ namespace RealEstateProject
                     //predefinedOptions.Close();
                 }
             }
+        }
+
+        private void Label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
