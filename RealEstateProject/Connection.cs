@@ -150,6 +150,34 @@ namespace RealEstateProject
             return a;
         }
 
+        internal int updateMonthlyRentalPayments(string v1, string v2, string text1, string v3, string text2, string text3, string text4, string text5, string v4)
+        {
+            //(renterID, appartmentID, amount, date, details, payMethod, checkNumber, bank)
+            MySqlCommand sqlCommand = new MySqlCommand("updateMonthlyRentalPayment");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("renterID", v1);
+            sqlCommand.Parameters.AddWithValue("appartmentID", v2);
+            sqlCommand.Parameters.AddWithValue("amount", text1);
+            sqlCommand.Parameters.AddWithValue("date", v3);
+            sqlCommand.Parameters.AddWithValue("details", text2);
+            sqlCommand.Parameters.AddWithValue("payMethod", text3);
+            sqlCommand.Parameters.AddWithValue("checkNumber", text4);
+            sqlCommand.Parameters.AddWithValue("bank", text5);
+            sqlCommand.Parameters.AddWithValue("idM", v4);
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
+        }
+
+        internal void deleteMonthlyRentalPayment(string v)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deleteMonthlyRentalPayment");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("idM", v);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
         internal int updatePerson(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8, string text9, string text10, string text)
         {
             MySqlCommand sqlCommand = new MySqlCommand("updatePerson");

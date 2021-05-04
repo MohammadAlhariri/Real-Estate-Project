@@ -194,6 +194,7 @@
             this.editMonthlyRentalPaymentToolStripMenuItem.Name = "editMonthlyRentalPaymentToolStripMenuItem";
             this.editMonthlyRentalPaymentToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.editMonthlyRentalPaymentToolStripMenuItem.Text = "Edit Monthly Rental Payment";
+            this.editMonthlyRentalPaymentToolStripMenuItem.Click += new System.EventHandler(this.EditMonthlyRentalPaymentToolStripMenuItem_Click);
             // 
             // editPredefinedOptionToolStripMenuItem
             // 
