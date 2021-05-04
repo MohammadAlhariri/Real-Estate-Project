@@ -30,6 +30,8 @@
         {
             this.label20 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.userControl11 = new RealEstateProject.UserControl1();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +57,19 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1231, 389);
             this.flowLayoutPanel1.TabIndex = 87;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(965, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(248, 53);
+            this.button1.TabIndex = 88;
+            this.button1.Text = "Extract to PDF";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // userControl11
             // 
             this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -68,6 +83,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1286, 515);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label20);
             this.Name = "RealEstates";
@@ -85,5 +101,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private UserControl1 userControl11;
+        private System.Windows.Forms.Button button1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

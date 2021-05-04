@@ -60,7 +60,7 @@
             // 
             this.estateNumber.AutoSize = true;
             this.estateNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estateNumber.Location = new System.Drawing.Point(339, 13);
+            this.estateNumber.Location = new System.Drawing.Point(288, 13);
             this.estateNumber.Name = "estateNumber";
             this.estateNumber.Size = new System.Drawing.Size(116, 20);
             this.estateNumber.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.address.AutoSize = true;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address.Location = new System.Drawing.Point(624, 13);
+            this.address.Location = new System.Drawing.Point(521, 13);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(97, 20);
             this.address.TabIndex = 3;
