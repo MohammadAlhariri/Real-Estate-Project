@@ -52,6 +52,7 @@
             this.documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.realEstatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -205,6 +206,8 @@
             // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.realEstatesToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -238,6 +241,13 @@
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
             this.settingToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.settingToolStripMenuItem.Text = "Setting";
+            // 
+            // realEstatesToolStripMenuItem
+            // 
+            this.realEstatesToolStripMenuItem.Name = "realEstatesToolStripMenuItem";
+            this.realEstatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.realEstatesToolStripMenuItem.Text = "Real Estates";
+            this.realEstatesToolStripMenuItem.Click += new System.EventHandler(this.RealEstatesToolStripMenuItem_Click);
             // 
             // RealEstateManagmentApplication
             // 
@@ -293,6 +303,7 @@
         private System.Windows.Forms.ToolStripMenuItem editRealEstateExpenceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editMonthlyRentalPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editPredefinedOptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem realEstatesToolStripMenuItem;
     }
 }
 

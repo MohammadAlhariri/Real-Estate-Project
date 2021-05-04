@@ -12,7 +12,7 @@ namespace RealEstateProject
 {
     public partial class AddDepartment : Form
     {
-        Connection Connection = new Connection();
+        private  Connection Connection = new Connection();
 
         public AddDepartment()
         {

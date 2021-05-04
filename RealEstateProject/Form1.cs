@@ -1,4 +1,5 @@
 ﻿using RealEstateProject.Edit;
+using RealEstateProject.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,8 +32,10 @@ namespace RealEstateProject
 
         private void AddRealStateToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AddRealState add = new AddRealState();
-            add.MdiParent = this;
+            AddRealState add = new AddRealState
+            {
+                MdiParent = this
+            };
             add.Show();
 
         }
@@ -44,16 +47,20 @@ namespace RealEstateProject
 
         private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddPerson add = new AddPerson();
-            add.MdiParent = this;
+            AddPerson add = new AddPerson
+            {
+                MdiParent = this
+            };
             add.Show();
 
         }
 
         private void AddApartmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddDepartment add = new AddDepartment();
-            add.MdiParent = this;
+            AddDepartment add = new AddDepartment
+            {
+                MdiParent = this
+            };
             add.Show();
 
         }
@@ -142,6 +149,13 @@ namespace RealEstateProject
             editPredefinedOption.MdiParent = this;
             editPredefinedOption.Show();
 
+        }
+
+        private void RealEstatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RealEstates real = new RealEstates();
+            real.MdiParent = this;
+            real.Show();
         }
     }
 }

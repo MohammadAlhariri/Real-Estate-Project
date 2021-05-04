@@ -13,7 +13,6 @@ namespace RealEstateProject
     public partial class PredefinedOptions : Form
     {
         Connection Connection = new Connection();
-        private int i = 0;
         public PredefinedOptions(int i)
         {
 
