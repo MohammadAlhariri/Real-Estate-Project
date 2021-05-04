@@ -135,5 +135,13 @@ namespace RealEstateProject
             editMonthlyRentalPayment.MdiParent = this;
             editMonthlyRentalPayment.Show();
         }
+
+        private void EditPredefinedOptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditPredefinedOption editPredefinedOption = new EditPredefinedOption();
+            editPredefinedOption.MdiParent = this;
+            editPredefinedOption.Show();
+
+        }
     }
 }

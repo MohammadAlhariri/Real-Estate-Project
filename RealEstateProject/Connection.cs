@@ -34,6 +34,44 @@ namespace RealEstateProject
 
         }
 
+        internal DataTable getValues(string position)
+        {
+
+            
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getTable");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("tableID", position);
+
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
+        internal void deleteValue(string v1, string v2)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deleteFromTable");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("tableID", v1);
+            sqlCommand.Parameters.AddWithValue("rowID", v2);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
+        internal int updateValue(string v1, string v2, string text)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("updateFromTable");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("tableID", v1);
+            sqlCommand.Parameters.AddWithValue("rowID", v2);
+            sqlCommand.Parameters.AddWithValue("valueText", text);
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
+        }
+
         internal DataTable getPaymentMethods()
         {
             DataSet dataset = new DataSet();

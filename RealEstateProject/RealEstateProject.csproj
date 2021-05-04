@@ -164,6 +164,12 @@
     <Compile Include="Edit\EditPerson.Designer.cs">
       <DependentUpon>EditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit\EditPredefinedOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit\EditPredefinedOption.Designer.cs">
+      <DependentUpon>EditPredefinedOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit\EditRealEstate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit\EditPerson.resx">
       <DependentUpon>EditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\EditPredefinedOption.resx">
+      <DependentUpon>EditPredefinedOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit\EditRealEstate.resx">
       <DependentUpon>EditRealEstate.cs</DependentUpon>

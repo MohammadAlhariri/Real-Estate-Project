@@ -201,6 +201,7 @@
             this.editPredefinedOptionToolStripMenuItem.Name = "editPredefinedOptionToolStripMenuItem";
             this.editPredefinedOptionToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.editPredefinedOptionToolStripMenuItem.Text = "Edit Predefined Option";
+            this.editPredefinedOptionToolStripMenuItem.Click += new System.EventHandler(this.EditPredefinedOptionToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
