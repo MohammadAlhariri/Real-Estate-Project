@@ -20,18 +20,22 @@ namespace RealEstateProject.Reports
 
         private void RealEstates_Load(object sender, EventArgs e)
         {
-            DataRow[] rows = connection.getRealEstates().Select();
-            foreach (var item in rows)
-            {
-                string address = item["country"].ToString()+" / " +item["state"].ToString()+" / " +item["city"].ToString()+" / "+item["address"].ToString();
-                new UserControl1(item["estateNumber"].ToString(),address, getOwnerName(item["ownerID"].ToString())).Parent = flowLayoutPanel1;
-            }
+            getRealEstates();
         }
         public string getOwnerName(string id)
         {
             DataRow row = connection.getOwnerPersons().Select("idperson ="+id)[0];
             return row["name"].ToString();
 
+        }
+        public void getRealEstates()
+        {
+            DataRow[] rows = connection.getRealEstates().Select();
+            foreach (var item in rows)
+            {
+                string address = item["country"].ToString() + " / " + item["state"].ToString() + " / " + item["city"].ToString() + " / " + item["address"].ToString();
+                new RealEstateRow(item["estateNumber"].ToString(), address, getOwnerName(item["ownerID"].ToString()), item["ID"].ToString()).Parent = flowLayoutPanel1;
+            }
         }
 
         private void PrintDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -58,6 +62,7 @@ namespace RealEstateProject.Reports
             if (dialog.ShowDialog() == DialogResult.OK)
                 doc.Print();
         }
+        
         private void Document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             RectangleF bounds = e.PageSettings.PrintableArea;
@@ -72,6 +77,7 @@ namespace RealEstateProject.Reports
             imagesToPrintCount = imagesToPrintCount - 5;
             return bmp;
         }
+
 
     }
 }

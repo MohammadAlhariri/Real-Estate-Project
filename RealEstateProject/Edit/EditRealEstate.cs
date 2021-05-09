@@ -15,6 +15,13 @@ namespace RealEstateProject.Edit
     {
         Connection Connection = new Connection();
 
+        public EditRealEstate(string id):this()
+        {
+            this.id = id;
+            realEstateNumber.SelectedValue = id;
+            getText();
+        }
+
         public EditRealEstate()
         {
             InitializeComponent();
@@ -23,6 +30,7 @@ namespace RealEstateProject.Edit
             getRealEstates();
             
         }
+        private string id;
 
         private void getRealEstates()
         {
@@ -74,7 +82,7 @@ namespace RealEstateProject.Edit
             DataTable dataTable = Connection.getStates(states.SelectedValue.ToString());
             city.DataSource = dataTable;
             city.DisplayMember = "name";
-            city.ValueMember = "location_id";
+            city.ValueMember = "name";
         }
         public DataRow getRealEstate(int id)
         {
@@ -110,8 +118,8 @@ namespace RealEstateProject.Edit
             string message = "";
             Color color = Color.White;
 
-            try
-            {
+            //try
+            //{
 
                 int results = Connection.updateRealEstate(
                     realEstateNumber.SelectedValue.ToString(), buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text,
@@ -126,7 +134,6 @@ namespace RealEstateProject.Edit
                 {
                     message = "Updated Succefully";
                     color = Color.Blue;
-                    realEstateNumber.SelectedIndex = 1;
                 }
                 else
                 {
@@ -135,12 +142,12 @@ namespace RealEstateProject.Edit
 
                 }
 
-            }
+          /*  }
             catch
             {
                 color = Color.Red;
                 message = "There are error, please correct it";
-            }
+            }*/
             Notification notification = new Notification(message, color);
 
             notification.Show();
@@ -149,11 +156,15 @@ namespace RealEstateProject.Edit
         private void Button3_Click(object sender, EventArgs e)
         {
 
+            getText();
+        }
+        public void getText()
+        {
             DataRow dataRow = getRealEstate(Convert.ToInt32(realEstateNumber.SelectedValue.ToString()));
             buildingNumber.Text = dataRow["buildingNumber"].ToString();
             country.Text = dataRow["country"].ToString();
             states.Text = dataRow["state"].ToString();
-            city.Text = dataRow["city"].ToString();
+            city.SelectedValue = dataRow["city"].ToString();
             value.Text = dataRow["value"].ToString();
             address.Text = dataRow["address"].ToString();
             collectorPercentage.Value = Convert.ToInt32(dataRow["collectorPercentage"].ToString());

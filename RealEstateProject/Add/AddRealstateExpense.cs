@@ -13,6 +13,7 @@ namespace RealEstateProject
     public partial class AddRealstateExpense : Form
     {
         Connection Connection = new Connection();
+        private string realestateID;
 
         public AddRealstateExpense()
         {
@@ -21,6 +22,12 @@ namespace RealEstateProject
             getPersons();
             getRealestates();
             getExpenseTypes();
+        }
+
+        public AddRealstateExpense(string realestateID):this()
+        {
+            this.realestateID = realestateID;
+            realestateNumber.SelectedValue = realestateID;
         }
 
         private void getRealestates()

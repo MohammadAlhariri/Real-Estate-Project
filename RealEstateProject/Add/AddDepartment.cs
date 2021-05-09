@@ -13,6 +13,7 @@ namespace RealEstateProject
     public partial class AddDepartment : Form
     {
         private  Connection Connection = new Connection();
+        private string realestateID;
 
         public AddDepartment()
         {
@@ -20,6 +21,12 @@ namespace RealEstateProject
             getOwners();
             appartmentss.DataSource = Connection.getAppartments();
             getBuildings();
+        }
+
+        public AddDepartment(string realestateID):this()
+        {
+            this.realestateID = realestateID;
+            buildingNumber.SelectedValue = realestateID;
         }
 
         private void AppartmentBindingNavigatorSaveItem_Click(object sender, EventArgs e)

@@ -7,23 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
+using RealEstateProject.Dialogs;
 
 namespace RealEstateProject
 {
-    public partial class UserControl1 : UserControl
+    public partial class RealEstateRow : UserControl
     {
         private string real="", add="",own="";
-        public UserControl1(string real,string address1, string owner1)
+        private string realestateID = "0";
+        public RealEstateRow(string real,string address1, string owner1,string realestateID)
         {
             InitializeComponent();
             this.real = real;
             this.add = address1;
             this.own = owner1;
+            this.realestateID = realestateID;
             estateNumber.Text = real;
             owner.Text = own;
             address.Text = add;
         }
-        public UserControl1()
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            RealEsateDialog confirmResult = new RealEsateDialog(real, add, own,  realestateID);
+            confirmResult.MdiParent = this.ParentForm.MdiParent;
+            confirmResult.Show();
+        }
+
+        private void AccordionControlElement2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public RealEstateRow()
         {
             InitializeComponent();
             btn.Visible = false;

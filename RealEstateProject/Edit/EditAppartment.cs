@@ -14,6 +14,7 @@ namespace RealEstateProject.Edit
     public partial class EditAppartment : Form
     {
         Connection Connection = new Connection();
+        private string realestateID;
 
         public EditAppartment()
         {
@@ -22,6 +23,14 @@ namespace RealEstateProject.Edit
             getBuildings();
 
         }
+
+        public EditAppartment(string realestateID):this()
+        {
+            this.realestateID = realestateID;
+            buildingNumber.SelectedValue = realestateID;
+
+        }
+
         public void getOwners()
         {
             DataTable dataTable = Connection.getOwnerPersons();

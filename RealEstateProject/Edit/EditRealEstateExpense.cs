@@ -15,6 +15,7 @@ namespace RealEstateProject.Edit
     public partial class EditRealEstateExpense : Form
     {
         Connection Connection = new Connection();
+        private string realestateID;
 
         public EditRealEstateExpense()
         {
@@ -25,6 +26,13 @@ namespace RealEstateProject.Edit
             getRealestates();
 
         }
+
+        public EditRealEstateExpense(string realestateID):this()
+        {
+            this.realestateID = realestateID;
+            realestateNumber.SelectedValue = realestateID;
+        }
+
         private void getRealestates()
         {
             //realestateNumber
