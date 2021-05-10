@@ -28,10 +28,23 @@ namespace RealEstateProject.Edit
             getContries();
             getOwners();
             getRealEstates();
-            
+            getServices();
+
+
         }
         private string id;
+        private void getServices()
+        {
+            DataTable dataTable = Connection.getServices();
+            DataRow dr = dataTable.NewRow();
+            dr["idservices"] = "0";
+            dr["name"] = "Other";
 
+            dataTable.Rows.Add(dr);
+            services.DataSource = dataTable;
+            services.DisplayMember = "name";
+            services.ValueMember = "idservices";
+        }
         private void getRealEstates()
         {
 
@@ -125,6 +138,7 @@ namespace RealEstateProject.Edit
                     realEstateNumber.SelectedValue.ToString(), buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text,
                     address.Text, currentState.Text, value.Text, collectorPercentage.Value.ToString(), owner.SelectedValue.ToString());
 
+
                 if (results == 0)
                 {
                     message = "There are error";
@@ -171,6 +185,75 @@ namespace RealEstateProject.Edit
             neigborhood.Text = dataRow["neigborhood"].ToString();
             currentState.Text = dataRow["currentState"].ToString();
             owner.SelectedValue = dataRow["ownerID"].ToString();
+            DataRow[] data = Connection.getRealestateServices().Select("ID = "+ realEstateNumber.SelectedValue.ToString());
+            for (int i=0;i<services.Items.Count;i++)
+            {
+                object item = services.Items[i];
+                DataRowView row = item as DataRowView;
+                if (data.Length != 0)
+                    foreach (DataRow item1 in data)
+                    {
+                        if (item1["idservice"].ToString().Equals(row["idservices"].ToString()))
+                        {
+                            services.SetItemChecked(i, true);
+                        }
+
+
+                    }
+                else
+                    services.SetItemChecked(i, false);
+                
+
+            }
+        }
+
+        private void Services_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (((CheckedListBox)sender).Text.Equals("Other"))
+            {
+                PredefinedOptions predefinedOptions = new PredefinedOptions(7);
+                DialogResult dr = predefinedOptions.ShowDialog(this);
+                if (dr == DialogResult.Cancel)
+                {
+                    predefinedOptions.Close();
+                    getServices();
+                    services.SelectedIndex = services.Items.Count - 2;
+
+                }
+                else if (dr == DialogResult.OK)
+                {
+                    predefinedOptions.Close();
+                }
+            }
+
+        }
+
+        private void Services_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            int pos=Convert.ToInt32(((CheckedListBox)sender).SelectedIndex.ToString());
+            string value = ((CheckedListBox)sender).SelectedValue.ToString();
+
+            //Console.WriteLine(((CheckedListBox)sender).GetItemCheckState(pos));
+
+            try
+            {
+                if (((CheckedListBox)sender).GetItemCheckState(pos).ToString().Equals("Unchecked"))
+                {
+                    Connection.addRealestateService(realEstateNumber.SelectedValue.ToString(), value);
+                    Console.WriteLine(((CheckedListBox)sender).GetItemCheckState(pos));
+
+                }
+                else
+                {
+                    Connection.deleteRealestateService(realEstateNumber.SelectedValue.ToString(), value);
+                    Console.WriteLine(((CheckedListBox)sender).GetItemCheckState(pos));
+
+                }
+            }
+            catch(Exception er)
+            {
+                Console.WriteLine(er.Message);
+            }
         }
     }
 }

@@ -55,6 +55,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.realEstateNumber = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.services = new System.Windows.Forms.CheckedListBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.collectorPercentage)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +113,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.services);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.currentState);
@@ -134,7 +138,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(40, 130);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1170, 266);
+            this.groupBox1.Size = new System.Drawing.Size(1180, 286);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
@@ -155,7 +159,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(737, 143);
+            this.label12.Location = new System.Drawing.Point(799, 44);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 20);
             this.label12.TabIndex = 75;
@@ -163,7 +167,7 @@
             // 
             // currentState
             // 
-            this.currentState.BackColor = System.Drawing.Color.White;
+            this.currentState.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.currentState.DisplayMember = "name";
             this.currentState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentState.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -172,7 +176,7 @@
             "Bad -> Good",
             "Good -> VeryGood",
             "VeryGood -> Excellent"});
-            this.currentState.Location = new System.Drawing.Point(918, 140);
+            this.currentState.Location = new System.Drawing.Point(943, 40);
             this.currentState.Name = "currentState";
             this.currentState.Size = new System.Drawing.Size(191, 28);
             this.currentState.TabIndex = 74;
@@ -182,7 +186,7 @@
             // 
             this.address.AcceptsReturn = true;
             this.address.AcceptsTab = true;
-            this.address.BackColor = System.Drawing.Color.White;
+            this.address.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -204,12 +208,12 @@
             // 
             // city
             // 
-            this.city.BackColor = System.Drawing.Color.White;
+            this.city.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.city.DisplayMember = "name";
             this.city.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.city.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.city.FormattingEnabled = true;
-            this.city.Location = new System.Drawing.Point(918, 92);
+            this.city.Location = new System.Drawing.Point(917, 92);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(191, 28);
             this.city.TabIndex = 71;
@@ -220,7 +224,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(423, 100);
+            this.label9.Location = new System.Drawing.Point(455, 100);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 20);
             this.label9.TabIndex = 70;
@@ -230,7 +234,7 @@
             // 
             this.value.AcceptsReturn = true;
             this.value.AcceptsTab = true;
-            this.value.BackColor = System.Drawing.Color.White;
+            this.value.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.value.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -243,11 +247,11 @@
             // 
             this.buildingNumber.AcceptsReturn = true;
             this.buildingNumber.AcceptsTab = true;
-            this.buildingNumber.BackColor = System.Drawing.Color.White;
+            this.buildingNumber.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buildingNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.buildingNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildingNumber.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buildingNumber.Location = new System.Drawing.Point(308, 39);
+            this.buildingNumber.Location = new System.Drawing.Point(207, 40);
             this.buildingNumber.Name = "buildingNumber";
             this.buildingNumber.Size = new System.Drawing.Size(183, 29);
             this.buildingNumber.TabIndex = 68;
@@ -256,7 +260,7 @@
             // 
             this.neigborhood.AcceptsReturn = true;
             this.neigborhood.AcceptsTab = true;
-            this.neigborhood.BackColor = System.Drawing.Color.White;
+            this.neigborhood.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.neigborhood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.neigborhood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.neigborhood.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -277,12 +281,12 @@
             // 
             // states
             // 
-            this.states.BackColor = System.Drawing.Color.White;
+            this.states.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.states.DisplayMember = "(none)";
             this.states.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.states.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.states.FormattingEnabled = true;
-            this.states.Location = new System.Drawing.Point(523, 96);
+            this.states.Location = new System.Drawing.Point(575, 96);
             this.states.Name = "states";
             this.states.Size = new System.Drawing.Size(163, 28);
             this.states.TabIndex = 65;
@@ -291,12 +295,12 @@
             // 
             // country
             // 
-            this.country.BackColor = System.Drawing.Color.White;
+            this.country.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.country.DisplayMember = "name";
             this.country.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.country.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.country.FormattingEnabled = true;
-            this.country.Location = new System.Drawing.Point(190, 96);
+            this.country.Location = new System.Drawing.Point(196, 96);
             this.country.Name = "country";
             this.country.Size = new System.Drawing.Size(187, 28);
             this.country.TabIndex = 64;
@@ -305,12 +309,12 @@
             // 
             // owner
             // 
-            this.owner.BackColor = System.Drawing.Color.White;
+            this.owner.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.owner.DisplayMember = "(none)";
             this.owner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.owner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.owner.FormattingEnabled = true;
-            this.owner.Location = new System.Drawing.Point(918, 190);
+            this.owner.Location = new System.Drawing.Point(569, 40);
             this.owner.Name = "owner";
             this.owner.Size = new System.Drawing.Size(191, 28);
             this.owner.TabIndex = 63;
@@ -321,7 +325,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(737, 194);
+            this.label8.Location = new System.Drawing.Point(429, 44);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 20);
             this.label8.TabIndex = 62;
@@ -365,7 +369,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(737, 100);
+            this.label3.Location = new System.Drawing.Point(810, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 20);
             this.label3.TabIndex = 58;
@@ -384,7 +388,7 @@
             // 
             // realEstateNumber
             // 
-            this.realEstateNumber.BackColor = System.Drawing.Color.White;
+            this.realEstateNumber.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.realEstateNumber.DisplayMember = "(none)";
             this.realEstateNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.realEstateNumber.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -408,6 +412,32 @@
             this.button3.Text = "get RealEstate";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // services
+            // 
+            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.services.FormattingEnabled = true;
+            this.services.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.services.Location = new System.Drawing.Point(895, 144);
+            this.services.Name = "services";
+            this.services.Size = new System.Drawing.Size(213, 130);
+            this.services.TabIndex = 78;
+            this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.Services_ItemCheck);
+            this.services.SelectedIndexChanged += new System.EventHandler(this.Services_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(781, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 20);
+            this.label13.TabIndex = 77;
+            this.label13.Text = "Services IN";
             // 
             // EditRealEstate
             // 
@@ -461,5 +491,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox realEstateNumber;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckedListBox services;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -38,13 +38,26 @@ namespace RealEstateProject
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Connection.AddPredefinedOption(Convert.ToInt32(type.SelectedValue), option.Text);
+            Connection.AddPredefinedOption(Convert.ToInt32(type.SelectedValue), option.Text,pric.Text);
             this.Close();
         }
 
         private void PredefinedOptions_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (type.Text.Equals("Services"))
+            {
+                groupBox1.Visible = true;
+            }
+            else
+            {
+                groupBox1.Visible = false;
+
+            }
         }
     }
 }

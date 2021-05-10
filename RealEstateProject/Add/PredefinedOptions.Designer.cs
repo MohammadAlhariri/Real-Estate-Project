@@ -35,6 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.OK = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.price = new System.Windows.Forms.Label();
+            this.pric = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // type
@@ -45,6 +49,7 @@
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(245, 28);
             this.type.TabIndex = 0;
+            this.type.SelectedIndexChanged += new System.EventHandler(this.Type_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -93,7 +98,7 @@
             this.OK.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.OK.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OK.ForeColor = System.Drawing.Color.White;
-            this.OK.Location = new System.Drawing.Point(172, 220);
+            this.OK.Location = new System.Drawing.Point(172, 276);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(207, 54);
             this.OK.TabIndex = 121;
@@ -101,12 +106,44 @@
             this.OK.UseVisualStyleBackColor = false;
             this.OK.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.price);
+            this.groupBox1.Controls.Add(this.pric);
+            this.groupBox1.Location = new System.Drawing.Point(40, 189);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(349, 67);
+            this.groupBox1.TabIndex = 122;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
+            // 
+            // price
+            // 
+            this.price.AutoSize = true;
+            this.price.BackColor = System.Drawing.Color.Transparent;
+            this.price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price.Location = new System.Drawing.Point(2, 23);
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(111, 20);
+            this.price.TabIndex = 121;
+            this.price.Text = "Price In Month";
+            // 
+            // pric
+            // 
+            this.pric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pric.Location = new System.Drawing.Point(129, 20);
+            this.pric.Name = "pric";
+            this.pric.Size = new System.Drawing.Size(198, 26);
+            this.pric.TabIndex = 120;
+            // 
             // PredefinedOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(448, 317);
+            this.ClientSize = new System.Drawing.Size(472, 342);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
@@ -116,6 +153,8 @@
             this.Name = "PredefinedOptions";
             this.Text = "PredefinedOptions";
             this.Load += new System.EventHandler(this.PredefinedOptions_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +168,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button OK;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label price;
+        private System.Windows.Forms.TextBox pric;
     }
 }

@@ -19,7 +19,20 @@ namespace RealEstateProject
             getContries();
             getOwners();
             realEstates.DataSource = Connection.getRealEstates();
-            
+            getServices();
+        }
+
+        private void getServices()
+        {
+            DataTable dataTable = Connection.getServices();
+            DataRow dr = dataTable.NewRow();
+            dr["idservices"] = "0";
+            dr["name"] = "Other";
+
+            dataTable.Rows.Add(dr);
+            services.DataSource = dataTable;
+            services.DisplayMember = "name";
+            services.ValueMember = "idservices";
         }
 
         private void getOwners()
@@ -63,9 +76,7 @@ namespace RealEstateProject
                 {
                     message = "Added Succefully";
                     color = Color.Green;
-                    estateNumber.Clear();
-                    neigborhood.Clear();
-                    value.Clear();
+    
                 }
                 else
                 {
@@ -74,9 +85,11 @@ namespace RealEstateProject
 
                 }
                 realEstates.DataSource = Connection.getRealEstates();
-                estateNumber.Clear();
-                neigborhood.Clear();
-                value.Clear();
+                //addRealestateService
+                string id = Connection.getRealEstates().Select("estateNumber=" + estateNumber.Text)[0][0].ToString();
+                Connection.addRealestateService(id, services.CheckedItems);
+
+
             }
             catch
             {
@@ -110,6 +123,28 @@ namespace RealEstateProject
             city.DisplayMember = "name";
             city.ValueMember = "location_id";
 
+        }
+
+        private void Services_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             if (((CheckedListBox)sender).Text.Equals("Other"))
+                {
+                    PredefinedOptions predefinedOptions = new PredefinedOptions(7);
+                    DialogResult dr = predefinedOptions.ShowDialog(this);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        predefinedOptions.Close();
+                       getServices();
+                        services.SelectedIndex = services.Items.Count - 2;
+
+                    }
+                    else if (dr == DialogResult.OK)
+                    {
+                        predefinedOptions.Close();
+                    }
+                }
+            
+            
         }
     }
 }

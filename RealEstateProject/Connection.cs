@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RealEstateProject
 {
@@ -34,6 +35,18 @@ namespace RealEstateProject
 
         }
 
+        internal DataTable getServices()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getServices");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
         internal DataTable getValues(string position)
         {
 
@@ -58,6 +71,23 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("tableID", v1);
             sqlCommand.Parameters.AddWithValue("rowID", v2);
             int a = sqlCommand.ExecuteNonQuery();
+        }
+
+        internal void addRealestateService(string text, CheckedListBox.CheckedItemCollection checkedItems)
+        {
+            foreach (object item in checkedItems)
+            {
+                DataRowView row = item as DataRowView;
+
+                MySqlCommand sqlCommand = new MySqlCommand("addRealestateService");
+                sqlCommand.Connection = realEstate;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("realEsate", text);
+                sqlCommand.Parameters.AddWithValue("service", row["idservices"].ToString());
+                int a = sqlCommand.ExecuteNonQuery();
+            }
+
+
         }
 
         internal int updateValue(string v1, string v2, string text)
@@ -137,6 +167,17 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
+        internal DataTable getRealestateServices()
+        {
+            DataSet dataset = new DataSet();
+            MySqlCommand sqlCommand = new MySqlCommand("getRealEstateServices");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
         internal void deletePerson(string v)
         {
             MySqlCommand sqlCommand = new MySqlCommand("deletePerson");
@@ -156,6 +197,26 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
+        }
+
+        internal void addRealestateService(string v, string value)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("addRealestateService");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("realEstate", v);
+            sqlCommand.Parameters.AddWithValue("service", value);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
+        internal void deleteRealestateService(string v, string value)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deleteRealestateService");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("realEstate", v);
+            sqlCommand.Parameters.AddWithValue("service", value);
+            int a = sqlCommand.ExecuteNonQuery();
         }
 
         internal void deleteRealEstateExpense(string v)
@@ -640,7 +701,7 @@ namespace RealEstateProject
                 String.IsNullOrEmpty(currentState) ||
                 String.IsNullOrEmpty(value);
         }
-        public int AddPredefinedOption(int position , string value)
+        public int AddPredefinedOption(int position , string value, string text="")
 
         {
             string table="";
@@ -664,6 +725,16 @@ namespace RealEstateProject
                 case 7:
                     table = "addOtherExpenseType";
                     break;
+                case 8:
+                    {
+                        MySqlCommand sqlCommand1 = new MySqlCommand("addService");
+                        sqlCommand1.Connection = realEstate;
+                        sqlCommand1.CommandType = CommandType.StoredProcedure;
+                        sqlCommand1.Parameters.AddWithValue("name", value);
+                        sqlCommand1.Parameters.AddWithValue("price", text);
+                        int a1 = sqlCommand1.ExecuteNonQuery();
+                        return 0;
+                    }
             }
             MySqlCommand sqlCommand = new MySqlCommand(table);
             sqlCommand.Connection = realEstate;
