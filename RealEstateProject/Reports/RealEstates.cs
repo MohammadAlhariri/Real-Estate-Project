@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealEstateProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,10 +32,14 @@ namespace RealEstateProject.Reports
         public void getRealEstates()
         {
             DataRow[] rows = connection.getRealEstates().Select();
+            RealEstateModel realEstateModel;
             foreach (var item in rows)
             {
                 string address = item["country"].ToString() + " / " + item["state"].ToString() + " / " + item["city"].ToString() + " / " + item["address"].ToString();
-                new RealEstateRow(item["estateNumber"].ToString(), address, getOwnerName(item["ownerID"].ToString()), item["ID"].ToString()).Parent = flowLayoutPanel1;
+
+                realEstateModel = new RealEstateModel(getOwnerName(item["ownerID"].ToString()), item["ID"].ToString(), address, item["estateNumber"].ToString());
+
+                new RealEstateRow(realEstateModel).Parent = flowLayoutPanel1;
             }
         }
 

@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -41,13 +48,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.realEstate = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,80 @@
             this.groupBox1.Size = new System.Drawing.Size(410, 467);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(94, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(198, 24);
+            this.label3.TabIndex = 93;
+            this.label3.Text = "RealEstate Expense";
+            // 
+            // button12
+            // 
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(221, 196);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(95, 42);
+            this.button12.TabIndex = 92;
+            this.button12.Text = "Edit";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(70, 196);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(95, 42);
+            this.button13.TabIndex = 91;
+            this.button13.Text = "Add";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.Button13_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(139, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 24);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "RealEstate";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(135, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 24);
+            this.label1.TabIndex = 89;
+            this.label1.Text = "Appartment";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(221, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 42);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Edit";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(70, 80);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 42);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button5
             // 
@@ -182,6 +256,7 @@
             this.button10.TabIndex = 0;
             this.button10.Text = "Full Monthly ";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
             // 
             // label20
             // 
@@ -205,80 +280,6 @@
             this.realEstate.TabIndex = 88;
             this.realEstate.Text = "label1";
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(70, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 42);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(221, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 42);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(135, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 24);
-            this.label1.TabIndex = 89;
-            this.label1.Text = "Appartment";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(139, 270);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 24);
-            this.label2.TabIndex = 90;
-            this.label2.Text = "RealEstate";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(94, 151);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(198, 24);
-            this.label3.TabIndex = 93;
-            this.label3.Text = "RealEstate Expense";
-            // 
-            // button12
-            // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(221, 196);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(95, 42);
-            this.button12.TabIndex = 92;
-            this.button12.Text = "Edit";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.Button12_Click);
-            // 
-            // button13
-            // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(70, 196);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(95, 42);
-            this.button13.TabIndex = 91;
-            this.button13.Text = "Add";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.Button13_Click);
-            // 
             // RealEsateDialog
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -292,6 +293,7 @@
             this.Name = "RealEsateDialog";
             this.Text = "RealEsateDialog";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.RealEsateDialog_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using RealEstateProject.Edit;
+using RealEstateProject.Model;
 using RealEstateProject.Reports;
 using System;
 using System.Collections.Generic;
@@ -15,25 +16,22 @@ namespace RealEstateProject.Dialogs
 {
     public partial class RealEsateDialog : Form
     {
-        private string real;
-        private string add;
-        private string own;
-        private string realestateID;
+ 
         Connection Connection = new Connection();
+        private RealEstateModel realEstateModel;
 
         public RealEsateDialog()
         {
             InitializeComponent();
         }
 
-        public RealEsateDialog(string real, string add, string own, string realestateID)
+
+
+        public RealEsateDialog(RealEstateModel realEstateModel):this()
         {
-            InitializeComponent();
-            this.real = real;
-            this.add = add;
-            this.own = own;
-            this.realestateID = realestateID;
-            realEstate.Text = real + " || " + own + " || " + add;
+            this.realEstateModel = realEstateModel;
+            realEstate.Text = realEstateModel.ToString();
+
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -49,7 +47,7 @@ namespace RealEstateProject.Dialogs
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            EditRealEstate editRealEstate = new EditRealEstate(realestateID);
+            EditRealEstate editRealEstate = new EditRealEstate(realEstateModel.RealEstateID);
             editRealEstate.MdiParent = this.MdiParent;
             editRealEstate.Show();
 
@@ -61,7 +59,7 @@ namespace RealEstateProject.Dialogs
 
             if (confirmResult == MessageBoxResult.Yes)
             {
-                Connection.deleteRealEstate(realestateID);
+                Connection.deleteRealEstate(realEstateModel.RealEstateID);
 
                 this.Close();
             }
@@ -69,30 +67,42 @@ namespace RealEstateProject.Dialogs
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            AddDepartment addDepartment = new AddDepartment(realestateID);
+            AddDepartment addDepartment = new AddDepartment(realEstateModel.RealEstateID);
             addDepartment.MdiParent = this.MdiParent;
             addDepartment.Show();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            EditAppartment editAppartment = new EditAppartment(realestateID);
+            EditAppartment editAppartment = new EditAppartment(realEstateModel.RealEstateID);
             editAppartment.MdiParent = this.MdiParent;
             editAppartment.Show();
         }
 
         private void Button13_Click(object sender, EventArgs e)
         {
-            AddRealstateExpense addRealstateExpense = new AddRealstateExpense(realestateID);
+            AddRealstateExpense addRealstateExpense = new AddRealstateExpense(realEstateModel.RealEstateID);
             addRealstateExpense.MdiParent = this.MdiParent;
             addRealstateExpense.Show();
         }
 
         private void Button12_Click(object sender, EventArgs e)
         {
-            EditRealEstateExpense editRealEstateExpense = new EditRealEstateExpense(realestateID);
+            EditRealEstateExpense editRealEstateExpense = new EditRealEstateExpense(realEstateModel.RealEstateID);
             editRealEstateExpense.MdiParent = this.MdiParent;
             editRealEstateExpense.Show();
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            RealEstateFullMonthlyReport realEstateFullMonthlyReport = new RealEstateFullMonthlyReport(realEstateModel);
+            realEstateFullMonthlyReport.MdiParent = this.MdiParent;
+            realEstateFullMonthlyReport.Show();
+        }
+
+        private void RealEsateDialog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

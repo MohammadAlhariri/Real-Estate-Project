@@ -125,6 +125,16 @@ namespace RealEstateProject
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("rentalID", v);
             int a = sqlCommand.ExecuteNonQuery();
+        }internal DataTable monthly_rental_payment_report(string v)
+        {
+            DataSet dataset = new DataSet();
+            MySqlCommand sqlCommand = new MySqlCommand("rental_report");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("realEstate", v);
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
         }
 
         internal void deletePerson(string v)
