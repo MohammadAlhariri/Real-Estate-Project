@@ -22,7 +22,7 @@ namespace RealEstateProject
             getRealestates();
             getPaymentMethods();
             rentals.DataSource = Connection.getRentals();
-
+            getServices();
         }
         private void getRentalTypes()
         {
@@ -44,14 +44,26 @@ namespace RealEstateProject
             DataRow dr = dataTable.NewRow();
             dr["idpayment_method"] = "0";
             dr["paymentMethod"] = "Other";
-           
+
             dataTable.Rows.Add(dr);
             paymentMethod.DataSource = dataTable;
             paymentMethod.DisplayMember = "paymentMethod";
             paymentMethod.ValueMember = "paymentMethod";
 
         }
+        private void getServices()
+        {
+            DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate =" + realestateNumber.SelectedValue.ToString());
+            DataTable dataTable1 = Connection.getRealestateServices().Clone();
 
+            for (int i = 0; i < dataTable.Length; i++)
+            {
+                dataTable1.Rows.Add(dataTable[i].ItemArray);
+            }
+            services.DataSource = dataTable1;
+            services.DisplayMember = "name";
+            services.ValueMember = "idservices";
+        }
         private void getAppartments()
         {
             DataTable dataTable = Connection.getAppartments();
@@ -84,7 +96,7 @@ namespace RealEstateProject
         private void Button1_Click(object sender, EventArgs e)
         {
             string message = "";
-            Color color  = Color.White;
+            Color color = Color.White;
             try
             {
                 //public int insertRental(string renterID, string appartmentNumber, string type,
@@ -114,13 +126,15 @@ namespace RealEstateProject
                 }
                 rentals.DataSource = Connection.getRentals();
 
-
+                string id = Connection.getRentals().Select("appartmentNumber=" + appartmentNumber.Text)[0][0].ToString();
+                Connection.addRentalService(id, services.CheckedItems);
             }
             catch
             {
                 color = Color.Red;
                 message = "There are error, please correct it";
             }
+
             Notification notification = new Notification(message, color);
             notification.Show();
 
@@ -129,14 +143,20 @@ namespace RealEstateProject
 
         private void RealestateNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dataTable = Connection.getAppartments(realestateNumber.SelectedValue.ToString());
-            if (dataTable.Rows.Count == 0)
+            DataRow[] dataTable = Connection.getAppartments(realestateNumber.SelectedValue.ToString()).Select("rented=0");
+            DataTable data = Connection.getAppartments(realestateNumber.SelectedValue.ToString()).Clone();
+            foreach (DataRow item in dataTable)
+            {
+                data.Rows.Add(item.ItemArray);
+            }
+            getServices();
+            if (dataTable.Length == 0)
             {
                 appartmentNumber.DataSource = null;
             }
             else
             {
-                appartmentNumber.DataSource = dataTable;
+                appartmentNumber.DataSource = data;
                 appartmentNumber.DisplayMember = "appartmentNumber";
                 appartmentNumber.ValueMember = "iddepartment";
             }

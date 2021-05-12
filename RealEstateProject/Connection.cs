@@ -114,6 +114,7 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
+
         internal DataTable getBanks()
         {
             DataSet dataset = new DataSet();
@@ -131,6 +132,33 @@ namespace RealEstateProject
             DataSet dataset = new DataSet();
 
             MySqlCommand sqlCommand = new MySqlCommand("getRentalTypes");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
+        internal void addRentalService(string id, CheckedListBox.CheckedItemCollection checkedItems)
+        {
+            foreach (object item in checkedItems)
+            {
+                DataRowView row = item as DataRowView;
+
+                MySqlCommand sqlCommand = new MySqlCommand("addRentalService");
+                sqlCommand.Connection = realEstate;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("rentalID", id);
+                sqlCommand.Parameters.AddWithValue("serviceID", row["idservices"].ToString());
+                int a = sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        internal DataTable getRentalServices()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getRentalServices");
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
@@ -184,6 +212,27 @@ namespace RealEstateProject
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("personID", v);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
+        internal void deleteRentalService(string v, string value)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("deleteRealestateService");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("rentalID", v);
+            sqlCommand.Parameters.AddWithValue("serviceID", value);
+            int a = sqlCommand.ExecuteNonQuery();
+        }
+
+        internal void addRentalService(string v, string value)
+        {
+
+            MySqlCommand sqlCommand = new MySqlCommand("addRentalService");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("rentalID", v);
+            sqlCommand.Parameters.AddWithValue("serviceID",value);
             int a = sqlCommand.ExecuteNonQuery();
         }
 

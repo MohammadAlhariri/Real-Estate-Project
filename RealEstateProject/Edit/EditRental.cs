@@ -20,7 +20,22 @@ namespace RealEstateProject.Edit
             InitializeComponent();
             getRealEstates();
             getRenter();
+            getRentalTypes();
+            getServices();
+            getPaymentMethods();
+        }
+        private void getServices()
+        {
+            DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate =" + realestateNumber.SelectedValue.ToString());
+            DataTable dataTable1 = Connection.getRealestateServices().Clone();
 
+            for (int i = 0; i < dataTable.Length; i++)
+            {
+                dataTable1.Rows.Add(dataTable[i].ItemArray);
+            }
+            services.DataSource = dataTable1;
+            services.DisplayMember = "name";
+            services.ValueMember = "idservices";
         }
         private void getRentalTypes()
         {
@@ -61,7 +76,7 @@ namespace RealEstateProject.Edit
             realestateNumber.DataSource = dataTable;
             realestateNumber.DisplayMember = "estateNumber";
             realestateNumber.ValueMember = "ID";
-             dataTable = getAppartments(Convert.ToInt32(realestateNumber.SelectedValue.ToString()));
+            dataTable = getAppartments(Convert.ToInt32(realestateNumber.SelectedValue.ToString()));
             appartmentNumber.DataSource = dataTable;
             appartmentNumber.DisplayMember = "appartmentNumber";
             appartmentNumber.ValueMember = "iddepartment";
@@ -70,27 +85,17 @@ namespace RealEstateProject.Edit
         {
 
         }
-        public DataTable getRentals(int id)
-        {
-            DataTable dataTable = Connection.getRentals().Clone();
-            DataRow[] dataRows = Connection.getRentals().Select("appartmentNumber = " + id);
-            for (int i = 0; i < dataRows.Length; i++)
-            {
-                dataTable.Rows.Add(dataRows[i].ItemArray);
-            }
-            return dataTable;
 
-        }
         public DataTable getAppartments(int id)
         {
             DataTable dataTable = Connection.getAppartments().Clone();
-            DataRow[] dataRows = Connection.getAppartments().Select("buildingID = " + id);
+            DataRow[] dataRows = Connection.getAppartments().Select("buildingID = " + id + " AND rented = 1");
             for (int i = 0; i < dataRows.Length; i++)
             {
 
                 dataTable.Rows.Add(dataRows[i].ItemArray);
             }
-            return dataTable.Rows.Count == 0 ? null:dataTable ;
+            return dataTable.Rows.Count == 0 ? null : dataTable;
 
         }
         private void RealestateNumber_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,19 +111,43 @@ namespace RealEstateProject.Edit
             try
             {
                 // get Rentel
-                DataRow[] dataRows = Connection.getRentals().Select("idental = " + rentalNumber.SelectedValue.ToString());
-                DataRow dataRow = dataRows[0];
-                renter.SelectedValue = dataRow["renterID"].ToString();
-                detail.Text = dataRow["details"].ToString();
-                rentDuration.Text = dataRow["rentDuration"].ToString();
-                rentalType.Text = dataRow["rentalType"].ToString();
-                type.Text = dataRow["type"].ToString();
-                paymentMethod.Text = dataRow["paymentMethod"].ToString();
-                startDate.Value =  Convert.ToDateTime(dataRow["rentDate"]);
-                graceMonth.Value= Convert.ToInt32(dataRow["graceMonth"]);
-                rentPercentage.Value= Convert.ToInt32(dataRow["rentPercentage"]);
+                if (rentalNumber.SelectedValue != null)
+                {
+                    DataRow[] dataRows = Connection.getRentals().Select("idental = " + rentalNumber.SelectedValue.ToString());
+                    DataRow dataRow = dataRows[0];
+                    renter.SelectedValue = dataRow["renterID"].ToString();
+                    detail.Text = dataRow["details"].ToString();
+                    rentDuration.Text = dataRow["rentDuration"].ToString();
+                    rentalType.Text = dataRow["rentalType"].ToString();
+                    type.Text = dataRow["type"].ToString();
+                    paymentMethod.Text = dataRow["paymentMethod"].ToString();
+                    startDate.Value = Convert.ToDateTime(dataRow["rentDate"]);
+                    graceMonth.Value = Convert.ToInt32(dataRow["graceMonth"]);
+                    rentPercentage.Value = Convert.ToInt32(dataRow["rentPercentage"]);
+                    DataRow[] data = Connection.getRentalServices().Select("idrental = " + rentalNumber.SelectedValue.ToString());
 
-            }
+                    for (int i = 0; i < services.Items.Count; i++)
+                    {
+                        object item = services.Items[i];
+                        DataRowView row = item as DataRowView;
+                        if (data.Length != 0)
+                            foreach (DataRow item1 in data)
+                            {
+                                if (item1["idservice"].ToString().Equals(row["idservices"].ToString()))
+                                {
+                                    services.SetItemChecked(i, true);
+                                }
+
+
+                            }
+                        else
+                            services.SetItemChecked(i, false);
+
+                        getServices();
+
+                    }
+                }
+           }
             catch
             {
                 Notification notification = new Notification("This Appartment have no rental", Color.Red);
@@ -149,7 +178,7 @@ namespace RealEstateProject.Edit
             try
             {
                 //(rentalID int,renterID int,  type varchar(45), rentDuration int, rentalType varchar(45),
-               // details Text, rentDate varchar(45),paymentMethod varchar(45))
+                // details Text, rentDate varchar(45),paymentMethod varchar(45))
                 int results = Connection.updateRental(rentalNumber.SelectedValue.ToString(),
                     renter.SelectedValue.ToString(),
                     type.Text, rentDuration.Value.ToString(), rentalType.Text, detail.Text,
@@ -186,10 +215,50 @@ namespace RealEstateProject.Edit
 
         private void AppartmentNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dataTable = getRentals(Convert.ToInt32(appartmentNumber.SelectedValue.ToString()));
-            rentalNumber.DataSource = dataTable;
-            rentalNumber.DisplayMember = "idental";
-            rentalNumber.ValueMember = "idental";
+            DataTable dataTable = Connection.getRentals().Clone();
+            if (appartmentNumber.SelectedValue != null)
+            {
+                DataRow[] dataRows = Connection.getRentals().Select("appartmentNumber = " + appartmentNumber.SelectedValue.ToString());
+                if (dataRows.Length != 0)
+                {
+                    for (int i = 0; i < dataRows.Length; i++)
+                    {
+                        dataTable.Rows.Add(dataRows[i].ItemArray);
+                    }
+
+                    rentalNumber.DataSource = dataTable;
+                    rentalNumber.DisplayMember = "idental";
+                    rentalNumber.ValueMember = "idental";
+                }
+            }
+        }
+
+        private void Services_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            int pos = Convert.ToInt32(((CheckedListBox)sender).SelectedIndex.ToString());
+            string value = ((CheckedListBox)sender).SelectedValue.ToString();
+
+            //Console.WriteLine(((CheckedListBox)sender).GetItemCheckState(pos));
+
+            try
+            {
+                if (((CheckedListBox)sender).GetItemCheckState(pos).ToString().Equals("Unchecked"))
+                {
+                    Connection.addRentalService(rentalNumber.SelectedValue.ToString(), value);
+                    Console.WriteLine(((CheckedListBox)sender).GetItemCheckState(pos));
+
+                }
+                else
+                {
+                    Connection.deleteRentalService(rentalNumber.SelectedValue.ToString(), value);
+                    Console.WriteLine(((CheckedListBox)sender).GetItemCheckState(pos));
+
+                }
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine(er.Message);
+            }
         }
     }
 }

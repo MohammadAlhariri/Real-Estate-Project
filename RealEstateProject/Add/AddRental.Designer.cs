@@ -57,6 +57,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.services = new System.Windows.Forms.CheckedListBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rentals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graceMonth)).BeginInit();
@@ -68,7 +70,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(53, 182);
+            this.label11.Location = new System.Drawing.Point(481, 260);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 20);
             this.label11.TabIndex = 58;
@@ -90,13 +92,14 @@
             // 
             this.rentals.AllowUserToAddRows = false;
             this.rentals.AllowUserToDeleteRows = false;
-            this.rentals.AllowUserToResizeColumns = false;
-            this.rentals.AllowUserToResizeRows = false;
+            this.rentals.AllowUserToOrderColumns = true;
+            this.rentals.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.rentals.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.rentals.BackgroundColor = System.Drawing.Color.White;
             this.rentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rentals.Location = new System.Drawing.Point(47, 338);
+            this.rentals.Location = new System.Drawing.Point(47, 362);
             this.rentals.Name = "rentals";
-            this.rentals.Size = new System.Drawing.Size(1251, 281);
+            this.rentals.Size = new System.Drawing.Size(1251, 257);
             this.rentals.TabIndex = 56;
             // 
             // button1
@@ -241,10 +244,10 @@
             // detail
             // 
             this.detail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detail.Location = new System.Drawing.Point(128, 183);
+            this.detail.Location = new System.Drawing.Point(574, 260);
             this.detail.Multiline = true;
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(337, 118);
+            this.detail.Size = new System.Drawing.Size(358, 82);
             this.detail.TabIndex = 63;
             // 
             // label8
@@ -390,12 +393,38 @@
             this.label15.TabIndex = 74;
             this.label15.Text = "%";
             // 
+            // services
+            // 
+            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.services.FormattingEnabled = true;
+            this.services.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.services.Location = new System.Drawing.Point(165, 178);
+            this.services.Name = "services";
+            this.services.Size = new System.Drawing.Size(274, 151);
+            this.services.TabIndex = 76;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(50, 178);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 20);
+            this.label16.TabIndex = 75;
+            this.label16.Text = "Services IN";
+            // 
             // AddRental
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1317, 635);
+            this.Controls.Add(this.services);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.rentPercentage);
@@ -467,5 +496,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckedListBox services;
+        private System.Windows.Forms.Label label16;
     }
 }

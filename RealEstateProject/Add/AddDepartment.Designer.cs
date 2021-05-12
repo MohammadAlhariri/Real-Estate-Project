@@ -163,10 +163,10 @@
             // details
             // 
             this.details.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.details.Location = new System.Drawing.Point(117, 409);
+            this.details.Location = new System.Drawing.Point(117, 395);
             this.details.Multiline = true;
             this.details.Name = "details";
-            this.details.Size = new System.Drawing.Size(696, 37);
+            this.details.Size = new System.Drawing.Size(696, 64);
             this.details.TabIndex = 64;
             // 
             // numberOfRooms
