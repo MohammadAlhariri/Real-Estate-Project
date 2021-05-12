@@ -49,8 +49,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.receiptNumber = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.year = new System.Windows.Forms.NumericUpDown();
+            this.month = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -118,6 +123,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.year);
+            this.groupBox1.Controls.Add(this.month);
             this.groupBox1.Controls.Add(this.dollar);
             this.groupBox1.Controls.Add(this.leb);
             this.groupBox1.Controls.Add(this.detail);
@@ -144,7 +153,7 @@
             // 
             this.dollar.AutoSize = true;
             this.dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dollar.Location = new System.Drawing.Point(907, 119);
+            this.dollar.Location = new System.Drawing.Point(1120, 192);
             this.dollar.Name = "dollar";
             this.dollar.Size = new System.Drawing.Size(45, 24);
             this.dollar.TabIndex = 122;
@@ -156,7 +165,7 @@
             this.leb.AutoSize = true;
             this.leb.Checked = true;
             this.leb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leb.Location = new System.Drawing.Point(832, 119);
+            this.leb.Location = new System.Drawing.Point(1043, 192);
             this.leb.Name = "leb";
             this.leb.Size = new System.Drawing.Size(58, 24);
             this.leb.TabIndex = 121;
@@ -170,7 +179,7 @@
             this.detail.Location = new System.Drawing.Point(73, 161);
             this.detail.Multiline = true;
             this.detail.Name = "detail";
-            this.detail.Size = new System.Drawing.Size(828, 89);
+            this.detail.Size = new System.Drawing.Size(726, 89);
             this.detail.TabIndex = 120;
             // 
             // label3
@@ -210,7 +219,7 @@
             // date
             // 
             this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(288, 116);
+            this.date.Location = new System.Drawing.Point(135, 115);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(296, 26);
             this.date.TabIndex = 117;
@@ -243,7 +252,7 @@
             this.amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.amount.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.amount.Location = new System.Drawing.Point(667, 116);
+            this.amount.Location = new System.Drawing.Point(914, 189);
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(110, 26);
             this.amount.TabIndex = 114;
@@ -279,7 +288,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(593, 119);
+            this.label7.Location = new System.Drawing.Point(830, 192);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 111;
@@ -290,7 +299,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(169, 119);
+            this.label4.Location = new System.Drawing.Point(16, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 20);
             this.label4.TabIndex = 110;
@@ -320,6 +329,81 @@
             this.receiptNumber.TabIndex = 123;
             this.receiptNumber.ValueMember = "(none)";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(735, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.TabIndex = 126;
+            this.label8.Text = "Year";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(487, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.TabIndex = 125;
+            this.label6.Text = "Month";
+            // 
+            // year
+            // 
+            this.year.BackColor = System.Drawing.Color.White;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.year.Location = new System.Drawing.Point(821, 112);
+            this.year.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.year.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(80, 26);
+            this.year.TabIndex = 124;
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.year.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            // 
+            // month
+            // 
+            this.month.BackColor = System.Drawing.Color.White;
+            this.month.DisplayMember = "(none)";
+            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.month.FormattingEnabled = true;
+            this.month.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.month.Location = new System.Drawing.Point(573, 111);
+            this.month.Name = "month";
+            this.month.Size = new System.Drawing.Size(141, 28);
+            this.month.TabIndex = 123;
+            this.month.ValueMember = "(none)";
+            // 
             // EditRealEstateExpense
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -338,6 +422,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,5 +450,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox receiptNumber;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown year;
+        private System.Windows.Forms.ComboBox month;
     }
 }

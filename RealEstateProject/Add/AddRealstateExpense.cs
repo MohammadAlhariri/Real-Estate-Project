@@ -78,8 +78,10 @@ namespace RealEstateProject
                 string moneyType = (leb.Checked) ?leb.Text:dollar.Text;
 
                 int results = Connection.insertRealEstateExpense(
-                     realestateNumber.SelectedValue.ToString(), person.SelectedValue.ToString(), expenseType.Text,amount.Value.ToString(), date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    detail.Text,moneyType, receiptNumber.Text);
+                     realestateNumber.SelectedValue.ToString(),
+                     person.SelectedValue.ToString(), expenseType.Text,amount.Value.ToString(),
+                     date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                    detail.Text,moneyType, receiptNumber.Text,month.Text,year.Value.ToString());
 
                 if (results == 0)
                 {

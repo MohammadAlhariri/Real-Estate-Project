@@ -63,9 +63,10 @@ namespace RealEstateProject
             Notification notification = new Notification("Added Successfully", Color.RoyalBlue);
             try
             {
+                string moneyType = (leb.Checked) ? leb.Text : dollar.Text;
                 int results = Connection.insertMonthlyRentalPayments(
                     renterName.SelectedValue.ToString(), AppartmentNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text);
+                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text,month.Text,year.Value.ToString(), moneyType);
                 if (results == 0)
                 {
 
@@ -178,6 +179,11 @@ namespace RealEstateProject
         }
 
         private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label11_Click(object sender, EventArgs e)
         {
 
         }

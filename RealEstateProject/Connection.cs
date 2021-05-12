@@ -82,7 +82,7 @@ namespace RealEstateProject
                 MySqlCommand sqlCommand = new MySqlCommand("addRealestateService");
                 sqlCommand.Connection = realEstate;
                 sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("realEsate", text);
+                sqlCommand.Parameters.AddWithValue("realEstate", text);
                 sqlCommand.Parameters.AddWithValue("service", row["idservices"].ToString());
                 int a = sqlCommand.ExecuteNonQuery();
             }
@@ -290,7 +290,7 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
-        internal int updateRealEstateExpense(string v1, string v2, string text1, string v3, string v4, string text2, string moneyType, string v)
+        internal int updateRealEstateExpense(string v1, string v2, string text1, string v3, string v4, string text2, string moneyType, string v, string text, string v5)
         {
             MySqlCommand sqlCommand = new MySqlCommand("updateRealestaeExpence");
             sqlCommand.Connection = realEstate;
@@ -303,12 +303,14 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("detail", text2);
             sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
             sqlCommand.Parameters.AddWithValue("idE", v);
-
+            sqlCommand.Parameters.AddWithValue("month", text);
+            sqlCommand.Parameters.AddWithValue("year", v5);
+            
             int a = sqlCommand.ExecuteNonQuery();
             return a;
         }
 
-        internal int updateMonthlyRentalPayments(string v1, string v2, string text1, string v3, string text2, string text3, string text4, string text5, string v4)
+        internal int updateMonthlyRentalPayments(string v1, string v2, string text1, string v3, string text2, string text3, string text4, string text5, string v4, string text, string v, string moneyType)
         {
             //(renterID, appartmentID, amount, date, details, payMethod, checkNumber, bank)
             MySqlCommand sqlCommand = new MySqlCommand("updateMonthlyRentalPayment");
@@ -323,6 +325,9 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("checkNumber", text4);
             sqlCommand.Parameters.AddWithValue("bank", text5);
             sqlCommand.Parameters.AddWithValue("idM", v4);
+            sqlCommand.Parameters.AddWithValue("month", text);
+            sqlCommand.Parameters.AddWithValue("year", v);
+            sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
             int a = sqlCommand.ExecuteNonQuery();
             return a;
         }
@@ -571,7 +576,8 @@ namespace RealEstateProject
             return dataset.Tables[0];
 
         }
-        public int insertRealEstate(string estateNumber, string buildingNumber, string country, string state, string city, string neigborhood, string address, string currentState, string value, string collectorPercentage, string ownerID)
+        public int insertRealEstate(string estateNumber, string buildingNumber, string country, string state, string city, string neigborhood,
+            string address, string currentState, string value, string collectorPercentage, string ownerID)
         {
 
             MySqlCommand sqlCommand = new MySqlCommand("inserRealEstate");
@@ -593,7 +599,8 @@ namespace RealEstateProject
      
         }
         public int insertRealEstateExpense
-            (string realestateID, string personID, string ExpenseType, string amount, string date, string detail, string moneyType, string receiptNumber)
+            (string realestateID, string personID, string ExpenseType, string amount, string date, string detail, string moneyType,
+            string receiptNumber, string text, string v)
         {
             if (!checkEmpty(realestateID, personID, ExpenseType, amount, date, detail))
             {
@@ -609,6 +616,8 @@ namespace RealEstateProject
                 sqlCommand.Parameters.AddWithValue("detail", detail);
                 sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
                 sqlCommand.Parameters.AddWithValue("receiptNumber", receiptNumber);
+                sqlCommand.Parameters.AddWithValue("month", text);
+                sqlCommand.Parameters.AddWithValue("year", v);
 
                 int a = sqlCommand.ExecuteNonQuery();
                 return a;
@@ -695,7 +704,7 @@ namespace RealEstateProject
 
         }
         public int insertMonthlyRentalPayments(string renterID, string appartmentID, string amount,
-            string date, string details, string payMethod, string checkNumber, string bank, string text)
+            string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v, string moneyType)
 
         {
 
@@ -712,6 +721,9 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("checkNumber", checkNumber);
             sqlCommand.Parameters.AddWithValue("bank", bank);
             sqlCommand.Parameters.AddWithValue("receiptNumber", text);
+            sqlCommand.Parameters.AddWithValue("year", v);
+            sqlCommand.Parameters.AddWithValue("month", text1);
+            sqlCommand.Parameters.AddWithValue("moneyType", moneyType);
             int a = sqlCommand.ExecuteNonQuery();
             return a;
 

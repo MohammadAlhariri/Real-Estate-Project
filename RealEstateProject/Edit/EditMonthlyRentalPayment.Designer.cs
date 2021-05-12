@@ -54,8 +54,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.receiptNumber = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.year = new System.Windows.Forms.NumericUpDown();
+            this.month = new System.Windows.Forms.ComboBox();
+            this.dollar = new System.Windows.Forms.RadioButton();
+            this.leb = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.payRequirments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -63,7 +70,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(509, 126);
+            this.label9.Location = new System.Drawing.Point(521, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 20);
             this.label9.TabIndex = 136;
@@ -74,10 +81,10 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(37, 42);
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(27, 23);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(541, 47);
+            this.label7.Size = new System.Drawing.Size(472, 42);
             this.label7.TabIndex = 129;
             this.label7.Text = "Edit Monthly Rental Payments";
             // 
@@ -86,7 +93,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(226, 470);
+            this.button1.Location = new System.Drawing.Point(264, 486);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 54);
             this.button1.TabIndex = 128;
@@ -99,7 +106,7 @@
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(570, 470);
+            this.button2.Location = new System.Drawing.Point(608, 486);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(243, 54);
             this.button2.TabIndex = 138;
@@ -112,7 +119,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(895, 116);
+            this.button3.Location = new System.Drawing.Point(907, 82);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(243, 40);
             this.button3.TabIndex = 139;
@@ -123,6 +130,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.year);
+            this.groupBox1.Controls.Add(this.month);
+            this.groupBox1.Controls.Add(this.dollar);
+            this.groupBox1.Controls.Add(this.leb);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.realestateNumber);
             this.groupBox1.Controls.Add(this.payRequirments);
@@ -139,9 +152,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(27, 169);
+            this.groupBox1.Location = new System.Drawing.Point(27, 128);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1176, 275);
+            this.groupBox1.Size = new System.Drawing.Size(1176, 335);
             this.groupBox1.TabIndex = 140;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
@@ -185,7 +198,7 @@
             this.payRequirments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payRequirments.Location = new System.Drawing.Point(523, 157);
             this.payRequirments.Name = "payRequirments";
-            this.payRequirments.Size = new System.Drawing.Size(453, 100);
+            this.payRequirments.Size = new System.Drawing.Size(371, 100);
             this.payRequirments.TabIndex = 148;
             this.payRequirments.TabStop = false;
             this.payRequirments.Text = "Payment Requirments";
@@ -260,9 +273,9 @@
             // 
             this.amount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amount.Location = new System.Drawing.Point(947, 104);
+            this.amount.Location = new System.Drawing.Point(858, 99);
             this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(207, 26);
+            this.amount.Size = new System.Drawing.Size(155, 26);
             this.amount.TabIndex = 145;
             // 
             // label4
@@ -340,7 +353,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(766, 102);
+            this.label5.Location = new System.Drawing.Point(776, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 138;
@@ -377,16 +390,117 @@
             "Cash",
             "Check",
             "Other"});
-            this.receiptNumber.Location = new System.Drawing.Point(662, 123);
+            this.receiptNumber.Location = new System.Drawing.Point(674, 89);
             this.receiptNumber.Name = "receiptNumber";
             this.receiptNumber.Size = new System.Drawing.Size(207, 28);
             this.receiptNumber.TabIndex = 151;
             this.receiptNumber.ValueMember = "role";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(909, 202);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 20);
+            this.label12.TabIndex = 156;
+            this.label12.Text = "Year";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(907, 156);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 20);
+            this.label13.TabIndex = 155;
+            this.label13.Text = "Month";
+            // 
+            // year
+            // 
+            this.year.BackColor = System.Drawing.Color.White;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.year.Location = new System.Drawing.Point(995, 199);
+            this.year.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.year.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(80, 26);
+            this.year.TabIndex = 154;
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.year.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            // 
+            // month
+            // 
+            this.month.BackColor = System.Drawing.Color.White;
+            this.month.DisplayMember = "(none)";
+            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.month.FormattingEnabled = true;
+            this.month.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.month.Location = new System.Drawing.Point(979, 152);
+            this.month.Name = "month";
+            this.month.Size = new System.Drawing.Size(159, 28);
+            this.month.TabIndex = 153;
+            this.month.ValueMember = "(none)";
+            // 
+            // dollar
+            // 
+            this.dollar.AutoSize = true;
+            this.dollar.BackColor = System.Drawing.Color.Transparent;
+            this.dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dollar.Location = new System.Drawing.Point(1105, 100);
+            this.dollar.Name = "dollar";
+            this.dollar.Size = new System.Drawing.Size(45, 24);
+            this.dollar.TabIndex = 152;
+            this.dollar.Text = "$$";
+            this.dollar.UseVisualStyleBackColor = false;
+            // 
+            // leb
+            // 
+            this.leb.AutoSize = true;
+            this.leb.BackColor = System.Drawing.Color.Transparent;
+            this.leb.Checked = true;
+            this.leb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leb.Location = new System.Drawing.Point(1030, 100);
+            this.leb.Name = "leb";
+            this.leb.Size = new System.Drawing.Size(58, 24);
+            this.leb.TabIndex = 151;
+            this.leb.TabStop = true;
+            this.leb.Text = "LEB";
+            this.leb.UseVisualStyleBackColor = false;
+            // 
             // EditMonthlyRentalPayment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1243, 536);
+            this.ClientSize = new System.Drawing.Size(1243, 576);
             this.Controls.Add(this.receiptNumber);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
@@ -397,10 +511,12 @@
             this.Name = "EditMonthlyRentalPayment";
             this.Text = "EditMonthlyRentalPayment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.EditMonthlyRentalPayment_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.payRequirments.ResumeLayout(false);
             this.payRequirments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,5 +550,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox receiptNumber;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown year;
+        private System.Windows.Forms.ComboBox month;
+        private System.Windows.Forms.RadioButton dollar;
+        private System.Windows.Forms.RadioButton leb;
     }
 }

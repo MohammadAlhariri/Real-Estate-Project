@@ -65,37 +65,38 @@ namespace RealEstateProject
             Color color = Color.White;
             try
             {
-                int results = Connection.insertRealEstate(
-                    estateNumber.Text, buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text, address.Text, currentState.Text, value.Text, collectorPercentage.Value.ToString(), owner.SelectedValue.ToString());
-                if (results == 0)
-                {
-                    message = "There are error";
-                    color = Color.Red;
-                }
-                else if (results == 1)
-                {
-                    message = "Added Succefully";
-                    color = Color.Green;
-    
-                }
-                else
-                {
-                    message = "Please fill all Required fields";
-                    color = Color.Blue;
-
-                }
-                realEstates.DataSource = Connection.getRealEstates();
-                //addRealestateService
-                string id = Connection.getRealEstates().Select("estateNumber=" + estateNumber.Text)[0][0].ToString();
-                Connection.addRealestateService(id, services.CheckedItems);
-
-
-            }
-            catch
+            int results = Connection.insertRealEstate(
+                estateNumber.Text, buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text, address.Text, currentState.Text, value.Text, collectorPercentage.Value.ToString(), owner.SelectedValue.ToString());
+            if (results == 0)
             {
-                message = "There are error, please correct it";
+                message = "There are error";
                 color = Color.Red;
             }
+            else if (results == 1)
+            {
+                message = "Added Succefully";
+                color = Color.Green;
+
+            }
+            else
+            {
+                message = "Please fill all Required fields";
+                color = Color.Blue;
+
+            }
+            realEstates.DataSource = Connection.getRealEstates();
+            //addRealestateService
+            string id = Connection.getRealEstates().Select("estateNumber ='" + estateNumber.Text + "'")[0][0].ToString();
+
+            Connection.addRealestateService(id, services.CheckedItems);
+
+
+            }
+             catch
+             {
+                 message = "There are error, please correct it";
+                 color = Color.Red;
+             }
             Notification notification = new Notification(message, color);
             notification.Show();
 
@@ -127,24 +128,24 @@ namespace RealEstateProject
 
         private void Services_SelectedIndexChanged(object sender, EventArgs e)
         {
-             if (((CheckedListBox)sender).Text.Equals("Other"))
+            if (((CheckedListBox)sender).Text.Equals("Other"))
+            {
+                PredefinedOptions predefinedOptions = new PredefinedOptions(7);
+                DialogResult dr = predefinedOptions.ShowDialog(this);
+                if (dr == DialogResult.Cancel)
                 {
-                    PredefinedOptions predefinedOptions = new PredefinedOptions(7);
-                    DialogResult dr = predefinedOptions.ShowDialog(this);
-                    if (dr == DialogResult.Cancel)
-                    {
-                        predefinedOptions.Close();
-                       getServices();
-                        services.SelectedIndex = services.Items.Count - 2;
+                    predefinedOptions.Close();
+                    getServices();
+                    services.SelectedIndex = services.Items.Count - 2;
 
-                    }
-                    else if (dr == DialogResult.OK)
-                    {
-                        predefinedOptions.Close();
-                    }
                 }
-            
-            
+                else if (dr == DialogResult.OK)
+                {
+                    predefinedOptions.Close();
+                }
+            }
+
+
         }
     }
 }

@@ -53,8 +53,15 @@
             this.realestateNumber = new System.Windows.Forms.ComboBox();
             this.receiptNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.dollar = new System.Windows.Forms.RadioButton();
+            this.leb = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.year = new System.Windows.Forms.NumericUpDown();
+            this.month = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyRentalPayments)).BeginInit();
             this.payRequirments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -77,9 +84,9 @@
             this.monthlyRentalPayments.AllowUserToResizeRows = false;
             this.monthlyRentalPayments.BackgroundColor = System.Drawing.Color.White;
             this.monthlyRentalPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.monthlyRentalPayments.Location = new System.Drawing.Point(8, 320);
+            this.monthlyRentalPayments.Location = new System.Drawing.Point(8, 351);
             this.monthlyRentalPayments.Name = "monthlyRentalPayments";
-            this.monthlyRentalPayments.Size = new System.Drawing.Size(1213, 264);
+            this.monthlyRentalPayments.Size = new System.Drawing.Size(1213, 315);
             this.monthlyRentalPayments.TabIndex = 108;
             // 
             // button1
@@ -87,7 +94,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(884, 242);
+            this.button1.Location = new System.Drawing.Point(913, 231);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 54);
             this.button1.TabIndex = 107;
@@ -100,7 +107,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(49, 198);
+            this.label4.Location = new System.Drawing.Point(485, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 20);
             this.label4.TabIndex = 105;
@@ -116,6 +123,7 @@
             this.label11.Size = new System.Drawing.Size(153, 20);
             this.label11.TabIndex = 103;
             this.label11.Text = "Appartment Number";
+            this.label11.Click += new System.EventHandler(this.Label11_Click);
             // 
             // checkNumber
             // 
@@ -156,9 +164,9 @@
             "Cash",
             "Check",
             "Other"});
-            this.payMethod.Location = new System.Drawing.Point(561, 137);
+            this.payMethod.Location = new System.Drawing.Point(192, 177);
             this.payMethod.Name = "payMethod";
-            this.payMethod.Size = new System.Drawing.Size(207, 28);
+            this.payMethod.Size = new System.Drawing.Size(178, 28);
             this.payMethod.TabIndex = 93;
             this.payMethod.ValueMember = "role";
             this.payMethod.SelectedIndexChanged += new System.EventHandler(this.PayMethod_SelectedIndexChanged);
@@ -168,7 +176,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(423, 141);
+            this.label8.Location = new System.Drawing.Point(84, 181);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 20);
             this.label8.TabIndex = 92;
@@ -190,7 +198,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(793, 140);
+            this.label5.Location = new System.Drawing.Point(730, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 90;
@@ -212,7 +220,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 141);
+            this.label2.Location = new System.Drawing.Point(65, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 88;
@@ -233,28 +241,28 @@
             // amount
             // 
             this.amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amount.Location = new System.Drawing.Point(974, 142);
+            this.amount.Location = new System.Drawing.Point(809, 135);
             this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(207, 26);
+            this.amount.Size = new System.Drawing.Size(178, 26);
             this.amount.TabIndex = 111;
             this.amount.TextChanged += new System.EventHandler(this.Amount_TextChanged);
             // 
             // payDate
             // 
             this.payDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payDate.Location = new System.Drawing.Point(129, 138);
+            this.payDate.Location = new System.Drawing.Point(153, 135);
             this.payDate.Name = "payDate";
-            this.payDate.Size = new System.Drawing.Size(279, 26);
+            this.payDate.Size = new System.Drawing.Size(250, 26);
             this.payDate.TabIndex = 112;
             this.payDate.ValueChanged += new System.EventHandler(this.PayDate_ValueChanged);
             // 
             // details
             // 
             this.details.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.details.Location = new System.Drawing.Point(129, 195);
+            this.details.Location = new System.Drawing.Point(549, 231);
             this.details.Multiline = true;
             this.details.Name = "details";
-            this.details.Size = new System.Drawing.Size(279, 77);
+            this.details.Size = new System.Drawing.Size(314, 65);
             this.details.TabIndex = 113;
             // 
             // payRequirments
@@ -266,7 +274,7 @@
             this.payRequirments.Controls.Add(this.checkNumber);
             this.payRequirments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payRequirments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payRequirments.Location = new System.Drawing.Point(423, 180);
+            this.payRequirments.Location = new System.Drawing.Point(69, 220);
             this.payRequirments.Name = "payRequirments";
             this.payRequirments.Size = new System.Drawing.Size(361, 100);
             this.payRequirments.TabIndex = 114;
@@ -320,9 +328,9 @@
             // receiptNumber
             // 
             this.receiptNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receiptNumber.Location = new System.Drawing.Point(974, 192);
+            this.receiptNumber.Location = new System.Drawing.Point(555, 135);
             this.receiptNumber.Name = "receiptNumber";
-            this.receiptNumber.Size = new System.Drawing.Size(207, 26);
+            this.receiptNumber.Size = new System.Drawing.Size(161, 26);
             this.receiptNumber.TabIndex = 118;
             this.receiptNumber.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
@@ -331,12 +339,113 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(793, 195);
+            this.label9.Location = new System.Drawing.Point(417, 138);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 20);
             this.label9.TabIndex = 117;
             this.label9.Text = "Receipt Number";
             this.label9.Click += new System.EventHandler(this.Label9_Click);
+            // 
+            // dollar
+            // 
+            this.dollar.AutoSize = true;
+            this.dollar.BackColor = System.Drawing.Color.Transparent;
+            this.dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dollar.Location = new System.Drawing.Point(1082, 137);
+            this.dollar.Name = "dollar";
+            this.dollar.Size = new System.Drawing.Size(45, 24);
+            this.dollar.TabIndex = 120;
+            this.dollar.Text = "$$";
+            this.dollar.UseVisualStyleBackColor = false;
+            // 
+            // leb
+            // 
+            this.leb.AutoSize = true;
+            this.leb.BackColor = System.Drawing.Color.Transparent;
+            this.leb.Checked = true;
+            this.leb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leb.Location = new System.Drawing.Point(1010, 137);
+            this.leb.Name = "leb";
+            this.leb.Size = new System.Drawing.Size(58, 24);
+            this.leb.TabIndex = 119;
+            this.leb.TabStop = true;
+            this.leb.Text = "LEB";
+            this.leb.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(733, 180);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 20);
+            this.label12.TabIndex = 130;
+            this.label12.Text = "Year";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(485, 180);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 20);
+            this.label13.TabIndex = 129;
+            this.label13.Text = "Month";
+            // 
+            // year
+            // 
+            this.year.BackColor = System.Drawing.Color.White;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.year.Location = new System.Drawing.Point(819, 177);
+            this.year.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.year.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(80, 26);
+            this.year.TabIndex = 128;
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.year.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            // 
+            // month
+            // 
+            this.month.BackColor = System.Drawing.Color.White;
+            this.month.DisplayMember = "(none)";
+            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.month.FormattingEnabled = true;
+            this.month.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.month.Location = new System.Drawing.Point(557, 176);
+            this.month.Name = "month";
+            this.month.Size = new System.Drawing.Size(159, 28);
+            this.month.TabIndex = 127;
+            this.month.ValueMember = "(none)";
             // 
             // AddMonthlyRentalPayments
             // 
@@ -344,7 +453,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1233, 596);
+            this.ClientSize = new System.Drawing.Size(1233, 678);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.year);
+            this.Controls.Add(this.month);
+            this.Controls.Add(this.dollar);
+            this.Controls.Add(this.leb);
             this.Controls.Add(this.receiptNumber);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -373,6 +488,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.monthlyRentalPayments)).EndInit();
             this.payRequirments.ResumeLayout(false);
             this.payRequirments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,5 +519,11 @@
         private System.Windows.Forms.ComboBox realestateNumber;
         private System.Windows.Forms.TextBox receiptNumber;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton dollar;
+        private System.Windows.Forms.RadioButton leb;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown year;
+        private System.Windows.Forms.ComboBox month;
     }
 }
