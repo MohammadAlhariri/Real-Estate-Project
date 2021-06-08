@@ -25,8 +25,18 @@ namespace RealEstateProject.Reports
             realEstate.Text = realEstateModel.RealEstateNumber;
             ownerID.Text = realEstateModel.Owner;
             getData();
+            getYears();
 
         }
+
+        public void getYears()
+        {
+            DataTable dataTable = connection.getYears(realEstateModel.RealEstateID);
+            year.DataSource = dataTable;
+            year.DisplayMember = "year";
+            year.ValueMember = "year";
+        }
+
         private void getData()
         {
             monthlyRental.DataSource = connection.monthly_rental_payment_report(realEstateModel.RealEstateID);
