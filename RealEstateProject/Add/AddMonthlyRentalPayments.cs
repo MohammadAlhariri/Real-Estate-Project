@@ -23,9 +23,12 @@ namespace RealEstateProject
             monthlyRentalPayments.DataSource = Connection.getMonthlyRentalpayments();
 
         }
+        public AddMonthlyRentalPayments(string realEstateID):this()
+        {
 
+            realestateNumber.SelectedValue = realEstateID;
 
-
+        }
         private void getBanks()
         {
             DataTable dataTable = Connection.getBanks();

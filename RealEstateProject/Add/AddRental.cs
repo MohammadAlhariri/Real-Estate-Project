@@ -14,6 +14,8 @@ namespace RealEstateProject
     {
 
         Connection Connection = new Connection();
+        private string realEstateID;
+
         public AddRental()
         {
             InitializeComponent();
@@ -24,6 +26,14 @@ namespace RealEstateProject
             rentals.DataSource = Connection.getRentals();
             getServices();
         }
+
+        public AddRental(string realEstateID):this()
+        {
+            this.realEstateID = realEstateID;
+            realestateNumber.SelectedValue = realEstateID;
+
+        }
+
         private void getRentalTypes()
         {
             DataTable dataTable = Connection.getRentalTypes();

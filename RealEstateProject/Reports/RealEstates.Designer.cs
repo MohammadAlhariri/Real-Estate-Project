@@ -31,9 +31,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.userControl11 = new RealEstateProject.RealEstateRow();
             this.button2 = new System.Windows.Forms.Button();
+            this.userControl11 = new RealEstateProject.RealEstateRow();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +54,7 @@
             this.flowLayoutPanel1.Controls.Add(this.userControl11);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 114);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1231, 389);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1231, 328);
             this.flowLayoutPanel1.TabIndex = 87;
             // 
             // button1
@@ -71,15 +70,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // userControl11
-            // 
-            this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.userControl11.Location = new System.Drawing.Point(3, 3);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(1223, 61);
-            this.userControl11.TabIndex = 0;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.ForestGreen;
@@ -92,10 +82,19 @@
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // userControl11
+            // 
+            this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.userControl11.Location = new System.Drawing.Point(3, 3);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(1223, 61);
+            this.userControl11.TabIndex = 0;
+            // 
             // RealEstates
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1286, 515);
+            this.ClientSize = new System.Drawing.Size(1286, 460);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -116,7 +115,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private RealEstateRow userControl11;
         private System.Windows.Forms.Button button1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button2;
     }
 }

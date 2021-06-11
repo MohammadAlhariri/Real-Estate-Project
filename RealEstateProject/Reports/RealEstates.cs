@@ -50,38 +50,18 @@ namespace RealEstateProject.Reports
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            PrintAllImages();
+            try
+            {
+                new PrintData(connection.getRealEstateReport()).export_pdf();
+            }
+            catch
+            {
+
+            }
         }
 
 
 
-        private int imagesToPrintCount;
-        private void PrintAllImages()
-        {
-            imagesToPrintCount = flowLayoutPanel1.Controls.Count;
-            flowLayoutPanel1.Height = 220 * 5;
-            System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
-            doc.PrintPage += Document_PrintPage;
-            PrintDialog dialog = new PrintDialog();
-            dialog.Document = doc;
-            if (dialog.ShowDialog() == DialogResult.OK)
-                doc.Print();
-        }
-        
-        private void Document_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            RectangleF bounds = e.PageSettings.PrintableArea;
-            e.Graphics.DrawImage(GetNextImage(), e.MarginBounds);
-            e.HasMorePages = imagesToPrintCount > 0;
-
-        }
-        private Bitmap GetNextImage()
-        {
-            Bitmap bmp = new Bitmap(flowLayoutPanel1.Width, flowLayoutPanel1.Height, flowLayoutPanel1.CreateGraphics());
-            flowLayoutPanel1.DrawToBitmap(bmp, new Rectangle(0, 0, flowLayoutPanel1.Width, flowLayoutPanel1.Height));
-            imagesToPrintCount = imagesToPrintCount - 5;
-            return bmp;
-        }
 
 
     }

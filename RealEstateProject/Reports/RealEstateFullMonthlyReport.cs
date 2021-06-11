@@ -24,22 +24,26 @@ namespace RealEstateProject.Reports
             this.realEstateModel = realEstateModel;
             realEstate.Text = realEstateModel.RealEstateNumber;
             ownerID.Text = realEstateModel.Owner;
-            getData();
             getYears();
 
         }
 
         public void getYears()
         {
-            DataTable dataTable = connection.getYears(realEstateModel.RealEstateID);
+            DataTable dataTable = connection.getYears(realEstateModel.RealEstateID).DefaultView.ToTable(true,"year");
             year.DataSource = dataTable;
             year.DisplayMember = "year";
             year.ValueMember = "year";
         }
 
         private void getData()
+
         {
-            monthlyRental.DataSource = connection.monthly_rental_payment_report(realEstateModel.RealEstateID);
+            try
+            {
+                monthlyRental.DataSource = connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+            }
+            catch { }
         }
 
 
@@ -55,6 +59,23 @@ namespace RealEstateProject.Reports
         }
 
         private void RealEstateFullMonthlyReport_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            getData();
+            double totalAmount=Convert.ToDouble( connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Compute("SUM(amount)","year = " + year.Text + " AND month= '" + month.Text + "'").ToString());
+          
+            total.Text =  totalAmount+"";
+            vendor.Text = (totalAmount * 0.1) + "";
+            net.Text = (totalAmount - (totalAmount * 0.1)) + "";
+           numberOfRenters.Text= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text +"'").CopyToDataTable().DefaultView.ToTable(true,"renterID").Rows.Count+"";
+
+        }
+
+        private void realEstate_Click(object sender, EventArgs e)
         {
 
         }

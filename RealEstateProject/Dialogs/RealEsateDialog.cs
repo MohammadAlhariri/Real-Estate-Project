@@ -104,5 +104,39 @@ namespace RealEstateProject.Dialogs
         {
 
         }
+
+        private void realEstate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            AddMonthlyRentalPayments addMonthlyRentalPayments = new AddMonthlyRentalPayments(realEstateModel.RealEstateID);
+            addMonthlyRentalPayments.MdiParent = this.MdiParent;
+            addMonthlyRentalPayments.Show();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            EditMonthlyRentalPayment editMonthlyRentalPayment = new EditMonthlyRentalPayment(realEstateModel.RealEstateID);
+            editMonthlyRentalPayment.MdiParent = this.MdiParent;
+            editMonthlyRentalPayment.Show();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            AddRental addRental = new AddRental(realEstateModel.RealEstateID);
+            addRental.MdiParent = this.MdiParent;
+            addRental.Show();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            EditRental editRental = new EditRental(realEstateModel.RealEstateID);
+            editRental.MdiParent = this.MdiParent;
+            editRental.Show();
+
+        }
     }
 }

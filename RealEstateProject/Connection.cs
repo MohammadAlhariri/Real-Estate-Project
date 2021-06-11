@@ -15,7 +15,7 @@ namespace RealEstateProject
     {
 
         MySqlConnection countryList = new MySqlConnection("server=localhost;user=root;database=CountryList;port=3306;password=;");
-        MySqlConnection realEstate = new MySqlConnection("server=localhost;user=root;database=realestate;port=3306;password=;convert zero datetime=True;CHARSET=utf8;");
+        MySqlConnection realEstate = new MySqlConnection("server=localhost;user=root;database=realestate;port=3306;password=;convert zero datetime=True;CHARSET=utf8");
         public Connection()
         {
             //your MySQL connection string
@@ -35,7 +35,7 @@ namespace RealEstateProject
 
         }
 
-        public  DataTable getYears(string id)
+        public DataTable getYears(string id)
         {
             DataSet dataset = new DataSet();
 
@@ -43,6 +43,18 @@ namespace RealEstateProject
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("id", id);
+
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+        public DataTable getRealEstateReport()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getRealEstateReport");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
 
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
@@ -64,7 +76,7 @@ namespace RealEstateProject
         internal DataTable getValues(string position)
         {
 
-            
+
             DataSet dataset = new DataSet();
 
             MySqlCommand sqlCommand = new MySqlCommand("getTable");
@@ -197,7 +209,8 @@ namespace RealEstateProject
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("rentalID", v);
             int a = sqlCommand.ExecuteNonQuery();
-        }internal DataTable monthly_rental_payment_report(string v)
+        }
+        internal DataTable monthly_rental_payment_report(string v)
         {
             DataSet dataset = new DataSet();
             MySqlCommand sqlCommand = new MySqlCommand("rental_report");
@@ -246,7 +259,7 @@ namespace RealEstateProject
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("rentalID", v);
-            sqlCommand.Parameters.AddWithValue("serviceID",value);
+            sqlCommand.Parameters.AddWithValue("serviceID", value);
             int a = sqlCommand.ExecuteNonQuery();
         }
 
@@ -289,7 +302,7 @@ namespace RealEstateProject
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("idE", v);
             int a = sqlCommand.ExecuteNonQuery();
-            
+
         }
 
         internal DataTable getRenterPersons()
@@ -319,7 +332,7 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("idE", v);
             sqlCommand.Parameters.AddWithValue("month", text);
             sqlCommand.Parameters.AddWithValue("year", v5);
-            
+
             int a = sqlCommand.ExecuteNonQuery();
             return a;
         }
@@ -390,7 +403,7 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("paymentMethod", text5);
             sqlCommand.Parameters.AddWithValue("rentPercentage", v);
             sqlCommand.Parameters.AddWithValue("graceMonth", v4);
-    
+
             int a = sqlCommand.ExecuteNonQuery();
             return a;
         }
@@ -566,7 +579,8 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
-        }        public DataTable getOptions()
+        }
+        public DataTable getOptions()
         {
             DataSet dataset = new DataSet();
 
@@ -610,7 +624,7 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("ownerID", ownerID);
             int a = sqlCommand.ExecuteNonQuery();
             return a;
-     
+
         }
         public int insertRealEstateExpense
             (string realestateID, string personID, string ExpenseType, string amount, string date, string detail, string moneyType,
@@ -776,17 +790,20 @@ namespace RealEstateProject
                 String.IsNullOrEmpty(currentState) ||
                 String.IsNullOrEmpty(value);
         }
-        public int AddPredefinedOption(int position , string value, string text="")
+        public int AddPredefinedOption(int position, string value, string text = "")
 
         {
-            string table="";
+            string table = "";
             switch (position)
             {
-                case 1: table = "addBank";
+                case 1:
+                    table = "addBank";
                     break;
-                case 2: table = "addDocumentType";
+                case 2:
+                    table = "addDocumentType";
                     break;
-                case 3: table = "addExpenseType";
+                case 3:
+                    table = "addExpenseType";
                     break;
                 case 4:
                     table = "addPaymentMethod";

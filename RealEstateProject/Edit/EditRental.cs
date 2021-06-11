@@ -14,6 +14,7 @@ namespace RealEstateProject.Edit
     public partial class EditRental : Form
     {
         Connection Connection = new Connection();
+        private string realEstateID;
 
         public EditRental()
         {
@@ -24,6 +25,13 @@ namespace RealEstateProject.Edit
             getServices();
             getPaymentMethods();
         }
+
+        public EditRental(string realEstateID):this()
+        {
+            this.realEstateID = realEstateID;
+            realestateNumber.SelectedValue = realEstateID;
+        }
+
         private void getServices()
         {
             DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate =" + realestateNumber.SelectedValue.ToString());

@@ -14,6 +14,7 @@ namespace RealEstateProject.Edit
     public partial class EditMonthlyRentalPayment : Form
     {
         Connection Connection = new Connection();
+        private string realEstateID;
 
         public EditMonthlyRentalPayment()
         {
@@ -22,6 +23,12 @@ namespace RealEstateProject.Edit
             getRealestates();
             getBanks();
             getReceiptNumber();
+        }
+
+        public EditMonthlyRentalPayment(string realEstateID) : this()
+        {
+            this.realEstateID = realEstateID;
+            realestateNumber.SelectedValue = realEstateID;
         }
 
         private void getBanks()
@@ -126,8 +133,8 @@ namespace RealEstateProject.Edit
             details.Text = dataRow["details"].ToString();
             payDate.Value = Convert.ToDateTime(dataRow["date"]);
             payMethod.Text = dataRow["payMethod"].ToString();
-            bank.Text= dataRow["bank"].ToString();
-            checkNumber.Text= dataRow["checkNumber"].ToString();
+            bank.Text = dataRow["bank"].ToString();
+            checkNumber.Text = dataRow["checkNumber"].ToString();
             month.Text = dataRow["month"].ToString();
             year.Value = Convert.ToInt32(dataRow["year"].ToString());
             if (dataRow["moneyType"].ToString().Equals("$$"))
@@ -170,7 +177,7 @@ namespace RealEstateProject.Edit
                                     renterName.SelectedValue.ToString(),
                                     AppartmentNumber.SelectedValue.ToString(),
                                     amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.SelectedValue.ToString(),month.Text,year.Value.ToString(),moneyType);
+                                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.SelectedValue.ToString(), month.Text, year.Value.ToString(), moneyType);
 
                 if (results == 0)
                 {

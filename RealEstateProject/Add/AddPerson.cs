@@ -85,7 +85,6 @@ namespace RealEstateProject
             Color color = Color.White;
             try
             {
-                //public int insertPerson(string fName, string mName, string lName, string country, string state, string city,  string address,  string phone,string email, string role)
                
                 int results = Connection.insertPerson(
                     fName.Text, mName.Text, lName.Text, country.Text, states.Text, city.Text, address.Text, phone.Text, email.Text, role.Text);
@@ -98,12 +97,6 @@ namespace RealEstateProject
                 {
                     message = "Added Succefully";
                     color = Color.Green;
-                    fName.Clear();
-                    mName.Clear();
-                    lName.Clear();
-                    phone.Clear();
-                    email.Clear();
-                    address.Clear();
 
                 }
                 else
@@ -113,12 +106,7 @@ namespace RealEstateProject
 
                 }
                 persons.DataSource = Connection.getAllPerson();
-                fName.Clear();
-                mName.Clear();
-                lName.Clear();
-                email.Clear();
-                phone.Clear();
-                address.Clear();
+
 
             }
             catch

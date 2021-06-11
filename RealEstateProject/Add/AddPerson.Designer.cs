@@ -35,26 +35,26 @@
             this.city = new System.Windows.Forms.ComboBox();
             this.citiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label9 = new System.Windows.Forms.Label();
-            this.fName = new System.Windows.Forms.TextBox();
             this.phone = new System.Windows.Forms.TextBox();
-            this.lName = new System.Windows.Forms.TextBox();
             this.states = new System.Windows.Forms.ComboBox();
             this.statesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.country = new System.Windows.Forms.ComboBox();
             this.role = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.mName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.persons = new System.Windows.Forms.DataGridView();
+            this.mName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.fName = new System.Windows.Forms.TextBox();
+            this.lName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.citiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.persons)).BeginInit();
@@ -102,14 +102,6 @@
             this.label9.TabIndex = 40;
             this.label9.Text = "State";
             // 
-            // fName
-            // 
-            this.fName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fName.Location = new System.Drawing.Point(159, 85);
-            this.fName.Name = "fName";
-            this.fName.Size = new System.Drawing.Size(166, 26);
-            this.fName.TabIndex = 39;
-            // 
             // phone
             // 
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,14 +109,6 @@
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(203, 26);
             this.phone.TabIndex = 38;
-            // 
-            // lName
-            // 
-            this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lName.Location = new System.Drawing.Point(781, 85);
-            this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(166, 26);
-            this.lName.TabIndex = 37;
             // 
             // states
             // 
@@ -188,17 +172,6 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Phone";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(675, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Last Name";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -221,36 +194,6 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Country";
             this.label2.Click += new System.EventHandler(this.Label2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 20);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "First Name";
-            // 
-            // mName
-            // 
-            this.mName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mName.Location = new System.Drawing.Point(470, 85);
-            this.mName.Name = "mName";
-            this.mName.Size = new System.Drawing.Size(166, 26);
-            this.mName.TabIndex = 45;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(352, 85);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 20);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "Middle Name";
             // 
             // email
             // 
@@ -276,7 +219,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(988, 163);
+            this.button1.Location = new System.Drawing.Point(960, 183);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 54);
             this.button1.TabIndex = 83;
@@ -309,6 +252,66 @@
             this.persons.Size = new System.Drawing.Size(1213, 305);
             this.persons.TabIndex = 84;
             // 
+            // mName
+            // 
+            this.mName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mName.Location = new System.Drawing.Point(470, 92);
+            this.mName.Name = "mName";
+            this.mName.Size = new System.Drawing.Size(166, 26);
+            this.mName.TabIndex = 129;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(352, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(101, 20);
+            this.label11.TabIndex = 128;
+            this.label11.Text = "Middle Name";
+            // 
+            // fName
+            // 
+            this.fName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fName.Location = new System.Drawing.Point(159, 92);
+            this.fName.Name = "fName";
+            this.fName.Size = new System.Drawing.Size(166, 26);
+            this.fName.TabIndex = 127;
+            // 
+            // lName
+            // 
+            this.lName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lName.Location = new System.Drawing.Point(781, 92);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(166, 26);
+            this.lName.TabIndex = 126;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(675, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.TabIndex = 125;
+            this.label5.Text = "Last Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 92);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 124;
+            this.label1.Text = "First Name";
+            // 
             // AddPerson
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -316,29 +319,29 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1307, 706);
+            this.Controls.Add(this.mName);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.fName);
+            this.Controls.Add(this.lName);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.persons);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.email);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.mName);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.address);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.city);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.fName);
             this.Controls.Add(this.phone);
-            this.Controls.Add(this.lName);
             this.Controls.Add(this.states);
             this.Controls.Add(this.country);
             this.Controls.Add(this.role);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "AddPerson";
             this.Tag = "persons";
             this.Text = "AddPerson";
@@ -358,20 +361,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox city;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox fName;
         private System.Windows.Forms.TextBox phone;
-        private System.Windows.Forms.TextBox lName;
         private System.Windows.Forms.ComboBox states;
         private System.Windows.Forms.ComboBox country;
         private System.Windows.Forms.ComboBox role;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox mName;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.BindingSource statesBindingSource;
         private System.Windows.Forms.BindingSource citiesBindingSource;
         private System.Windows.Forms.TextBox email;
@@ -379,5 +376,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView persons;
+        private System.Windows.Forms.TextBox mName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox fName;
+        private System.Windows.Forms.TextBox lName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
     }
 }
