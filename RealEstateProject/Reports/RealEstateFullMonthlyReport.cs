@@ -42,6 +42,8 @@ namespace RealEstateProject.Reports
             try
             {
                 monthlyRental.DataSource = connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+                monthlyExpences.DataSource =  connection.monthly_expense_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+
             }
             catch { }
         }
@@ -66,18 +68,69 @@ namespace RealEstateProject.Reports
         private void button6_Click(object sender, EventArgs e)
         {
             getData();
-            double totalAmount=Convert.ToDouble( connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Compute("SUM(amount)","year = " + year.Text + " AND month= '" + month.Text + "'").ToString());
-          
+            double totalAmount = checkNull(connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Compute("SUM(amount)","year = " + year.Text + " AND month= '" + month.Text + "'").ToString());
             total.Text =  totalAmount+"";
             vendor.Text = (totalAmount * 0.1) + "";
-            net.Text = (totalAmount - (totalAmount * 0.1)) + "";
-           numberOfRenters.Text= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text +"'").CopyToDataTable().DefaultView.ToTable(true,"renterID").Rows.Count+"";
-
+            net.Text = totalMontlyRentals.Text = (totalAmount - (totalAmount * 0.1)) + "";
+            numberOfRenters.Text= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text +"'").CopyToDataTable().DefaultView.ToTable(true,"renterID").Rows.Count+"";
+            double totalExpences = checkNull(connection.monthly_expense_report(realEstateModel.RealEstateID).Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType <> 'Payed by owner'"));
+            double totalExpencesByOwner = checkNull(connection.monthly_expense_report(realEstateModel.RealEstateID).Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType = 'Payed by owner'"));
+            totalMonthleExpencess.Text = (totalExpences - totalExpencesByOwner) + "";
+            totalMonthlyExpences.Text= (totalExpences - totalExpencesByOwner) + "";
+            current.Text = ((totalExpences - totalExpencesByOwner) + (totalAmount - (totalAmount * 0.1)))+"";
         }
 
         private void realEstate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_2(object sender, EventArgs e)
+        {
+           DataTable dataTable= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+            new PrintData(dataTable).export_pdf();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddMonthlyRentalPayments addMonthlyRentalPayments = new AddMonthlyRentalPayments(realEstateModel.RealEstateID);
+            addMonthlyRentalPayments.MdiParent = this.MdiParent;
+            addMonthlyRentalPayments.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddRealstateExpense addRealstateExpense = new AddRealstateExpense(realEstateModel.RealEstateID);
+            addRealstateExpense.MdiParent = this.MdiParent;
+            addRealstateExpense.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            DataTable dataTable = connection.monthly_expense_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+            new PrintData(dataTable).export_pdf();
+        }
+        public double checkNull(object ob)
+        {
+            try
+            {
+                return Convert.ToDouble(ob);
+            }
+            catch { }
+           
+            return 0;
+           
         }
     }
 }

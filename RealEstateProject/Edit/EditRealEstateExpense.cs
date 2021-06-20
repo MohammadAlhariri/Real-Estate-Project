@@ -111,10 +111,7 @@ namespace RealEstateProject.Edit
             month.Text = dataRow["month"].ToString();
             year.Value =Convert.ToInt32(dataRow["year"].ToString());
 
-            if (dataRow["moneyType"].ToString().Equals("$$"))
-                dollar.Checked = true;
-            else
-                leb.Checked = true;
+     
 
         }
 
@@ -137,11 +134,10 @@ namespace RealEstateProject.Edit
             Color color = Color.White;
             try
             {
-                string moneyType = (leb.Checked) ? leb.Text : dollar.Text;
 
                 int results = Connection.updateRealEstateExpense(
                      realestateNumber.SelectedValue.ToString(), person.SelectedValue.ToString(), expenseType.Text, amount.Value.ToString(), date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    detail.Text, moneyType, receiptNumber.SelectedValue.ToString(),month.Text,year.Value.ToString());
+                    detail.Text,  receiptNumber.SelectedValue.ToString(),month.Text,year.Value.ToString());
 
                 if (results == 0)
                 {

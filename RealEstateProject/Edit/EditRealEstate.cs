@@ -136,7 +136,7 @@ namespace RealEstateProject.Edit
 
                 int results = Connection.updateRealEstate(
                     realEstateNumber.SelectedValue.ToString(), buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text,
-                    address.Text, currentState.Text, value.Text, collectorPercentage.Value.ToString(), owner.SelectedValue.ToString());
+                    address.Text, currentState.Text, value.Text, owner.SelectedValue.ToString());
 
 
                 if (results == 0)
@@ -181,7 +181,6 @@ namespace RealEstateProject.Edit
             city.SelectedValue = dataRow["city"].ToString();
             value.Text = dataRow["value"].ToString();
             address.Text = dataRow["address"].ToString();
-            collectorPercentage.Value = Convert.ToInt32(dataRow["collectorPercentage"].ToString());
             neigborhood.Text = dataRow["neigborhood"].ToString();
             currentState.Text = dataRow["currentState"].ToString();
             owner.SelectedValue = dataRow["ownerID"].ToString();

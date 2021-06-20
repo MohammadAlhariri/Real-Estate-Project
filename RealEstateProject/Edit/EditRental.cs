@@ -127,7 +127,6 @@ namespace RealEstateProject.Edit
                     detail.Text = dataRow["details"].ToString();
                     rentDuration.Text = dataRow["rentDuration"].ToString();
                     rentalType.Text = dataRow["rentalType"].ToString();
-                    type.Text = dataRow["type"].ToString();
                     paymentMethod.Text = dataRow["paymentMethod"].ToString();
                     startDate.Value = Convert.ToDateTime(dataRow["rentDate"]);
                     graceMonth.Value = Convert.ToInt32(dataRow["graceMonth"]);
@@ -189,7 +188,7 @@ namespace RealEstateProject.Edit
                 // details Text, rentDate varchar(45),paymentMethod varchar(45))
                 int results = Connection.updateRental(rentalNumber.SelectedValue.ToString(),
                     renter.SelectedValue.ToString(),
-                    type.Text, rentDuration.Value.ToString(), rentalType.Text, detail.Text,
+                   rentDuration.Value.ToString(), rentalType.Text, detail.Text,
                     startDate.Text, paymentMethod.Text, rentPercentage.Value.ToString(), graceMonth.Value.ToString());
                 if (results == 0)
                 {
@@ -267,6 +266,11 @@ namespace RealEstateProject.Edit
             {
                 Console.WriteLine(er.Message);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

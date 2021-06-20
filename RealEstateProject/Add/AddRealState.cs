@@ -66,7 +66,7 @@ namespace RealEstateProject
             try
             {
             int results = Connection.insertRealEstate(
-                estateNumber.Text, buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text, address.Text, currentState.Text, value.Text, collectorPercentage.Value.ToString(), owner.SelectedValue.ToString());
+                estateNumber.Text, buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text, address.Text, currentState.Text, value.Text,  owner.SelectedValue.ToString());
             if (results == 0)
             {
                 message = "There are error";

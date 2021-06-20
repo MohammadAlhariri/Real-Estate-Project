@@ -53,12 +53,11 @@
             this.realestateNumber = new System.Windows.Forms.ComboBox();
             this.receiptNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dollar = new System.Windows.Forms.RadioButton();
-            this.leb = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.year = new System.Windows.Forms.NumericUpDown();
             this.month = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyRentalPayments)).BeginInit();
             this.payRequirments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
@@ -346,32 +345,6 @@
             this.label9.Text = "Receipt Number";
             this.label9.Click += new System.EventHandler(this.Label9_Click);
             // 
-            // dollar
-            // 
-            this.dollar.AutoSize = true;
-            this.dollar.BackColor = System.Drawing.Color.Transparent;
-            this.dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dollar.Location = new System.Drawing.Point(1082, 137);
-            this.dollar.Name = "dollar";
-            this.dollar.Size = new System.Drawing.Size(45, 24);
-            this.dollar.TabIndex = 120;
-            this.dollar.Text = "$$";
-            this.dollar.UseVisualStyleBackColor = false;
-            // 
-            // leb
-            // 
-            this.leb.AutoSize = true;
-            this.leb.BackColor = System.Drawing.Color.Transparent;
-            this.leb.Checked = true;
-            this.leb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leb.Location = new System.Drawing.Point(1010, 137);
-            this.leb.Name = "leb";
-            this.leb.Size = new System.Drawing.Size(58, 24);
-            this.leb.TabIndex = 119;
-            this.leb.TabStop = true;
-            this.leb.Text = "LEB";
-            this.leb.UseVisualStyleBackColor = false;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -447,6 +420,17 @@
             this.month.TabIndex = 127;
             this.month.ValueMember = "(none)";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(1002, 138);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(27, 20);
+            this.label14.TabIndex = 131;
+            this.label14.Text = "$$";
+            // 
             // AddMonthlyRentalPayments
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
@@ -454,12 +438,11 @@
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1233, 678);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.year);
             this.Controls.Add(this.month);
-            this.Controls.Add(this.dollar);
-            this.Controls.Add(this.leb);
             this.Controls.Add(this.receiptNumber);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -519,11 +502,10 @@
         private System.Windows.Forms.ComboBox realestateNumber;
         private System.Windows.Forms.TextBox receiptNumber;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton dollar;
-        private System.Windows.Forms.RadioButton leb;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown year;
         private System.Windows.Forms.ComboBox month;
+        private System.Windows.Forms.Label label14;
     }
 }

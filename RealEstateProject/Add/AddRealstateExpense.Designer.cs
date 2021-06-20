@@ -44,14 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.detail = new System.Windows.Forms.TextBox();
-            this.leb = new System.Windows.Forms.RadioButton();
-            this.dollar = new System.Windows.Forms.RadioButton();
             this.receiptNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.month = new System.Windows.Forms.ComboBox();
             this.year = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.expences)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
@@ -126,8 +125,7 @@
             // 
             this.expences.AllowUserToAddRows = false;
             this.expences.AllowUserToDeleteRows = false;
-            this.expences.AllowUserToResizeColumns = false;
-            this.expences.AllowUserToResizeRows = false;
+            this.expences.AllowUserToOrderColumns = true;
             this.expences.BackgroundColor = System.Drawing.Color.White;
             this.expences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.expences.Location = new System.Drawing.Point(23, 342);
@@ -237,29 +235,6 @@
             this.detail.Size = new System.Drawing.Size(620, 89);
             this.detail.TabIndex = 89;
             // 
-            // leb
-            // 
-            this.leb.AutoSize = true;
-            this.leb.Checked = true;
-            this.leb.Location = new System.Drawing.Point(1035, 163);
-            this.leb.Name = "leb";
-            this.leb.Size = new System.Drawing.Size(45, 17);
-            this.leb.TabIndex = 90;
-            this.leb.TabStop = true;
-            this.leb.Text = "LEB";
-            this.leb.UseVisualStyleBackColor = true;
-            // 
-            // dollar
-            // 
-            this.dollar.AutoSize = true;
-            this.dollar.Location = new System.Drawing.Point(1094, 163);
-            this.dollar.Name = "dollar";
-            this.dollar.Size = new System.Drawing.Size(37, 17);
-            this.dollar.TabIndex = 91;
-            this.dollar.Text = "$$";
-            this.dollar.UseVisualStyleBackColor = true;
-            this.dollar.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
-            // 
             // receiptNumber
             // 
             this.receiptNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -354,19 +329,29 @@
             this.label8.TabIndex = 97;
             this.label8.Text = "Year";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1047, 158);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 20);
+            this.label10.TabIndex = 98;
+            this.label10.Text = "$$";
+            // 
             // AddRealstateExpense
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1255, 556);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.year);
             this.Controls.Add(this.month);
             this.Controls.Add(this.receiptNumber);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dollar);
-            this.Controls.Add(this.leb);
             this.Controls.Add(this.detail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.expenseType);
@@ -410,13 +395,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox detail;
-        private System.Windows.Forms.RadioButton leb;
-        private System.Windows.Forms.RadioButton dollar;
         private System.Windows.Forms.TextBox receiptNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox month;
         private System.Windows.Forms.NumericUpDown year;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
     }
 }

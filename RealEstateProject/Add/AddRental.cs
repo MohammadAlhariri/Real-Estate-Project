@@ -112,7 +112,7 @@ namespace RealEstateProject
                 //public int insertRental(string renterID, string appartmentNumber, string type,
                 //string rentDuration, string rentalType, string details, string rentDate,
                 // string paymentMethod)
-                int results = Connection.insertRental(renter.SelectedValue.ToString(), appartmentNumber.SelectedValue.ToString(), type.Text,
+                int results = Connection.insertRental(renter.SelectedValue.ToString(), appartmentNumber.SelectedValue.ToString(),
                     rentDuration.Value.ToString(), rentalType.Text, detail.Text, startDate.Value.Date.ToString("yyyy-MM-dd HH:mm"), paymentMethod.Text,
                     rentPercentage.Value.ToString(), graceMonth.Value.ToString());
 
@@ -217,6 +217,11 @@ namespace RealEstateProject
         }
 
         private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void services_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

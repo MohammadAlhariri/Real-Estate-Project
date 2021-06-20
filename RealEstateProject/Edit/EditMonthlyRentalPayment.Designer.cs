@@ -38,8 +38,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.year = new System.Windows.Forms.NumericUpDown();
             this.month = new System.Windows.Forms.ComboBox();
-            this.dollar = new System.Windows.Forms.RadioButton();
-            this.leb = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.realestateNumber = new System.Windows.Forms.ComboBox();
             this.payRequirments = new System.Windows.Forms.GroupBox();
@@ -60,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.receiptNumber = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             this.payRequirments.SuspendLayout();
@@ -130,12 +129,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.year);
             this.groupBox1.Controls.Add(this.month);
-            this.groupBox1.Controls.Add(this.dollar);
-            this.groupBox1.Controls.Add(this.leb);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.realestateNumber);
             this.groupBox1.Controls.Add(this.payRequirments);
@@ -234,32 +232,6 @@
             this.month.Size = new System.Drawing.Size(159, 28);
             this.month.TabIndex = 153;
             this.month.ValueMember = "(none)";
-            // 
-            // dollar
-            // 
-            this.dollar.AutoSize = true;
-            this.dollar.BackColor = System.Drawing.Color.Transparent;
-            this.dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dollar.Location = new System.Drawing.Point(1105, 100);
-            this.dollar.Name = "dollar";
-            this.dollar.Size = new System.Drawing.Size(45, 24);
-            this.dollar.TabIndex = 152;
-            this.dollar.Text = "$$";
-            this.dollar.UseVisualStyleBackColor = false;
-            // 
-            // leb
-            // 
-            this.leb.AutoSize = true;
-            this.leb.BackColor = System.Drawing.Color.Transparent;
-            this.leb.Checked = true;
-            this.leb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leb.Location = new System.Drawing.Point(1030, 100);
-            this.leb.Name = "leb";
-            this.leb.Size = new System.Drawing.Size(58, 24);
-            this.leb.TabIndex = 151;
-            this.leb.TabStop = true;
-            this.leb.Text = "LEB";
-            this.leb.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -497,6 +469,17 @@
             this.receiptNumber.TabIndex = 151;
             this.receiptNumber.ValueMember = "role";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(1037, 101);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(27, 20);
+            this.label14.TabIndex = 157;
+            this.label14.Text = "$$";
+            // 
             // EditMonthlyRentalPayment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -554,7 +537,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown year;
         private System.Windows.Forms.ComboBox month;
-        private System.Windows.Forms.RadioButton dollar;
-        private System.Windows.Forms.RadioButton leb;
+        private System.Windows.Forms.Label label14;
     }
 }

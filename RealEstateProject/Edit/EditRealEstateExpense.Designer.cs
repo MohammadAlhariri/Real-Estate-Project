@@ -34,8 +34,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dollar = new System.Windows.Forms.RadioButton();
-            this.leb = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.year = new System.Windows.Forms.NumericUpDown();
+            this.month = new System.Windows.Forms.ComboBox();
             this.detail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.expenseType = new System.Windows.Forms.ComboBox();
@@ -49,13 +51,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.receiptNumber = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.year = new System.Windows.Forms.NumericUpDown();
-            this.month = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,12 +122,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.year);
             this.groupBox1.Controls.Add(this.month);
-            this.groupBox1.Controls.Add(this.dollar);
-            this.groupBox1.Controls.Add(this.leb);
             this.groupBox1.Controls.Add(this.detail);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.expenseType);
@@ -149,29 +147,80 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
-            // dollar
+            // label8
             // 
-            this.dollar.AutoSize = true;
-            this.dollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dollar.Location = new System.Drawing.Point(1120, 192);
-            this.dollar.Name = "dollar";
-            this.dollar.Size = new System.Drawing.Size(45, 24);
-            this.dollar.TabIndex = 122;
-            this.dollar.Text = "$$";
-            this.dollar.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(735, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.TabIndex = 126;
+            this.label8.Text = "Year";
             // 
-            // leb
+            // label6
             // 
-            this.leb.AutoSize = true;
-            this.leb.Checked = true;
-            this.leb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leb.Location = new System.Drawing.Point(1043, 192);
-            this.leb.Name = "leb";
-            this.leb.Size = new System.Drawing.Size(58, 24);
-            this.leb.TabIndex = 121;
-            this.leb.TabStop = true;
-            this.leb.Text = "LEB";
-            this.leb.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(487, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.TabIndex = 125;
+            this.label6.Text = "Month";
+            // 
+            // year
+            // 
+            this.year.BackColor = System.Drawing.Color.White;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.year.Location = new System.Drawing.Point(821, 112);
+            this.year.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.year.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(80, 26);
+            this.year.TabIndex = 124;
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.year.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            // 
+            // month
+            // 
+            this.month.BackColor = System.Drawing.Color.White;
+            this.month.DisplayMember = "(none)";
+            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.month.FormattingEnabled = true;
+            this.month.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.month.Location = new System.Drawing.Point(573, 111);
+            this.month.Name = "month";
+            this.month.Size = new System.Drawing.Size(141, 28);
+            this.month.TabIndex = 123;
+            this.month.ValueMember = "(none)";
             // 
             // detail
             // 
@@ -329,80 +378,16 @@
             this.receiptNumber.TabIndex = 123;
             this.receiptNumber.ValueMember = "(none)";
             // 
-            // label8
+            // label10
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(735, 115);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 20);
-            this.label8.TabIndex = 126;
-            this.label8.Text = "Year";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(487, 115);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 20);
-            this.label6.TabIndex = 125;
-            this.label6.Text = "Month";
-            // 
-            // year
-            // 
-            this.year.BackColor = System.Drawing.Color.White;
-            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.year.Location = new System.Drawing.Point(821, 112);
-            this.year.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.year.Minimum = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(80, 26);
-            this.year.TabIndex = 124;
-            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.year.Value = new decimal(new int[] {
-            2021,
-            0,
-            0,
-            0});
-            // 
-            // month
-            // 
-            this.month.BackColor = System.Drawing.Color.White;
-            this.month.DisplayMember = "(none)";
-            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.month.FormattingEnabled = true;
-            this.month.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.month.Location = new System.Drawing.Point(573, 111);
-            this.month.Name = "month";
-            this.month.Size = new System.Drawing.Size(141, 28);
-            this.month.TabIndex = 123;
-            this.month.ValueMember = "(none)";
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1048, 192);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 20);
+            this.label10.TabIndex = 127;
+            this.label10.Text = "$$";
             // 
             // EditRealEstateExpense
             // 
@@ -421,8 +406,8 @@
             this.Load += new System.EventHandler(this.EditRealEstateExpense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.amount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,8 +420,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton dollar;
-        private System.Windows.Forms.RadioButton leb;
         private System.Windows.Forms.TextBox detail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox expenseType;
@@ -454,5 +437,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown year;
         private System.Windows.Forms.ComboBox month;
+        private System.Windows.Forms.Label label10;
     }
 }

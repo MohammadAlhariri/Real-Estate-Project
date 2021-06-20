@@ -86,13 +86,9 @@ namespace RealEstateProject.Edit
         {
             DataRow[] dataRows = Connection.getAppartments().Select("iddepartment = " + AppartmentNumber.SelectedValue.ToString());
             DataRow dataRow = dataRows[0];
-            yInDollar.Text = dataRow["yearlyRentalInDollar"].ToString();
             mInDollar.Text = dataRow["monthlyRentalInDollar"].ToString();
-            dInDollar.Text = dataRow["dailyRentalInDollar"].ToString();
             type.Text = dataRow["type"].ToString();
-            yInLera.Text = dataRow["yearlyRentalInLera"].ToString();
-            mInLera.Text = dataRow["monthlyRentalInLera"].ToString();
-            dInLera.Text = dataRow["dailyRentalInLera"].ToString();
+
             floor.Value = Convert.ToInt32(dataRow["floor"].ToString());
             numberOfRooms.Value = Convert.ToInt32(dataRow["numberOfRooms"].ToString());
             details.Text = dataRow["details"].ToString();
@@ -113,8 +109,8 @@ namespace RealEstateProject.Edit
                 int results = Connection.updateDepartment(
                     AppartmentNumber.SelectedValue.ToString(), owner.SelectedValue.ToString(), 
                     floor.Text, buildingNumber.SelectedValue.ToString(), type.Text,
-                    numberOfRooms.Value.ToString(), dInDollar.Text, mInDollar.Text, 
-                    yInDollar.Text, dInLera.Text, mInLera.Text, yInLera.Text, details.Text);
+                    numberOfRooms.Value.ToString(),mInDollar.Text, 
+                    details.Text);
 
                 if (results == 0)
                 {

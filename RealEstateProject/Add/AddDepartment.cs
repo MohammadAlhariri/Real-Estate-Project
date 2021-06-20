@@ -65,7 +65,7 @@ namespace RealEstateProject
                 //public int insertDepartment(string appartmentNumber , string ownerID, string floor, string buildingID, string type, string numberOfRooms, string dailyRentalInDollar, string monthlyRentalInDollar, string yearlyRentalInDollar, string dailyRentalInLera, string monthlyRentalInLera, string yearlyRentalInLera, string details)
 
                 int results = Connection.insertDepartment(
-                    appartmentNumber.Text, owner.SelectedValue.ToString(), floor.Text, buildingNumber.SelectedValue.ToString(), type.Text, numberOfRooms.Value.ToString(), dInDollar.Text, mInDollar.Text, yInDollar.Text, dInLera.Text, mInLera.Text, yInLera.Text, details.Text);
+                    appartmentNumber.Value.ToString(), owner.SelectedValue.ToString(), floor.Text, buildingNumber.SelectedValue.ToString(), type.Text, numberOfRooms.Value.ToString(), mInDollar.Text, details.Text);
 
                 if (results == 0)
                 {
@@ -112,6 +112,11 @@ namespace RealEstateProject
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void type_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

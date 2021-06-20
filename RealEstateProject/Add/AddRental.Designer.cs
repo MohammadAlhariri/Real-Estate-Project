@@ -49,8 +49,6 @@
             this.paymentMethod = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.realestateNumber = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.type = new System.Windows.Forms.TextBox();
             this.graceMonth = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.rentPercentage = new System.Windows.Forms.NumericUpDown();
@@ -308,25 +306,6 @@
             this.realestateNumber.ValueMember = "(none)";
             this.realestateNumber.SelectedIndexChanged += new System.EventHandler(this.RealestateNumber_SelectedIndexChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(832, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 20);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Type";
-            // 
-            // type
-            // 
-            this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type.Location = new System.Drawing.Point(901, 140);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(300, 26);
-            this.type.TabIndex = 59;
-            // 
             // graceMonth
             // 
             this.graceMonth.BackColor = System.Drawing.Color.White;
@@ -405,6 +384,7 @@
             this.services.Name = "services";
             this.services.Size = new System.Drawing.Size(274, 151);
             this.services.TabIndex = 76;
+            this.services.SelectedIndexChanged += new System.EventHandler(this.services_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -439,7 +419,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.rentalType);
             this.Controls.Add(this.startDate);
-            this.Controls.Add(this.type);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rentals);
@@ -452,7 +431,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "AddRental";
             this.Text = "AddRental";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -488,8 +466,6 @@
         private System.Windows.Forms.ComboBox paymentMethod;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox realestateNumber;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox type;
         private System.Windows.Forms.NumericUpDown graceMonth;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown rentPercentage;

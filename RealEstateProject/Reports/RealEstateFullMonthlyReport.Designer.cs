@@ -34,7 +34,7 @@
             this.realEstate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.ownerID = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
@@ -51,7 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.vendor = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.monthlyRental = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -59,6 +58,29 @@
             this.button4 = new System.Windows.Forms.Button();
             this.monthlyExpences = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.note = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lastMonth = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.statement = new System.Windows.Forms.Label();
+            this.lockbtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.current = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.statementThisMonth = new System.Windows.Forms.Label();
+            this.noteThisMonth = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.totalMonthleExpencess = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.totalMontlyRentals = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.totalMonthlyExpences = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,10 +91,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.monthlyRental)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyExpences)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -84,8 +108,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1251, 635);
-            this.splitContainer1.SplitterDistance = 60;
+            this.splitContainer1.Size = new System.Drawing.Size(1301, 719);
+            this.splitContainer1.SplitterDistance = 67;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer1_SplitterMoved);
             // 
@@ -97,14 +121,17 @@
             this.flowLayoutPanel1.Controls.Add(this.realEstate);
             this.flowLayoutPanel1.Controls.Add(this.label6);
             this.flowLayoutPanel1.Controls.Add(this.ownerID);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button5);
+            this.flowLayoutPanel1.Controls.Add(this.label13);
+            this.flowLayoutPanel1.Controls.Add(this.month);
+            this.flowLayoutPanel1.Controls.Add(this.label12);
+            this.flowLayoutPanel1.Controls.Add(this.year);
+            this.flowLayoutPanel1.Controls.Add(this.button6);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1251, 60);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1301, 67);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // label7
@@ -153,34 +180,33 @@
             this.ownerID.TabIndex = 21;
             this.ownerID.Text = "label3";
             // 
-            // button5
+            // button1
             // 
-            this.button5.Location = new System.Drawing.Point(690, 13);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(127, 36);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Back";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1044, 196);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 49);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1251, 571);
+            this.tabControl1.Size = new System.Drawing.Size(1301, 648);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.year);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.month);
+            this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.numberOfRenters);
             this.tabPage1.Controls.Add(this.label9);
@@ -195,7 +221,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1243, 542);
+            this.tabPage1.Size = new System.Drawing.Size(1293, 619);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Monthly Rentals";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -203,9 +229,9 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(621, 16);
+            this.button6.Location = new System.Drawing.Point(858, 13);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(150, 42);
+            this.button6.Size = new System.Drawing.Size(150, 39);
             this.button6.TabIndex = 162;
             this.button6.Text = "Get Rentals";
             this.button6.UseVisualStyleBackColor = true;
@@ -231,7 +257,7 @@
             "October",
             "November",
             "December"});
-            this.year.Location = new System.Drawing.Point(476, 23);
+            this.year.Location = new System.Drawing.Point(758, 13);
             this.year.Name = "year";
             this.year.Size = new System.Drawing.Size(94, 28);
             this.year.TabIndex = 161;
@@ -242,7 +268,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(398, 27);
+            this.label12.Location = new System.Drawing.Point(709, 10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 20);
             this.label12.TabIndex = 160;
@@ -253,7 +279,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(187, 27);
+            this.label13.Location = new System.Drawing.Point(549, 10);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 20);
             this.label13.TabIndex = 159;
@@ -279,7 +305,7 @@
             "October",
             "November",
             "December"});
-            this.month.Location = new System.Drawing.Point(276, 23);
+            this.month.Location = new System.Drawing.Point(609, 13);
             this.month.Name = "month";
             this.month.Size = new System.Drawing.Size(94, 28);
             this.month.TabIndex = 157;
@@ -385,16 +411,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Add new";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(549, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 36);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // monthlyRental
             // 
@@ -402,7 +419,7 @@
             this.monthlyRental.Location = new System.Drawing.Point(38, 75);
             this.monthlyRental.Name = "monthlyRental";
             this.monthlyRental.ReadOnly = true;
-            this.monthlyRental.Size = new System.Drawing.Size(1197, 400);
+            this.monthlyRental.Size = new System.Drawing.Size(1236, 400);
             this.monthlyRental.TabIndex = 12;
             // 
             // label2
@@ -417,6 +434,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.totalMonthleExpencess);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.monthlyExpences);
@@ -424,7 +444,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1243, 564);
+            this.tabPage2.Size = new System.Drawing.Size(1293, 619);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Monthly Expences";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -438,6 +458,7 @@
             this.button3.TabIndex = 22;
             this.button3.Text = "Add new";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -448,6 +469,7 @@
             this.button4.TabIndex = 21;
             this.button4.Text = "Print";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // monthlyExpences
             // 
@@ -455,7 +477,7 @@
             this.monthlyExpences.Location = new System.Drawing.Point(38, 77);
             this.monthlyExpences.Name = "monthlyExpences";
             this.monthlyExpences.ReadOnly = true;
-            this.monthlyExpences.Size = new System.Drawing.Size(1197, 458);
+            this.monthlyExpences.Size = new System.Drawing.Size(1197, 355);
             this.monthlyExpences.TabIndex = 20;
             // 
             // label3
@@ -468,10 +490,284 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Monthly Expences";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.totalMonthlyExpences);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.totalMontlyRentals);
+            this.tabPage3.Controls.Add(this.button7);
+            this.tabPage3.Controls.Add(this.noteThisMonth);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.current);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.statementThisMonth);
+            this.tabPage3.Controls.Add(this.lockbtn);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.note);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.lastMonth);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.statement);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1293, 619);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Result";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(103, 69);
+            this.label8.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 24);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Note  : ";
+            // 
+            // note
+            // 
+            this.note.AutoSize = true;
+            this.note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note.Location = new System.Drawing.Point(238, 71);
+            this.note.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.note.Name = "note";
+            this.note.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.note.Size = new System.Drawing.Size(91, 20);
+            this.note.TabIndex = 35;
+            this.note.Text = "note";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(17, 29);
+            this.label14.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(236, 24);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Previous Month Balance";
+            // 
+            // lastMonth
+            // 
+            this.lastMonth.AutoSize = true;
+            this.lastMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastMonth.Location = new System.Drawing.Point(310, 31);
+            this.lastMonth.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.lastMonth.Name = "lastMonth";
+            this.lastMonth.Size = new System.Drawing.Size(51, 20);
+            this.lastMonth.TabIndex = 33;
+            this.lastMonth.Text = "label4";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(701, 29);
+            this.label16.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(120, 24);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Statement : ";
+            // 
+            // statement
+            // 
+            this.statement.AutoSize = true;
+            this.statement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statement.Location = new System.Drawing.Point(878, 31);
+            this.statement.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.statement.Name = "statement";
+            this.statement.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.statement.Size = new System.Drawing.Size(131, 20);
+            this.statement.TabIndex = 32;
+            this.statement.Text = "statement";
+            // 
+            // lockbtn
+            // 
+            this.lockbtn.BackColor = System.Drawing.Color.Red;
+            this.lockbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lockbtn.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lockbtn.Location = new System.Drawing.Point(1044, 19);
+            this.lockbtn.Name = "lockbtn";
+            this.lockbtn.Size = new System.Drawing.Size(208, 46);
+            this.lockbtn.TabIndex = 36;
+            this.lockbtn.Text = "Lock Month";
+            this.lockbtn.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(102, 175);
+            this.label4.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 24);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Note  : ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(17, 131);
+            this.label15.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(224, 24);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "Current Month Balance";
+            // 
+            // current
+            // 
+            this.current.AutoSize = true;
+            this.current.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current.Location = new System.Drawing.Point(310, 133);
+            this.current.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.current.Name = "current";
+            this.current.Size = new System.Drawing.Size(59, 20);
+            this.current.TabIndex = 40;
+            this.current.Text = "current";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(701, 121);
+            this.label18.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(120, 24);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Statement : ";
+            // 
+            // statementThisMonth
+            // 
+            this.statementThisMonth.AutoSize = true;
+            this.statementThisMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statementThisMonth.Location = new System.Drawing.Point(878, 123);
+            this.statementThisMonth.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.statementThisMonth.Name = "statementThisMonth";
+            this.statementThisMonth.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.statementThisMonth.Size = new System.Drawing.Size(110, 20);
+            this.statementThisMonth.TabIndex = 39;
+            this.statementThisMonth.Text = "label19";
+            // 
+            // noteThisMonth
+            // 
+            this.noteThisMonth.BackColor = System.Drawing.Color.White;
+            this.noteThisMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteThisMonth.Location = new System.Drawing.Point(186, 175);
+            this.noteThisMonth.Name = "noteThisMonth";
+            this.noteThisMonth.Size = new System.Drawing.Size(427, 29);
+            this.noteThisMonth.TabIndex = 42;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.Cornsilk;
+            this.button7.Location = new System.Drawing.Point(1044, 109);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(208, 46);
+            this.button7.TabIndex = 43;
+            this.button7.Text = "Update Month Info";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(51, 496);
+            this.label19.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(168, 24);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "Total Expences :";
+            // 
+            // totalMonthleExpencess
+            // 
+            this.totalMonthleExpencess.AutoSize = true;
+            this.totalMonthleExpencess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalMonthleExpencess.Location = new System.Drawing.Point(232, 500);
+            this.totalMonthleExpencess.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.totalMonthleExpencess.Name = "totalMonthleExpencess";
+            this.totalMonthleExpencess.Size = new System.Drawing.Size(51, 20);
+            this.totalMonthleExpencess.TabIndex = 32;
+            this.totalMonthleExpencess.Text = "label4";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(17, 263);
+            this.label10.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(210, 24);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Total Monthly Rentals";
+            // 
+            // totalMontlyRentals
+            // 
+            this.totalMontlyRentals.AutoSize = true;
+            this.totalMontlyRentals.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalMontlyRentals.Location = new System.Drawing.Point(310, 265);
+            this.totalMontlyRentals.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.totalMontlyRentals.Name = "totalMontlyRentals";
+            this.totalMontlyRentals.Size = new System.Drawing.Size(60, 20);
+            this.totalMontlyRentals.TabIndex = 45;
+            this.totalMontlyRentals.Text = "label17";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(17, 317);
+            this.label17.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(235, 24);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Total Monthly Expences";
+            // 
+            // totalMonthlyExpences
+            // 
+            this.totalMonthlyExpences.AutoSize = true;
+            this.totalMonthlyExpences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalMonthlyExpences.Location = new System.Drawing.Point(310, 319);
+            this.totalMonthlyExpences.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.totalMonthlyExpences.Name = "totalMonthlyExpences";
+            this.totalMonthlyExpences.Size = new System.Drawing.Size(60, 20);
+            this.totalMonthlyExpences.TabIndex = 47;
+            this.totalMonthlyExpences.Text = "label17";
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(1085, 16);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(134, 42);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "Print";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_2);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(377, 500);
+            this.label20.Margin = new System.Windows.Forms.Padding(10, 5, 3, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(458, 20);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "( if you have minus here that mean there are a money for owner)";
+            // 
             // RealEstateFullMonthlyReport
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1251, 635);
+            this.ClientSize = new System.Drawing.Size(1301, 719);
             this.Controls.Add(this.splitContainer1);
             this.Name = "RealEstateFullMonthlyReport";
             this.Text = "RealEstateFullMonthlyReport";
@@ -491,6 +787,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyExpences)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -503,7 +801,6 @@
         private System.Windows.Forms.Label realEstate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label ownerID;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button2;
@@ -515,6 +812,11 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView monthlyExpences;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ComboBox year;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox month;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label numberOfRenters;
         private System.Windows.Forms.Label label9;
@@ -523,10 +825,28 @@
         private System.Windows.Forms.Label total;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label vendor;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox year;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox month;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label totalMonthleExpencess;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox noteThisMonth;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label current;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label statementThisMonth;
+        private System.Windows.Forms.Button lockbtn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label note;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lastMonth;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label statement;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label totalMonthlyExpences;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label totalMontlyRentals;
+        private System.Windows.Forms.Label label20;
     }
 }

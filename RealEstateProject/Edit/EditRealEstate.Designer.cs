@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.services = new System.Windows.Forms.CheckedListBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.currentState = new System.Windows.Forms.ComboBox();
@@ -43,22 +45,17 @@
             this.value = new System.Windows.Forms.TextBox();
             this.buildingNumber = new System.Windows.Forms.TextBox();
             this.neigborhood = new System.Windows.Forms.TextBox();
-            this.collectorPercentage = new System.Windows.Forms.NumericUpDown();
             this.states = new System.Windows.Forms.ComboBox();
             this.country = new System.Windows.Forms.ComboBox();
             this.owner = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.realEstateNumber = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.services = new System.Windows.Forms.CheckedListBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.collectorPercentage)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -125,12 +122,10 @@
             this.groupBox1.Controls.Add(this.value);
             this.groupBox1.Controls.Add(this.buildingNumber);
             this.groupBox1.Controls.Add(this.neigborhood);
-            this.groupBox1.Controls.Add(this.collectorPercentage);
             this.groupBox1.Controls.Add(this.states);
             this.groupBox1.Controls.Add(this.country);
             this.groupBox1.Controls.Add(this.owner);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -142,6 +137,32 @@
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            // 
+            // services
+            // 
+            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.services.FormattingEnabled = true;
+            this.services.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.services.Location = new System.Drawing.Point(895, 144);
+            this.services.Name = "services";
+            this.services.Size = new System.Drawing.Size(213, 130);
+            this.services.TabIndex = 78;
+            this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.Services_ItemCheck);
+            this.services.SelectedIndexChanged += new System.EventHandler(this.Services_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(781, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 20);
+            this.label13.TabIndex = 77;
+            this.label13.Text = "Services IN";
             // 
             // label11
             // 
@@ -173,9 +194,11 @@
             this.currentState.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.currentState.FormattingEnabled = true;
             this.currentState.Items.AddRange(new object[] {
-            "Bad -> Good",
-            "Good -> VeryGood",
-            "VeryGood -> Excellent"});
+            "popular",
+            "popular to middle",
+            "middle ",
+            "middle to luxurious",
+            "luxurious"});
             this.currentState.Location = new System.Drawing.Point(943, 40);
             this.currentState.Name = "currentState";
             this.currentState.Size = new System.Drawing.Size(191, 28);
@@ -269,16 +292,6 @@
             this.neigborhood.Size = new System.Drawing.Size(187, 29);
             this.neigborhood.TabIndex = 67;
             // 
-            // collectorPercentage
-            // 
-            this.collectorPercentage.BackColor = System.Drawing.Color.White;
-            this.collectorPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collectorPercentage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.collectorPercentage.Location = new System.Drawing.Point(639, 190);
-            this.collectorPercentage.Name = "collectorPercentage";
-            this.collectorPercentage.Size = new System.Drawing.Size(63, 26);
-            this.collectorPercentage.TabIndex = 66;
-            // 
             // states
             // 
             this.states.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -330,17 +343,6 @@
             this.label8.Size = new System.Drawing.Size(101, 20);
             this.label8.TabIndex = 62;
             this.label8.Text = "Owner Name";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(423, 194);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 20);
-            this.label7.TabIndex = 61;
-            this.label7.Text = "Collector\'s Percentage";
             // 
             // label6
             // 
@@ -403,7 +405,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(888, 46);
             this.button3.Name = "button3";
@@ -412,32 +414,6 @@
             this.button3.Text = "get RealEstate";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
-            // 
-            // services
-            // 
-            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.services.FormattingEnabled = true;
-            this.services.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.services.Location = new System.Drawing.Point(895, 144);
-            this.services.Name = "services";
-            this.services.Size = new System.Drawing.Size(213, 130);
-            this.services.TabIndex = 78;
-            this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.Services_ItemCheck);
-            this.services.SelectedIndexChanged += new System.EventHandler(this.Services_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(781, 146);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 20);
-            this.label13.TabIndex = 77;
-            this.label13.Text = "Services IN";
             // 
             // EditRealEstate
             // 
@@ -457,7 +433,6 @@
             this.Load += new System.EventHandler(this.EditRealEstate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.collectorPercentage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,12 +454,10 @@
         private System.Windows.Forms.TextBox value;
         private System.Windows.Forms.TextBox buildingNumber;
         private System.Windows.Forms.TextBox neigborhood;
-        private System.Windows.Forms.NumericUpDown collectorPercentage;
         private System.Windows.Forms.ComboBox states;
         private System.Windows.Forms.ComboBox country;
         private System.Windows.Forms.ComboBox owner;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

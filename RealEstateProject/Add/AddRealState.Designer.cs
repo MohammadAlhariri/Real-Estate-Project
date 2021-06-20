@@ -34,12 +34,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.owner = new System.Windows.Forms.ComboBox();
             this.country = new System.Windows.Forms.ComboBox();
             this.states = new System.Windows.Forms.ComboBox();
-            this.collectorPercentage = new System.Windows.Forms.NumericUpDown();
             this.neigborhood = new System.Windows.Forms.TextBox();
             this.buildingNumber = new System.Windows.Forms.TextBox();
             this.value = new System.Windows.Forms.TextBox();
@@ -56,7 +54,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.services = new System.Windows.Forms.CheckedListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.collectorPercentage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.realEstates)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,17 +112,6 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Value";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(598, 197);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Collector\'s Percentage";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -144,7 +130,7 @@
             this.owner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.owner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.owner.FormattingEnabled = true;
-            this.owner.Location = new System.Drawing.Point(947, 101);
+            this.owner.Location = new System.Drawing.Point(973, 102);
             this.owner.Name = "owner";
             this.owner.Size = new System.Drawing.Size(178, 28);
             this.owner.TabIndex = 8;
@@ -177,16 +163,6 @@
             this.states.TabIndex = 10;
             this.states.ValueMember = "(none)";
             this.states.SelectedIndexChanged += new System.EventHandler(this.States_SelectedIndexChanged);
-            // 
-            // collectorPercentage
-            // 
-            this.collectorPercentage.BackColor = System.Drawing.Color.White;
-            this.collectorPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collectorPercentage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.collectorPercentage.Location = new System.Drawing.Point(791, 194);
-            this.collectorPercentage.Name = "collectorPercentage";
-            this.collectorPercentage.Size = new System.Drawing.Size(64, 26);
-            this.collectorPercentage.TabIndex = 11;
             // 
             // neigborhood
             // 
@@ -292,9 +268,11 @@
             this.currentState.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.currentState.FormattingEnabled = true;
             this.currentState.Items.AddRange(new object[] {
-            "Bad -> Good",
-            "Good -> VeryGood",
-            "VeryGood -> Excellent"});
+            "popular",
+            "popular to middle",
+            "middle ",
+            "middle to luxurious",
+            "luxurious"});
             this.currentState.Location = new System.Drawing.Point(146, 242);
             this.currentState.Name = "currentState";
             this.currentState.Size = new System.Drawing.Size(178, 28);
@@ -355,7 +333,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(880, 197);
+            this.label13.Location = new System.Drawing.Point(644, 200);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 20);
             this.label13.TabIndex = 33;
@@ -369,9 +347,9 @@
             "1",
             "2",
             "3"});
-            this.services.Location = new System.Drawing.Point(994, 195);
+            this.services.Location = new System.Drawing.Point(763, 195);
             this.services.Name = "services";
-            this.services.Size = new System.Drawing.Size(213, 130);
+            this.services.Size = new System.Drawing.Size(444, 130);
             this.services.TabIndex = 35;
             this.services.SelectedIndexChanged += new System.EventHandler(this.Services_SelectedIndexChanged);
             // 
@@ -397,12 +375,10 @@
             this.Controls.Add(this.value);
             this.Controls.Add(this.buildingNumber);
             this.Controls.Add(this.neigborhood);
-            this.Controls.Add(this.collectorPercentage);
             this.Controls.Add(this.states);
             this.Controls.Add(this.country);
             this.Controls.Add(this.owner);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -413,7 +389,6 @@
             this.Text = "AddRealState";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddRealState_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.collectorPercentage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.realEstates)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -427,12 +402,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox owner;
         private System.Windows.Forms.ComboBox country;
         private System.Windows.Forms.ComboBox states;
-        private System.Windows.Forms.NumericUpDown collectorPercentage;
         private System.Windows.Forms.TextBox neigborhood;
         private System.Windows.Forms.TextBox buildingNumber;
         private System.Windows.Forms.TextBox value;

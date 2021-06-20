@@ -113,8 +113,6 @@ namespace RealEstateProject
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             saveFileDialog1.Title = "Save Pdf Files";
-            saveFileDialog1.CheckFileExists = true;
-            saveFileDialog1.CheckPathExists = true;
             saveFileDialog1.DefaultExt = "pdf";
             saveFileDialog1.Filter = "pdf file (*.pdf)|*.pdf";
             saveFileDialog1.FilterIndex = 2;

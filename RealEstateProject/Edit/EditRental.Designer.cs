@@ -33,6 +33,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.services = new System.Windows.Forms.CheckedListBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.rentPercentage = new System.Windows.Forms.NumericUpDown();
@@ -45,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rentalType = new System.Windows.Forms.ComboBox();
             this.startDate = new System.Windows.Forms.DateTimePicker();
-            this.type = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.rentDuration = new System.Windows.Forms.NumericUpDown();
             this.renter = new System.Windows.Forms.ComboBox();
@@ -53,15 +54,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.realestateNumber = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.appartmentNumber = new System.Windows.Forms.ComboBox();
             this.rentalNumber = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.services = new System.Windows.Forms.CheckedListBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentPercentage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graceMonth)).BeginInit();
@@ -136,7 +134,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.rentalType);
             this.groupBox1.Controls.Add(this.startDate);
-            this.groupBox1.Controls.Add(this.type);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.rentDuration);
             this.groupBox1.Controls.Add(this.renter);
@@ -144,7 +141,6 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 118);
             this.groupBox1.Name = "groupBox1";
@@ -152,6 +148,32 @@
             this.groupBox1.TabIndex = 92;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // services
+            // 
+            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.services.FormattingEnabled = true;
+            this.services.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.services.Location = new System.Drawing.Point(690, 164);
+            this.services.Name = "services";
+            this.services.Size = new System.Drawing.Size(388, 151);
+            this.services.TabIndex = 114;
+            this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.Services_ItemCheck);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(579, 164);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(89, 20);
+            this.label17.TabIndex = 113;
+            this.label17.Text = "Services IN";
             // 
             // label15
             // 
@@ -288,14 +310,6 @@
             this.startDate.Size = new System.Drawing.Size(296, 26);
             this.startDate.TabIndex = 101;
             // 
-            // type
-            // 
-            this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type.Location = new System.Drawing.Point(870, 102);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(300, 26);
-            this.type.TabIndex = 100;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -373,17 +387,6 @@
             this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 91;
             this.label2.Text = "Renter Name";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(801, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 20);
-            this.label1.TabIndex = 90;
-            this.label1.Text = "Type";
             // 
             // label10
             // 
@@ -465,31 +468,6 @@
             this.label12.TabIndex = 110;
             this.label12.Text = "Rental Number";
             // 
-            // services
-            // 
-            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.services.FormattingEnabled = true;
-            this.services.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.services.Location = new System.Drawing.Point(690, 164);
-            this.services.Name = "services";
-            this.services.Size = new System.Drawing.Size(388, 151);
-            this.services.TabIndex = 114;
-            this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.Services_ItemCheck);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(579, 164);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 20);
-            this.label17.TabIndex = 113;
-            this.label17.Text = "Services IN";
-            // 
             // EditRental
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -532,7 +510,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox rentalType;
         private System.Windows.Forms.DateTimePicker startDate;
-        private System.Windows.Forms.TextBox type;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown rentDuration;
         private System.Windows.Forms.ComboBox renter;
@@ -540,7 +517,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox realestateNumber;
         private System.Windows.Forms.Label label9;

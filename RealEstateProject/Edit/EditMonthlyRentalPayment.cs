@@ -137,10 +137,7 @@ namespace RealEstateProject.Edit
             checkNumber.Text = dataRow["checkNumber"].ToString();
             month.Text = dataRow["month"].ToString();
             year.Value = Convert.ToInt32(dataRow["year"].ToString());
-            if (dataRow["moneyType"].ToString().Equals("$$"))
-                dollar.Checked = true;
-            else
-                leb.Checked = true;
+           
 
 
 
@@ -171,13 +168,13 @@ namespace RealEstateProject.Edit
             Color color = Color.White;
             try
             {
-                string moneyType = (leb.Checked) ? leb.Text : dollar.Text;
+                
 
                 int results = Connection.updateMonthlyRentalPayments(
                                     renterName.SelectedValue.ToString(),
                                     AppartmentNumber.SelectedValue.ToString(),
                                     amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.SelectedValue.ToString(), month.Text, year.Value.ToString(), moneyType);
+                                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.SelectedValue.ToString(), month.Text, year.Value.ToString());
 
                 if (results == 0)
                 {
