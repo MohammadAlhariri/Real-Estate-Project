@@ -75,9 +75,9 @@ namespace RealEstateProject.Reports
             numberOfRenters.Text= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text +"'").CopyToDataTable().DefaultView.ToTable(true,"renterID").Rows.Count+"";
             double totalExpences = checkNull(connection.monthly_expense_report(realEstateModel.RealEstateID).Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType <> 'Payed by owner'"));
             double totalExpencesByOwner = checkNull(connection.monthly_expense_report(realEstateModel.RealEstateID).Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType = 'Payed by owner'"));
-            totalMonthleExpencess.Text = (totalExpences - totalExpencesByOwner) + "";
-            totalMonthlyExpences.Text= (totalExpences - totalExpencesByOwner) + "";
-            current.Text = ((totalExpences - totalExpencesByOwner) + (totalAmount - (totalAmount * 0.1)))+"";
+            totalMonthleExpencess.Text = (totalExpences + totalExpencesByOwner) + "";
+            totalMonthlyExpences.Text= (totalExpences + totalExpencesByOwner) + "";
+            current.Text = ((totalExpences + totalExpencesByOwner) + (totalAmount - (totalAmount * 0.1)))+"";
         }
 
         private void realEstate_Click(object sender, EventArgs e)
@@ -131,6 +131,11 @@ namespace RealEstateProject.Reports
            
             return 0;
            
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

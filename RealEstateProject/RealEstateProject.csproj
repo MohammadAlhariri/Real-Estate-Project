@@ -156,6 +156,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add\AddAppartmentServicesExpences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddAppartmentServicesExpences.Designer.cs">
+      <DependentUpon>AddAppartmentServicesExpences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,11 +174,23 @@
     <Compile Include="Add\AddMonthlyRentalPayments.Designer.cs">
       <DependentUpon>AddMonthlyRentalPayments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add\AddMonthlyServisesPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddMonthlyServisesPayment.Designer.cs">
+      <DependentUpon>AddMonthlyServisesPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add\AddPerson.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Add\AddPerson.Designer.cs">
       <DependentUpon>AddPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add\AddRealEstateServicesExpences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddRealEstateServicesExpences.Designer.cs">
+      <DependentUpon>AddRealEstateServicesExpences.cs</DependentUpon>
     </Compile>
     <Compile Include="Add\AddRealState.cs">
       <SubType>Form</SubType>
@@ -281,14 +299,23 @@
     <Compile Include="RealEstateRow.Designer.cs">
       <DependentUpon>RealEstateRow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add\AddAppartmentServicesExpences.resx">
+      <DependentUpon>AddAppartmentServicesExpences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add\AddDepartment.resx">
       <DependentUpon>AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add\AddMonthlyRentalPayments.resx">
       <DependentUpon>AddMonthlyRentalPayments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddMonthlyServisesPayment.resx">
+      <DependentUpon>AddMonthlyServisesPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add\AddPerson.resx">
       <DependentUpon>AddPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddRealEstateServicesExpences.resx">
+      <DependentUpon>AddRealEstateServicesExpences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add\AddRealState.resx">
       <DependentUpon>AddRealState.cs</DependentUpon>

@@ -38,6 +38,8 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addMonthlyRentalPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPredefinedOptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addMonthlyServicePaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRealEstateServicesExpencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editExictToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRealEstateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editAppartmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,12 +49,13 @@
             this.editMonthlyRentalPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPredefinedOptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.realEstatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realEstateTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.realEstatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addAppartmentServicesExpencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +86,10 @@
             this.addRentalToolStripMenuItem,
             this.addToolStripMenuItem,
             this.addMonthlyRentalPaymentToolStripMenuItem,
-            this.addPredefinedOptionToolStripMenuItem});
+            this.addPredefinedOptionToolStripMenuItem,
+            this.addMonthlyServicePaymentToolStripMenuItem,
+            this.addRealEstateServicesExpencesToolStripMenuItem,
+            this.addAppartmentServicesExpencesToolStripMenuItem});
             this.addRealStateToolStripMenuItem.Name = "addRealStateToolStripMenuItem";
             this.addRealStateToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.addRealStateToolStripMenuItem.Text = "Add New";
@@ -92,7 +98,7 @@
             // addRealStateToolStripMenuItem1
             // 
             this.addRealStateToolStripMenuItem1.Name = "addRealStateToolStripMenuItem1";
-            this.addRealStateToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
+            this.addRealStateToolStripMenuItem1.Size = new System.Drawing.Size(251, 22);
             this.addRealStateToolStripMenuItem1.Tag = "estate";
             this.addRealStateToolStripMenuItem1.Text = "AddRealState";
             this.addRealStateToolStripMenuItem1.Click += new System.EventHandler(this.AddRealStateToolStripMenuItem1_Click);
@@ -100,14 +106,14 @@
             // addApartmentToolStripMenuItem
             // 
             this.addApartmentToolStripMenuItem.Name = "addApartmentToolStripMenuItem";
-            this.addApartmentToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addApartmentToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.addApartmentToolStripMenuItem.Text = "AddApartment";
             this.addApartmentToolStripMenuItem.Click += new System.EventHandler(this.AddApartmentToolStripMenuItem_Click);
             // 
             // addPersonToolStripMenuItem
             // 
             this.addPersonToolStripMenuItem.Name = "addPersonToolStripMenuItem";
-            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.addPersonToolStripMenuItem.Tag = "person";
             this.addPersonToolStripMenuItem.Text = "AddPerson";
             this.addPersonToolStripMenuItem.Click += new System.EventHandler(this.AddPersonToolStripMenuItem_Click);
@@ -115,30 +121,44 @@
             // addRentalToolStripMenuItem
             // 
             this.addRentalToolStripMenuItem.Name = "addRentalToolStripMenuItem";
-            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addRentalToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.addRentalToolStripMenuItem.Text = "AddRental";
             this.addRentalToolStripMenuItem.Click += new System.EventHandler(this.AddRentalToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.addToolStripMenuItem.Text = "AddRealStateExpense";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
             // addMonthlyRentalPaymentToolStripMenuItem
             // 
             this.addMonthlyRentalPaymentToolStripMenuItem.Name = "addMonthlyRentalPaymentToolStripMenuItem";
-            this.addMonthlyRentalPaymentToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addMonthlyRentalPaymentToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.addMonthlyRentalPaymentToolStripMenuItem.Text = "AddMonthlyRentalPayment";
             this.addMonthlyRentalPaymentToolStripMenuItem.Click += new System.EventHandler(this.AddMonthlyRentalPaymentToolStripMenuItem_Click);
             // 
             // addPredefinedOptionToolStripMenuItem
             // 
             this.addPredefinedOptionToolStripMenuItem.Name = "addPredefinedOptionToolStripMenuItem";
-            this.addPredefinedOptionToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.addPredefinedOptionToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.addPredefinedOptionToolStripMenuItem.Text = "AddPredefinedOption";
             this.addPredefinedOptionToolStripMenuItem.Click += new System.EventHandler(this.AddPredefinedOptionToolStripMenuItem_Click);
+            // 
+            // addMonthlyServicePaymentToolStripMenuItem
+            // 
+            this.addMonthlyServicePaymentToolStripMenuItem.Name = "addMonthlyServicePaymentToolStripMenuItem";
+            this.addMonthlyServicePaymentToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
+            this.addMonthlyServicePaymentToolStripMenuItem.Text = "AddMonthlyServicePayment";
+            this.addMonthlyServicePaymentToolStripMenuItem.Click += new System.EventHandler(this.addMonthlyServicePaymentToolStripMenuItem_Click);
+            // 
+            // addRealEstateServicesExpencesToolStripMenuItem
+            // 
+            this.addRealEstateServicesExpencesToolStripMenuItem.Name = "addRealEstateServicesExpencesToolStripMenuItem";
+            this.addRealEstateServicesExpencesToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
+            this.addRealEstateServicesExpencesToolStripMenuItem.Text = "AddRealEstateServicesExpences";
+            this.addRealEstateServicesExpencesToolStripMenuItem.Click += new System.EventHandler(this.addRealEstateServicesExpencesToolStripMenuItem_Click);
             // 
             // editExictToolStripMenuItem
             // 
@@ -212,6 +232,13 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
+            // realEstatesToolStripMenuItem
+            // 
+            this.realEstatesToolStripMenuItem.Name = "realEstatesToolStripMenuItem";
+            this.realEstatesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.realEstatesToolStripMenuItem.Text = "Real Estates";
+            this.realEstatesToolStripMenuItem.Click += new System.EventHandler(this.RealEstatesToolStripMenuItem_Click);
+            // 
             // realEstateTradeToolStripMenuItem
             // 
             this.realEstateTradeToolStripMenuItem.Name = "realEstateTradeToolStripMenuItem";
@@ -242,12 +269,12 @@
             this.settingToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.settingToolStripMenuItem.Text = "Setting";
             // 
-            // realEstatesToolStripMenuItem
+            // addAppartmentServicesExpencesToolStripMenuItem
             // 
-            this.realEstatesToolStripMenuItem.Name = "realEstatesToolStripMenuItem";
-            this.realEstatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.realEstatesToolStripMenuItem.Text = "Real Estates";
-            this.realEstatesToolStripMenuItem.Click += new System.EventHandler(this.RealEstatesToolStripMenuItem_Click);
+            this.addAppartmentServicesExpencesToolStripMenuItem.Name = "addAppartmentServicesExpencesToolStripMenuItem";
+            this.addAppartmentServicesExpencesToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
+            this.addAppartmentServicesExpencesToolStripMenuItem.Text = "AddAppartmentServicesExpences";
+            this.addAppartmentServicesExpencesToolStripMenuItem.Click += new System.EventHandler(this.addAppartmentServicesExpencesToolStripMenuItem_Click);
             // 
             // RealEstateManagmentApplication
             // 
@@ -304,6 +331,9 @@
         private System.Windows.Forms.ToolStripMenuItem editMonthlyRentalPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editPredefinedOptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem realEstatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addMonthlyServicePaymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRealEstateServicesExpencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addAppartmentServicesExpencesToolStripMenuItem;
     }
 }
 

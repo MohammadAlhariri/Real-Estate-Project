@@ -1,4 +1,5 @@
-﻿using RealEstateProject.Edit;
+﻿using RealEstateProject.Add;
+using RealEstateProject.Edit;
 using RealEstateProject.Reports;
 using System;
 using System.Collections.Generic;
@@ -156,6 +157,29 @@ namespace RealEstateProject
             RealEstates real = new RealEstates();
             real.MdiParent = this;
             real.Show();
+        }
+
+        private void addMonthlyServicePaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddMonthlyServisesPayment addMonthlyServisesPayment = new AddMonthlyServisesPayment();
+            addMonthlyServisesPayment.MdiParent = this;
+            addMonthlyServisesPayment.Show();
+        }
+
+        private void addRealEstateServicesExpencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRealEstateServicesExpences addRealEstateServicesExpences = new AddRealEstateServicesExpences();
+            addRealEstateServicesExpences.MdiParent = this;
+            addRealEstateServicesExpences.Show();
+                
+        }
+
+        private void addAppartmentServicesExpencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddAppartmentServicesExpences addAppartmentServicesExpences = new AddAppartmentServicesExpences();
+            addAppartmentServicesExpences.MdiParent = this;
+            addAppartmentServicesExpences.Show();
+
         }
     }
 }

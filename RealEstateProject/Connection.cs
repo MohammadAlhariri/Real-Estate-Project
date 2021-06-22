@@ -16,6 +16,31 @@ namespace RealEstateProject
 
         MySqlConnection countryList = new MySqlConnection("server=localhost;user=root;database=CountryList;port=3306;password=;");
         MySqlConnection realEstate = new MySqlConnection("server=localhost;user=root;database=realestate;port=3306;password=;convert zero datetime=True;CHARSET=utf8");
+
+        internal object getMonthlyAppartmentServiseExpences()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getMonthlyAppartmentServiseExpences");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
+        internal DataTable getAllRentalServices()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getAllRentalServices");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
         public Connection()
         {
             //your MySQL connection string
@@ -48,6 +73,24 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
         }
+
+        internal int addMonthlyAppartmentServiseExpences(string v2, string text1, string v3, string text2, string text3, string v4)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand("addMonthlyAppartmentServiseExpences");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("rentalID", v2);
+            sqlCommand.Parameters.AddWithValue("amount", text1);
+            sqlCommand.Parameters.AddWithValue("serviceName", v3);
+            sqlCommand.Parameters.AddWithValue("details", text2);
+
+            sqlCommand.Parameters.AddWithValue("year", v4);
+            sqlCommand.Parameters.AddWithValue("month", text3);
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
+
+        }
+
         public DataTable getRealEstateReport()
         {
             DataSet dataset = new DataSet();
@@ -581,6 +624,17 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
+        }        public DataTable getMonthlyAppartmentServicesPayments()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getMonthlyAppartmentServicesPayments");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+
         }
         public DataTable getOptions()
         {
@@ -737,6 +791,30 @@ namespace RealEstateProject
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("renterID", renterID);
             sqlCommand.Parameters.AddWithValue("appartmentID", appartmentID);
+            sqlCommand.Parameters.AddWithValue("amount", amount);
+            sqlCommand.Parameters.AddWithValue("date", date);
+            sqlCommand.Parameters.AddWithValue("details", details);
+            sqlCommand.Parameters.AddWithValue("payMethod", payMethod);
+            sqlCommand.Parameters.AddWithValue("checkNumber", checkNumber);
+            sqlCommand.Parameters.AddWithValue("bank", bank);
+            sqlCommand.Parameters.AddWithValue("receiptNumber", text);
+            sqlCommand.Parameters.AddWithValue("year", v);
+            sqlCommand.Parameters.AddWithValue("month", text1);
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
+
+
+
+        }        public int addMonthlyRentalServicesPayments(string rentalID, string amount,
+            string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v)
+
+        {
+
+            //(renterID, appartmentID, amount, date, details, payMethod, checkNumber, bank)
+            MySqlCommand sqlCommand = new MySqlCommand("addMonthlyRentalServicesPayments");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("rentalID", rentalID);
             sqlCommand.Parameters.AddWithValue("amount", amount);
             sqlCommand.Parameters.AddWithValue("date", date);
             sqlCommand.Parameters.AddWithValue("details", details);
