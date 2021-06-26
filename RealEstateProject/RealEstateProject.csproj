@@ -281,6 +281,12 @@
     <Compile Include="PrintData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\AppartmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\AppartmentList.Designer.cs">
+      <DependentUpon>AppartmentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RealEstateFullMonthlyReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,12 @@
     </Compile>
     <Compile Include="RealEstateRow.Designer.cs">
       <DependentUpon>RealEstateRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RentersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RentersList.Designer.cs">
+      <DependentUpon>RentersList.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Add\AddAppartmentServicesExpences.resx">
       <DependentUpon>AddAppartmentServicesExpences.cs</DependentUpon>
@@ -370,6 +382,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\AppartmentList.resx">
+      <DependentUpon>AppartmentList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RealEstateFullMonthlyReport.resx">
       <DependentUpon>RealEstateFullMonthlyReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RealEstateRow.resx">
       <DependentUpon>RealEstateRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RentersList.resx">
+      <DependentUpon>RentersList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -23,7 +23,7 @@ namespace RealEstateProject
             monthlyRentalPayments.DataSource = Connection.getMonthlyRentalpayments();
 
         }
-        public AddMonthlyRentalPayments(string realEstateID):this()
+        public AddMonthlyRentalPayments(string realEstateID) : this()
         {
 
             realestateNumber.SelectedValue = realEstateID;
@@ -59,16 +59,13 @@ namespace RealEstateProject
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            /*public int insertMonthlyRentalPayments(string renterID, string appartmentID, string amount,
-            string date, string  details, string  payMethod, string checkNumber,string bank)
 
-        {*/
             Notification notification = new Notification("Added Successfully", Color.RoyalBlue);
             try
             {
                 int results = Connection.insertMonthlyRentalPayments(
-                    renterName.SelectedValue.ToString(), AppartmentNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text,month.Text,year.Value.ToString());
+                    rentalNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, month.Text, year.Value.ToString());
                 if (results == 0)
                 {
 
@@ -188,6 +185,36 @@ namespace RealEstateProject
         private void Label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AppartmentNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (AppartmentNumber.SelectedValue != null && !String.IsNullOrEmpty(AppartmentNumber.SelectedValue.ToString()))
+                {
+                    DataRow[] dataTable = Connection.getRentals().Select("appartmentNumber = " + AppartmentNumber.SelectedValue.ToString());
+                    if (dataTable.Length != 0)
+                    {
+
+                        rentalNumber.DataSource = dataTable.CopyToDataTable();
+                        rentalNumber.DisplayMember = "idental";
+                        rentalNumber.ValueMember = "idental";
+                    }
+                    else
+                    {
+                        rentalNumber.DataSource = null;
+
+
+                    }
+                }
+                else
+                {
+                    rentalNumber.DataSource = null;
+
+                }
+            }
+            catch { }
         }
     }
 }

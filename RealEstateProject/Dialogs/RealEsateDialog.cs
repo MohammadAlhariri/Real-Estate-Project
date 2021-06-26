@@ -138,5 +138,19 @@ namespace RealEstateProject.Dialogs
             editRental.Show();
 
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AppartmentList appartmentList = new AppartmentList(realEstateModel);
+            appartmentList.MdiParent = this.MdiParent;
+            appartmentList.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            RentersList rentersList = new RentersList(realEstateModel);
+            rentersList.MdiParent = this.MdiParent;
+            rentersList.Show();
+        }
     }
 }

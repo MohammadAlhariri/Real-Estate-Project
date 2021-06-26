@@ -17,11 +17,23 @@ namespace RealEstateProject
         MySqlConnection countryList = new MySqlConnection("server=localhost;user=root;database=CountryList;port=3306;password=;");
         MySqlConnection realEstate = new MySqlConnection("server=localhost;user=root;database=realestate;port=3306;password=;convert zero datetime=True;CHARSET=utf8");
 
-        internal object getMonthlyAppartmentServiseExpences()
+        internal DataTable getMonthlyAppartmentServiseExpences()
         {
             DataSet dataset = new DataSet();
 
             MySqlCommand sqlCommand = new MySqlCommand("getMonthlyAppartmentServiseExpences");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
+        internal DataTable getAppartmentReportMonthly()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getAppartmentReportMonthly");
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
@@ -58,6 +70,39 @@ namespace RealEstateProject
                 Console.WriteLine(err.ToString());
             }
 
+        }
+
+        internal int addRealestateServicesExpences(string v1, string v2, string v3, string v4, string text1, string text2, string text3, string v5)
+        {
+          
+                //inserRealEstate
+                MySqlCommand sqlCommand = new MySqlCommand("addRealestateServicesExpences");
+                sqlCommand.Connection = realEstate;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("realestateID", v1);
+                sqlCommand.Parameters.AddWithValue("serviceID", v2);
+                sqlCommand.Parameters.AddWithValue("amount", v3);
+                sqlCommand.Parameters.AddWithValue("date", v4);
+                sqlCommand.Parameters.AddWithValue("detail", text1);
+                sqlCommand.Parameters.AddWithValue("receiptNumber", text2);
+                sqlCommand.Parameters.AddWithValue("month", text3);
+                sqlCommand.Parameters.AddWithValue("year", v5);
+
+                int a = sqlCommand.ExecuteNonQuery();
+                return a;
+          
+        }
+
+        internal DataTable getRealestateServicesExpences()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getRealestateServicesExpences");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
         }
 
         public DataTable getYears(string id)
@@ -780,7 +825,7 @@ namespace RealEstateProject
 
 
         }
-        public int insertMonthlyRentalPayments(string renterID, string appartmentID, string amount,
+        public int insertMonthlyRentalPayments( string rentalID, string amount,
             string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v)
 
         {
@@ -789,8 +834,7 @@ namespace RealEstateProject
             MySqlCommand sqlCommand = new MySqlCommand("addMonthlyRentalPayment");
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("renterID", renterID);
-            sqlCommand.Parameters.AddWithValue("appartmentID", appartmentID);
+            sqlCommand.Parameters.AddWithValue("rentalID", rentalID);
             sqlCommand.Parameters.AddWithValue("amount", amount);
             sqlCommand.Parameters.AddWithValue("date", date);
             sqlCommand.Parameters.AddWithValue("details", details);
