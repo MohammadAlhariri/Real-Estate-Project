@@ -55,12 +55,12 @@ namespace RealEstateProject.Add
 
         private void realestateNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate=" + realestateNumber.SelectedValue.ToString());
+            DataRow[] dataTable = Connection.getRealestateServices().Select("ID=" + realestateNumber.SelectedValue.ToString());
             if (dataTable.Length != 0)
             {
                 services.DataSource = dataTable.CopyToDataTable();
                 services.DisplayMember = "name";
-                services.ValueMember = "idservice";
+                services.ValueMember = "idservices";
             }
             else
             {

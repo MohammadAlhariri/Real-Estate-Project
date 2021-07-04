@@ -63,14 +63,9 @@ namespace RealEstateProject
         }
         private void getServices()
         {
-            DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate ='" + realestateNumber.SelectedValue.ToString()+"'");
-            DataTable dataTable1 = Connection.getRealestateServices().Clone();
-
-            for (int i = 0; i < dataTable.Length; i++)
-            {
-                dataTable1.Rows.Add(dataTable[i].ItemArray);
-            }
-            services.DataSource = dataTable1;
+            DataTable dataTable = Connection.getRealestateServices().Select("ID ='" + realestateNumber.SelectedValue.ToString()+"'").CopyToDataTable();
+ 
+            services.DataSource = dataTable;
             services.DisplayMember = "name";
             services.ValueMember = "idservices";
         }
@@ -136,7 +131,8 @@ namespace RealEstateProject
                 }
                 rentals.DataSource = Connection.getRentals();
 
-                string id = Connection.getRentals().Select("appartmentNumber='" + appartmentNumber.Text+"'")[0][0].ToString();
+                string id = Connection.getRentals().Select("appartmentNumber='" + appartmentNumber.SelectedValue.ToString()+"'").Last()[0].ToString();
+            Console.WriteLine(id);
                 Connection.addRentalService(id, services.CheckedItems);
             }
             catch

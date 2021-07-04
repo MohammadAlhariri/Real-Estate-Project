@@ -25,7 +25,7 @@ namespace RealEstateProject.Add
 
         private void getServices()
         {
-            DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate ='" + realestateNumber.SelectedValue.ToString() + "'");
+            DataRow[] dataTable = Connection.getRealestateServices().Select("ID ='" + realestateNumber.SelectedValue.ToString() + "'");
             DataTable dataTable1 = Connection.getRealestateServices().Clone();
 
             for (int i = 0; i < dataTable.Length; i++)

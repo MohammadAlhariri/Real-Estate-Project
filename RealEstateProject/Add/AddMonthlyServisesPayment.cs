@@ -27,7 +27,7 @@ namespace RealEstateProject.Add
             if (rentalNumber.SelectedValue != null)
             {
                 double services =0, payment =0, nets = 0;
-                DataRow[] dataTable = Connection.getAllRentalServices().Select("idrental=" + rentalNumber.SelectedValue.ToString() + " AND month= '" + month.Text + "' AND year=" + year.Value.ToString());
+                DataRow[] dataTable = Connection.getMonthlyAppartmentServiseExpences().Select("rentalID=" + rentalNumber.SelectedValue.ToString() + " AND month= '" + month.Text + "' AND year=" + year.Value.ToString());
                 if (dataTable.Length != 0)
                 {
                     
@@ -70,7 +70,7 @@ namespace RealEstateProject.Add
                     {
                         serviceName.DataSource = dataTable.CopyToDataTable();
                         serviceName.DisplayMember = "name";
-                        serviceName.ValueMember = "idservices";
+                        serviceName.ValueMember = "idservice";
                     }
                     else
                     {
@@ -198,11 +198,11 @@ namespace RealEstateProject.Add
         {
             //addMonthlyRentalPayment
             Notification notification = new Notification("Added Successfully", Color.RoyalBlue);
-/*            try
-            {*/
-                int results = Connection.addMonthlyRentalServicesPayments(
-                    rentalNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, month.Text, year.Value.ToString());
+            /*            try
+                        {*/
+            int results = Connection.addMonthlyRentalServicesPayments(
+                rentalNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, month.Text, year.Value.ToString(), serviceName.SelectedValue.ToString());
                 if (results == 0)
                 {
 

@@ -35,7 +35,27 @@ namespace RealEstateProject.Reports
         {
             //getAppartmentReportMonthly();
 
-            renters.DataSource=Connection.getAppartmentReportMonthly().Select("buildingID ="+realEstateModel.RealEstateID).CopyToDataTable();
+            renters.DataSource = Connection.getAppartmentReportMonthly().Select("buildingID =" + realEstateModel.RealEstateID).CopyToDataTable();
+            DataGridViewButtonColumn uninstallButtonColumn = new DataGridViewButtonColumn();
+            uninstallButtonColumn.Name = "ShowInfo";
+            uninstallButtonColumn.Text = "Show";
+            int columnIndex = renters.Columns.Count;
+            uninstallButtonColumn.UseColumnTextForButtonValue = true;
+
+            if (renters.Columns["ShowInfo"] == null)
+            {
+                renters.Columns.Insert(columnIndex, uninstallButtonColumn);
+            }
+            DataGridViewButtonColumn printButtonColumn = new DataGridViewButtonColumn();
+            printButtonColumn.Name = "PrintInfo";
+            printButtonColumn.Text = "Print";
+            int columnIndex2 = renters.Columns.Count;
+            printButtonColumn.UseColumnTextForButtonValue = true;
+
+            if (renters.Columns["PrintInfo"] == null)
+            {
+                renters.Columns.Insert(columnIndex2, printButtonColumn);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +63,11 @@ namespace RealEstateProject.Reports
             AddRental addRental = new AddRental(realEstateModel.RealEstateID);
             addRental.MdiParent = this.MdiParent;
             addRental.Show();
+        }
+
+        private void renters_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

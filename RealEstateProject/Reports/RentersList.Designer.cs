@@ -30,6 +30,7 @@ namespace RealEstateProject.Reports
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentersList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.estate = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@ namespace RealEstateProject.Reports
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(965, 148);
+            this.button1.Location = new System.Drawing.Point(961, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(266, 42);
             this.button1.TabIndex = 97;
@@ -86,15 +87,32 @@ namespace RealEstateProject.Reports
             // 
             // renters
             // 
+            this.renters.AllowUserToAddRows = false;
+            this.renters.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.renters.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.renters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.renters.DefaultCellStyle = dataGridViewCellStyle1;
             this.renters.Location = new System.Drawing.Point(40, 230);
+            this.renters.MultiSelect = false;
             this.renters.Name = "renters";
+            this.renters.RowTemplate.Height = 30;
+            this.renters.RowTemplate.ReadOnly = true;
             this.renters.Size = new System.Drawing.Size(1207, 267);
             this.renters.TabIndex = 99;
+            this.renters.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.renters_CellContentClick);
             // 
             // RentersList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1259, 525);
             this.Controls.Add(this.renters);
             this.Controls.Add(this.pictureBox1);

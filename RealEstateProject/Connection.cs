@@ -29,6 +29,19 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
+        internal DataTable getRealEstateAppartmentsServices(string id)
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getRealEstateAppartmentsServices");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("ID", id);
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
         internal DataTable getAppartmentReportMonthly()
         {
             DataSet dataset = new DataSet();
@@ -93,11 +106,37 @@ namespace RealEstateProject
           
         }
 
+        internal DataTable getMonthlyAppartmentServicesPaymentsReport(string realEstateID)
+        {
+            DataSet dataset = new DataSet();
+
+            //getMonthlyAppartmentServicesPaymentsReport
+            MySqlCommand sqlCommand = new MySqlCommand("getMonthlyAppartmentServicesPaymentsReport");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("ID", realEstateID);
+
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }
+
         internal DataTable getRealestateServicesExpences()
         {
             DataSet dataset = new DataSet();
 
             MySqlCommand sqlCommand = new MySqlCommand("getRealestateServicesExpences");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];
+        }internal DataTable getRealestateServicesExpencesReport()
+        {
+            DataSet dataset = new DataSet();
+
+            MySqlCommand sqlCommand = new MySqlCommand("getRealestateServicesExpencesReport");
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
@@ -850,7 +889,7 @@ namespace RealEstateProject
 
 
         }        public int addMonthlyRentalServicesPayments(string rentalID, string amount,
-            string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v)
+            string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v, string v1)
 
         {
 
@@ -868,6 +907,7 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("receiptNumber", text);
             sqlCommand.Parameters.AddWithValue("year", v);
             sqlCommand.Parameters.AddWithValue("month", text1);
+            sqlCommand.Parameters.AddWithValue("serviceID", v1);
             int a = sqlCommand.ExecuteNonQuery();
             return a;
 

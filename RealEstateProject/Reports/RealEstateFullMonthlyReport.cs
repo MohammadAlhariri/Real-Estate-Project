@@ -25,12 +25,26 @@ namespace RealEstateProject.Reports
             realEstate.Text = realEstateModel.RealEstateNumber;
             ownerID.Text = realEstateModel.Owner;
             getYears();
+            DataTable dataTable1 = connection.getRealEstateAppartmentsServices(realEstateModel.RealEstateID);
+            DataTable dataTable2 =connection.getMonthlyAppartmentServicesPaymentsReport(realEstateModel.RealEstateID);
+            DataTable dataTable3 = connection.getRealestateServicesExpencesReport().Select("realestateID = " + realEstateModel.RealEstateID).CopyToDataTable();
+            aServices.DataSource =dataTable1 ;
+            aServicesPayments.DataSource = dataTable2;
+            rServices.DataSource = dataTable3;
+            double payments_total =  checkNull(dataTable1.Compute("SUM(total)", "").ToString());
+            paymentsTotal.Text = payments_total+"";
+            double to_be_paid= checkNull(dataTable2.Compute("SUM(total)", "").ToString());
+            toBePaid.Text += to_be_paid;
+            appartmentsResult.Text =(payments_total-to_be_paid)+"";
+            double total_real_estate= checkNull(dataTable3.Compute("SUM(total)", "" ).ToString());
+            totalRealEstate.Text = total_real_estate+"";
+
 
         }
 
         public void getYears()
         {
-            DataTable dataTable = connection.getYears(realEstateModel.RealEstateID).DefaultView.ToTable(true,"year");
+            DataTable dataTable = connection.getYears(realEstateModel.RealEstateID).DefaultView.ToTable(true, "year");
             year.DataSource = dataTable;
             year.DisplayMember = "year";
             year.ValueMember = "year";
@@ -39,13 +53,77 @@ namespace RealEstateProject.Reports
         private void getData()
 
         {
-            try
+            DataTable dataTable = connection.monthly_rental_payment_report(realEstateModel.RealEstateID);
+            DataTable dataTable1= connection.monthly_expense_report(realEstateModel.RealEstateID);
+            if (month.SelectedItem == null || month.SelectedItem.ToString().Equals("All") || String.IsNullOrEmpty(month.SelectedItem.ToString()))
             {
-                monthlyRental.DataSource = connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
-                monthlyExpences.DataSource =  connection.monthly_expense_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
-
+                monthlyRental.DataSource = dataTable.Select("year = " + year.Text).CopyToDataTable();
+                monthlyExpences.DataSource = dataTable1.Select("year = " + year.Text).CopyToDataTable();
+                double totalAmount = checkNull(dataTable.Compute("SUM(amount)", "year = " + year.Text).ToString());
+                total.Text = totalAmount + "";
+                vendor.Text = (totalAmount * 0.1) + "";
+                net.Text = totalMontlyRentals.Text = (totalAmount - (totalAmount * 0.1)) + "";
+                numberOfRenters.Text = dataTable.Select("year = " + year.Text).CopyToDataTable().DefaultView.ToTable(true, "Name").Rows.Count + "";
+                double totalExpences = checkNull(dataTable1.Compute("SUM(amount)", "year = " + year.Text + " AND ExpenseType <> 'Payed by owner'"));
+                double totalExpencesByOwner = checkNull(dataTable1.Compute("SUM(amount)", "year = " + year.Text + " AND ExpenseType = 'Payed by owner'"));
+                totalMonthleExpencess.Text = (totalExpences + totalExpencesByOwner) + "";
+                totalMonthlyExpences.Text = (totalExpences + totalExpencesByOwner) + "";
+                current.Text = ((totalExpences + totalExpencesByOwner) + (totalAmount - (totalAmount * 0.1))) + "";
+                /*                aServices.DataSource = connection.getRealEstateAppartmentsServices(realEstateModel.RealEstateID).Select("year="+year.Text).CopyToDataTable();
+                                rServices.DataSource = connection.getRealestateServicesExpencesReport().Select("realestateID = " + realEstateModel.RealEstateID+ " AND year = "+year.Text).CopyToDataTable();
+                                aServicesPayments.DataSource = connection.getMonthlyAppartmentServicesPaymentsReport(realEstateModel.RealEstateID).Select("year=" + year.Text).CopyToDataTable();
+                */
+                dataTable1 = connection.getRealEstateAppartmentsServices(realEstateModel.RealEstateID).Select("year=" + year.Text).CopyToDataTable();
+                DataTable dataTable2 = connection.getMonthlyAppartmentServicesPaymentsReport(realEstateModel.RealEstateID);
+                DataTable dataTable3 = connection.getRealestateServicesExpencesReport().Select("realestateID = " + realEstateModel.RealEstateID+ " AND year = "+year.Text).CopyToDataTable();
+                aServices.DataSource = dataTable1;
+                aServicesPayments.DataSource = dataTable2;
+                rServices.DataSource = dataTable3;
+                double payments_total = checkNull(dataTable1.Compute("SUM(total)", "year = " + year.Text).ToString());
+                paymentsTotal.Text = payments_total+"";
+                double to_be_paid = checkNull(dataTable2.Compute("SUM(total)", "year = " + year.Text).ToString());
+                toBePaid.Text = to_be_paid+"";
+                appartmentsResult.Text += (payments_total - to_be_paid) + "";
+                double total_real_estate = checkNull(dataTable3.Compute("SUM(total)", "year = " + year.Text).ToString());
+                totalRealEstate.Text = total_real_estate+"";
             }
-            catch { }
+            else
+            {
+                try
+                {
+                    monthlyRental.DataSource = dataTable.Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+                    monthlyExpences.DataSource = dataTable1.Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+
+                }
+                catch { }
+                double totalAmount = checkNull(dataTable.Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "'").ToString());
+                total.Text = totalAmount + "";
+                vendor.Text = (totalAmount * 0.1) + "";
+                net.Text = totalMontlyRentals.Text = (totalAmount - (totalAmount * 0.1)) + "";
+                numberOfRenters.Text = dataTable.Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable().DefaultView.ToTable(true, "Name").Rows.Count + "";
+                double totalExpences = checkNull(dataTable1.Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType <> 'Payed by owner'"));
+                double totalExpencesByOwner = checkNull(dataTable1.Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType = 'Payed by owner'"));
+                totalMonthleExpencess.Text = (totalExpences + totalExpencesByOwner) + "";
+                totalMonthlyExpences.Text = (totalExpences + totalExpencesByOwner) + "";
+                current.Text = ((totalExpences + totalExpencesByOwner) + (totalAmount - (totalAmount * 0.1))) + "";
+                /*aServices.DataSource = connection.getRealEstateAppartmentsServices(realEstateModel.RealEstateID).Select("year=" + year.Text+" AND month='"+month.SelectedItem.ToString()+"'").CopyToDataTable();
+                rServices.DataSource = connection.getRealestateServicesExpencesReport().Select("realestateID = " + realEstateModel.RealEstateID + " AND year = " + year.Text + " AND month='" + month.SelectedItem.ToString() + "'").CopyToDataTable();
+                aServicesPayments.DataSource = connection.getMonthlyAppartmentServicesPaymentsReport(realEstateModel.RealEstateID).Select("year=" + year.Text + " AND month='" + month.SelectedItem.ToString() + "'").CopyToDataTable();
+*/
+                dataTable1 = connection.getRealEstateAppartmentsServices(realEstateModel.RealEstateID).Select("year=" + year.Text + " AND month='" + month.SelectedItem.ToString() + "'").CopyToDataTable();
+                DataTable dataTable2 = connection.getMonthlyAppartmentServicesPaymentsReport(realEstateModel.RealEstateID).Select("year=" + year.Text + " AND month='" + month.SelectedItem.ToString() + "'").CopyToDataTable();
+                DataTable dataTable3 = connection.getRealestateServicesExpencesReport().Select("realestateID = " + realEstateModel.RealEstateID + " AND year = " + year.Text + " AND month='" + month.SelectedItem.ToString() + "'").CopyToDataTable();
+                aServices.DataSource = dataTable1;
+                aServicesPayments.DataSource = dataTable2;
+                rServices.DataSource = dataTable3;
+                double payments_total = checkNull(dataTable1.Compute("SUM(total)", "year = " + year.Text + " AND month='" + month.SelectedItem.ToString() + "'").ToString());
+                paymentsTotal.Text = payments_total+"";
+                double to_be_paid = checkNull(dataTable2.Compute("SUM(total)", "year = " + year.Text+ " AND month='" + month.SelectedItem.ToString() + "'").ToString());
+                toBePaid.Text = to_be_paid+"";
+                appartmentsResult.Text = (payments_total - to_be_paid) + "";
+                double total_real_estate = checkNull(dataTable3.Compute("SUM(total)", "year = " + year.Text+ " AND month='" + month.SelectedItem.ToString() + "'").ToString());
+                totalRealEstate.Text += total_real_estate;
+            }
         }
 
 
@@ -62,22 +140,13 @@ namespace RealEstateProject.Reports
 
         private void RealEstateFullMonthlyReport_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             getData();
-            double totalAmount = checkNull(connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Compute("SUM(amount)","year = " + year.Text + " AND month= '" + month.Text + "'").ToString());
-            total.Text =  totalAmount+"";
-            vendor.Text = (totalAmount * 0.1) + "";
-            net.Text = totalMontlyRentals.Text = (totalAmount - (totalAmount * 0.1)) + "";
-            numberOfRenters.Text= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text +"'").CopyToDataTable().DefaultView.ToTable(true,"renterID").Rows.Count+"";
-            double totalExpences = checkNull(connection.monthly_expense_report(realEstateModel.RealEstateID).Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType <> 'Payed by owner'"));
-            double totalExpencesByOwner = checkNull(connection.monthly_expense_report(realEstateModel.RealEstateID).Compute("SUM(amount)", "year = " + year.Text + " AND month= '" + month.Text + "' AND ExpenseType = 'Payed by owner'"));
-            totalMonthleExpencess.Text = (totalExpences + totalExpencesByOwner) + "";
-            totalMonthlyExpences.Text= (totalExpences + totalExpencesByOwner) + "";
-            current.Text = ((totalExpences + totalExpencesByOwner) + (totalAmount - (totalAmount * 0.1)))+"";
+
         }
 
         private void realEstate_Click(object sender, EventArgs e)
@@ -97,7 +166,7 @@ namespace RealEstateProject.Reports
 
         private void button5_Click_2(object sender, EventArgs e)
         {
-           DataTable dataTable= connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
+            DataTable dataTable = connection.monthly_rental_payment_report(realEstateModel.RealEstateID).Select("year = " + year.Text + " AND month= '" + month.Text + "'").CopyToDataTable();
             new PrintData(dataTable).export_pdf();
         }
 
@@ -128,12 +197,22 @@ namespace RealEstateProject.Reports
                 return Convert.ToDouble(ob);
             }
             catch { }
-           
+
             return 0;
-           
+
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
         {
 
         }

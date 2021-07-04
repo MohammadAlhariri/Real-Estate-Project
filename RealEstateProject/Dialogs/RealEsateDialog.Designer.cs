@@ -50,7 +50,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.realEstate = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -249,7 +248,6 @@
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(625, 134);
             this.groupBox2.Name = "groupBox2";
@@ -261,7 +259,7 @@
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(69, 357);
+            this.button11.Location = new System.Drawing.Point(61, 316);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(435, 42);
             this.button11.TabIndex = 5;
@@ -272,7 +270,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(69, 292);
+            this.button6.Location = new System.Drawing.Point(61, 251);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(435, 42);
             this.button6.TabIndex = 4;
@@ -283,7 +281,7 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(69, 227);
+            this.button7.Location = new System.Drawing.Point(61, 186);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(435, 42);
             this.button7.TabIndex = 3;
@@ -293,7 +291,7 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(69, 162);
+            this.button8.Location = new System.Drawing.Point(61, 121);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(435, 42);
             this.button8.TabIndex = 2;
@@ -303,23 +301,13 @@
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(69, 99);
+            this.button9.Location = new System.Drawing.Point(61, 58);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(435, 42);
             this.button9.TabIndex = 1;
-            this.button9.Text = "Montly Rental";
+            this.button9.Text = "Monthly Report";
             this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(69, 32);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(435, 42);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "Full Monthly ";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.Button10_Click);
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label20
             // 
@@ -380,7 +368,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label realEstate;

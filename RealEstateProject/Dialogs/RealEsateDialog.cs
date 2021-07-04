@@ -152,5 +152,12 @@ namespace RealEstateProject.Dialogs
             rentersList.MdiParent = this.MdiParent;
             rentersList.Show();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            RealEstateFullMonthlyReport realEstateFullMonthlyReport = new RealEstateFullMonthlyReport(realEstateModel);
+            realEstateFullMonthlyReport.MdiParent = this.MdiParent;
+            realEstateFullMonthlyReport.Show();
+        }
     }
 }

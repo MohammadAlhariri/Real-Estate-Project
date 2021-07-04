@@ -61,6 +61,19 @@
             this.button4 = new System.Windows.Forms.Button();
             this.monthlyExpences = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.aServicesPayments = new System.Windows.Forms.DataGridView();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.totalRealEstate = new System.Windows.Forms.Label();
+            this.appartmentsResult = new System.Windows.Forms.Label();
+            this.toBePaid = new System.Windows.Forms.Label();
+            this.paymentsTotal = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.rServices = new System.Windows.Forms.DataGridView();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.aServices = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.totalMonthlyExpences = new System.Windows.Forms.Label();
@@ -81,6 +94,11 @@
             this.lastMonth = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.statement = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -91,6 +109,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.monthlyRental)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyExpences)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aServicesPayments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aServices)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -200,6 +222,7 @@
             this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.month.FormattingEnabled = true;
             this.month.Items.AddRange(new object[] {
+            "All",
             "January",
             "February",
             "March",
@@ -254,6 +277,7 @@
             this.year.Size = new System.Drawing.Size(94, 28);
             this.year.TabIndex = 161;
             this.year.ValueMember = "(none)";
+            this.year.SelectedIndexChanged += new System.EventHandler(this.year_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -270,6 +294,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,7 +323,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1293, 619);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Monthly Rentals";
+            this.tabPage1.Text = "Rentals";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -447,7 +472,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1293, 619);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Monthly Expences";
+            this.tabPage2.Text = " Expences";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label20
@@ -523,6 +548,148 @@
             this.label3.Size = new System.Drawing.Size(138, 20);
             this.label3.TabIndex = 19;
             this.label3.Text = "Monthly Expences";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label30);
+            this.tabPage4.Controls.Add(this.label29);
+            this.tabPage4.Controls.Add(this.label26);
+            this.tabPage4.Controls.Add(this.label25);
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Controls.Add(this.aServicesPayments);
+            this.tabPage4.Controls.Add(this.label27);
+            this.tabPage4.Controls.Add(this.label28);
+            this.tabPage4.Controls.Add(this.totalRealEstate);
+            this.tabPage4.Controls.Add(this.appartmentsResult);
+            this.tabPage4.Controls.Add(this.toBePaid);
+            this.tabPage4.Controls.Add(this.paymentsTotal);
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.rServices);
+            this.tabPage4.Controls.Add(this.label22);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.aServices);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1293, 619);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Services";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // aServicesPayments
+            // 
+            this.aServicesPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.aServicesPayments.Location = new System.Drawing.Point(30, 319);
+            this.aServicesPayments.Name = "aServicesPayments";
+            this.aServicesPayments.Size = new System.Drawing.Size(579, 174);
+            this.aServicesPayments.TabIndex = 30;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(1067, 525);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(67, 20);
+            this.label27.TabIndex = 29;
+            this.label27.Text = "Result:  ";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(828, 525);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(96, 20);
+            this.label28.TabIndex = 28;
+            this.label28.Text = "To be Paid:  ";
+            // 
+            // totalRealEstate
+            // 
+            this.totalRealEstate.AutoSize = true;
+            this.totalRealEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalRealEstate.Location = new System.Drawing.Point(771, 525);
+            this.totalRealEstate.Name = "totalRealEstate";
+            this.totalRealEstate.Size = new System.Drawing.Size(18, 20);
+            this.totalRealEstate.TabIndex = 27;
+            this.totalRealEstate.Text = "0";
+            // 
+            // appartmentsResult
+            // 
+            this.appartmentsResult.AutoSize = true;
+            this.appartmentsResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appartmentsResult.Location = new System.Drawing.Point(503, 525);
+            this.appartmentsResult.Name = "appartmentsResult";
+            this.appartmentsResult.Size = new System.Drawing.Size(18, 20);
+            this.appartmentsResult.TabIndex = 26;
+            this.appartmentsResult.Text = "0";
+            // 
+            // toBePaid
+            // 
+            this.toBePaid.AutoSize = true;
+            this.toBePaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toBePaid.Location = new System.Drawing.Point(336, 525);
+            this.toBePaid.Name = "toBePaid";
+            this.toBePaid.Size = new System.Drawing.Size(18, 20);
+            this.toBePaid.TabIndex = 25;
+            this.toBePaid.Text = "0";
+            // 
+            // paymentsTotal
+            // 
+            this.paymentsTotal.AutoSize = true;
+            this.paymentsTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentsTotal.Location = new System.Drawing.Point(155, 525);
+            this.paymentsTotal.Name = "paymentsTotal";
+            this.paymentsTotal.Size = new System.Drawing.Size(18, 20);
+            this.paymentsTotal.TabIndex = 24;
+            this.paymentsTotal.Text = "0";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(917, 61);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(134, 20);
+            this.label23.TabIndex = 23;
+            this.label23.Text = "Service payments";
+            // 
+            // rServices
+            // 
+            this.rServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rServices.Location = new System.Drawing.Point(695, 101);
+            this.rServices.Name = "rServices";
+            this.rServices.Size = new System.Drawing.Size(578, 392);
+            this.rServices.TabIndex = 22;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(213, 61);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(165, 20);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "Appartments Services";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(35, 18);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(153, 25);
+            this.label21.TabIndex = 20;
+            this.label21.Text = "Service charges";
+            // 
+            // aServices
+            // 
+            this.aServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.aServices.Location = new System.Drawing.Point(30, 101);
+            this.aServices.Name = "aServices";
+            this.aServices.Size = new System.Drawing.Size(579, 190);
+            this.aServices.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -765,6 +932,56 @@
             this.statement.TabIndex = 32;
             this.statement.Text = "statement";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(17, 525);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(130, 20);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "Payments Total:  ";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(213, 525);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(96, 20);
+            this.label25.TabIndex = 32;
+            this.label25.Text = "To be Paid:  ";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(402, 525);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(67, 20);
+            this.label26.TabIndex = 33;
+            this.label26.Text = "Result:  ";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(694, 525);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(60, 20);
+            this.label29.TabIndex = 34;
+            this.label29.Text = " Total:  ";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(930, 525);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(18, 20);
+            this.label30.TabIndex = 35;
+            this.label30.Text = "0";
+            // 
             // RealEstateFullMonthlyReport
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -788,6 +1005,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyExpences)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aServicesPayments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aServices)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -849,5 +1071,23 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label totalMontlyRentals;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label totalRealEstate;
+        private System.Windows.Forms.Label appartmentsResult;
+        private System.Windows.Forms.Label toBePaid;
+        private System.Windows.Forms.Label paymentsTotal;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DataGridView rServices;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView aServices;
+        private System.Windows.Forms.DataGridView aServicesPayments;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
     }
 }
