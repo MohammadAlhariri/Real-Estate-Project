@@ -62,6 +62,12 @@
             this.monthlyExpences = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.services = new System.Windows.Forms.CheckedListBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.aServicesPayments = new System.Windows.Forms.DataGridView();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -94,11 +100,7 @@
             this.lastMonth = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.statement = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -551,6 +553,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button8);
+            this.tabPage4.Controls.Add(this.services);
             this.tabPage4.Controls.Add(this.label30);
             this.tabPage4.Controls.Add(this.label29);
             this.tabPage4.Controls.Add(this.label26);
@@ -577,6 +581,71 @@
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
+            // services
+            // 
+            this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.services.FormattingEnabled = true;
+            this.services.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.services.Location = new System.Drawing.Point(443, 18);
+            this.services.Name = "services";
+            this.services.Size = new System.Drawing.Size(320, 67);
+            this.services.TabIndex = 77;
+            this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.services_ItemCheck);
+            this.services.SelectedIndexChanged += new System.EventHandler(this.services_SelectedIndexChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(930, 525);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(18, 20);
+            this.label30.TabIndex = 35;
+            this.label30.Text = "0";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(694, 525);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(60, 20);
+            this.label29.TabIndex = 34;
+            this.label29.Text = " Total:  ";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(402, 525);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(67, 20);
+            this.label26.TabIndex = 33;
+            this.label26.Text = "Result:  ";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(213, 525);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(96, 20);
+            this.label25.TabIndex = 32;
+            this.label25.Text = "To be Paid:  ";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(17, 525);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(130, 20);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "Payments Total:  ";
+            // 
             // aServicesPayments
             // 
             this.aServicesPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -584,6 +653,7 @@
             this.aServicesPayments.Name = "aServicesPayments";
             this.aServicesPayments.Size = new System.Drawing.Size(579, 174);
             this.aServicesPayments.TabIndex = 30;
+            this.aServicesPayments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.aServicesPayments_CellContentClick);
             // 
             // label27
             // 
@@ -662,10 +732,12 @@
             this.rServices.Name = "rServices";
             this.rServices.Size = new System.Drawing.Size(578, 392);
             this.rServices.TabIndex = 22;
+            this.rServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rServices_CellContentClick);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
+            this.label22.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(213, 61);
             this.label22.Name = "label22";
@@ -690,6 +762,7 @@
             this.aServices.Name = "aServices";
             this.aServices.Size = new System.Drawing.Size(579, 190);
             this.aServices.TabIndex = 0;
+            this.aServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.aServices_CellContentClick);
             // 
             // tabPage3
             // 
@@ -932,55 +1005,15 @@
             this.statement.TabIndex = 32;
             this.statement.Text = "statement";
             // 
-            // label24
+            // button8
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(17, 525);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(130, 20);
-            this.label24.TabIndex = 31;
-            this.label24.Text = "Payments Total:  ";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(213, 525);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(96, 20);
-            this.label25.TabIndex = 32;
-            this.label25.Text = "To be Paid:  ";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(402, 525);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(67, 20);
-            this.label26.TabIndex = 33;
-            this.label26.Text = "Result:  ";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(694, 525);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(60, 20);
-            this.label29.TabIndex = 34;
-            this.label29.Text = " Total:  ";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(930, 525);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(18, 20);
-            this.label30.TabIndex = 35;
-            this.label30.Text = "0";
+            this.button8.Location = new System.Drawing.Point(774, 18);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(87, 25);
+            this.button8.TabIndex = 78;
+            this.button8.Text = "Check All";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // RealEstateFullMonthlyReport
             // 
@@ -1089,5 +1122,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.CheckedListBox services;
+        private System.Windows.Forms.Button button8;
     }
 }

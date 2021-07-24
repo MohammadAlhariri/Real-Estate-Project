@@ -272,5 +272,10 @@ namespace RealEstateProject.Edit
         {
 
         }
+
+        private void services_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace RealEstateProject
 {
 
-    class Connection
+    public class Connection
     {
 
         MySqlConnection countryList = new MySqlConnection("server=localhost;user=root;database=CountryList;port=3306;password=;");
@@ -990,6 +990,15 @@ namespace RealEstateProject
             sqlCommand.Parameters.AddWithValue("name", value);
             int a = sqlCommand.ExecuteNonQuery();
             return 0;
+        }
+        public DataTable Table(DataTable dataTable, DataRow[] rows)
+        {
+            DataTable merged;
+            if (rows.Any())
+                merged = rows.CopyToDataTable();
+            else
+                merged = dataTable.Clone();
+            return merged;
         }
 
     }

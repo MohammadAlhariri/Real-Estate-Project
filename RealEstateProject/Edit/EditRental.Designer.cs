@@ -163,6 +163,7 @@
             this.services.Size = new System.Drawing.Size(388, 151);
             this.services.TabIndex = 114;
             this.services.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.Services_ItemCheck);
+            this.services.SelectedIndexChanged += new System.EventHandler(this.services_SelectedIndexChanged);
             // 
             // label17
             // 

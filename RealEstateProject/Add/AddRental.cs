@@ -64,7 +64,6 @@ namespace RealEstateProject
         private void getServices()
         {
             DataTable dataTable = Connection.getRealestateServices().Select("ID ='" + realestateNumber.SelectedValue.ToString()+"'").CopyToDataTable();
- 
             services.DataSource = dataTable;
             services.DisplayMember = "name";
             services.ValueMember = "idservices";

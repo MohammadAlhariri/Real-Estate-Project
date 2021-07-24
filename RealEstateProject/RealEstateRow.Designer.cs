@@ -32,10 +32,7 @@
             this.owner = new System.Windows.Forms.Label();
             this.estateNumber = new System.Windows.Forms.Label();
             this.address = new System.Windows.Forms.Label();
-            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+
             this.SuspendLayout();
             // 
             // btn
@@ -88,28 +85,7 @@
             // 
             // accordionControlElement2
             // 
-            this.accordionControlElement2.Name = "accordionControlElement2";
-            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement2.Text = "Element2";
-            this.accordionControlElement2.Click += new System.EventHandler(this.AccordionControlElement2_Click);
-            // 
-            // accordionControlElement3
-            // 
-            this.accordionControlElement3.Name = "accordionControlElement3";
-            this.accordionControlElement3.Text = "Element3";
-            // 
-            // accordionControlElement4
-            // 
-            this.accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement5});
-            this.accordionControlElement4.Name = "accordionControlElement4";
-            this.accordionControlElement4.Text = "Element4";
-            // 
-            // accordionControlElement5
-            // 
-            this.accordionControlElement5.Name = "accordionControlElement5";
-            this.accordionControlElement5.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement5.Text = "Element5";
+           
             // 
             // UserControl1
             // 
@@ -132,9 +108,6 @@
         private System.Windows.Forms.Label owner;
         private System.Windows.Forms.Label estateNumber;
         private System.Windows.Forms.Label address;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
+
     }
 }
