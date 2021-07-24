@@ -105,6 +105,7 @@ namespace RealEstateProject
 
         private void Country_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             DataTable dataTable = Connection.getStates(country.SelectedValue.ToString());
             states.DataSource = dataTable;
             states.DisplayMember = "name";
@@ -119,10 +120,14 @@ namespace RealEstateProject
 
         private void States_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dataTable = Connection.getStates(states.SelectedValue.ToString());
-            city.DataSource = dataTable;
-            city.DisplayMember = "name";
-            city.ValueMember = "location_id";
+            try
+            {
+                DataTable dataTable = Connection.getStates(states.SelectedValue.ToString());
+                city.DataSource = dataTable;
+                city.DisplayMember = "name";
+                city.ValueMember = "location_id";
+            }
+            catch { }
 
         }
 

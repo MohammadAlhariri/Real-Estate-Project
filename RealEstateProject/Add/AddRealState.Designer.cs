@@ -283,8 +283,9 @@
             // 
             this.realEstates.AllowUserToAddRows = false;
             this.realEstates.AllowUserToDeleteRows = false;
-            this.realEstates.AllowUserToResizeColumns = false;
-            this.realEstates.AllowUserToResizeRows = false;
+            this.realEstates.AllowUserToOrderColumns = true;
+            this.realEstates.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.realEstates.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.realEstates.BackgroundColor = System.Drawing.Color.White;
             this.realEstates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.realEstates.Location = new System.Drawing.Point(12, 333);

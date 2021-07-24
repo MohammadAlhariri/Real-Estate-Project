@@ -389,10 +389,6 @@
     <EmbeddedResource Include="ViewDataGrid.resx">
       <DependentUpon>ViewDataGrid.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="..\..\..\..\Co\C1M6L2_Final_Project_V3.json">
-      <Link>OpenAPIs\C1M6L2_Final_Project_V3.json</Link>
-      <CodeGenerator>NSwagCSharp</CodeGenerator>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
