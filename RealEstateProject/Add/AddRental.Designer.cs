@@ -49,14 +49,14 @@
             this.paymentMethod = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.realestateNumber = new System.Windows.Forms.ComboBox();
-            this.graceMonth = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.rentPercentage = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.services = new System.Windows.Forms.CheckedListBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.graceMonth = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.rentPercentage = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rentals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graceMonth)).BeginInit();
@@ -91,8 +91,8 @@
             this.rentals.AllowUserToAddRows = false;
             this.rentals.AllowUserToDeleteRows = false;
             this.rentals.AllowUserToOrderColumns = true;
-            this.rentals.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.rentals.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.rentals.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.rentals.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.rentals.BackgroundColor = System.Drawing.Color.White;
             this.rentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rentals.Location = new System.Drawing.Point(47, 362);
@@ -306,72 +306,6 @@
             this.realestateNumber.ValueMember = "(none)";
             this.realestateNumber.SelectedIndexChanged += new System.EventHandler(this.RealestateNumber_SelectedIndexChanged);
             // 
-            // graceMonth
-            // 
-            this.graceMonth.BackColor = System.Drawing.Color.White;
-            this.graceMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.graceMonth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.graceMonth.Location = new System.Drawing.Point(1025, 176);
-            this.graceMonth.Name = "graceMonth";
-            this.graceMonth.Size = new System.Drawing.Size(73, 26);
-            this.graceMonth.TabIndex = 70;
-            this.graceMonth.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(871, 178);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 20);
-            this.label12.TabIndex = 69;
-            this.label12.Text = "Grace month";
-            this.label12.Click += new System.EventHandler(this.Label12_Click);
-            // 
-            // rentPercentage
-            // 
-            this.rentPercentage.BackColor = System.Drawing.Color.White;
-            this.rentPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentPercentage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rentPercentage.Location = new System.Drawing.Point(1025, 213);
-            this.rentPercentage.Name = "rentPercentage";
-            this.rentPercentage.Size = new System.Drawing.Size(73, 26);
-            this.rentPercentage.TabIndex = 72;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(871, 215);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(129, 20);
-            this.label13.TabIndex = 71;
-            this.label13.Text = "Rent percentage";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1113, 178);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 20);
-            this.label14.TabIndex = 73;
-            this.label14.Text = "Months";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1113, 215);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(24, 20);
-            this.label15.TabIndex = 74;
-            this.label15.Text = "%";
-            // 
             // services
             // 
             this.services.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -396,6 +330,72 @@
             this.label16.Size = new System.Drawing.Size(89, 20);
             this.label16.TabIndex = 75;
             this.label16.Text = "Services IN";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(871, 178);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(102, 20);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Grace month";
+            this.label12.Click += new System.EventHandler(this.Label12_Click);
+            // 
+            // graceMonth
+            // 
+            this.graceMonth.BackColor = System.Drawing.Color.White;
+            this.graceMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.graceMonth.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.graceMonth.Location = new System.Drawing.Point(1025, 176);
+            this.graceMonth.Name = "graceMonth";
+            this.graceMonth.Size = new System.Drawing.Size(73, 26);
+            this.graceMonth.TabIndex = 70;
+            this.graceMonth.ValueChanged += new System.EventHandler(this.NumericUpDown1_ValueChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(871, 215);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(129, 20);
+            this.label13.TabIndex = 71;
+            this.label13.Text = "Rent percentage";
+            // 
+            // rentPercentage
+            // 
+            this.rentPercentage.BackColor = System.Drawing.Color.White;
+            this.rentPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentPercentage.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rentPercentage.Location = new System.Drawing.Point(1025, 213);
+            this.rentPercentage.Name = "rentPercentage";
+            this.rentPercentage.Size = new System.Drawing.Size(73, 26);
+            this.rentPercentage.TabIndex = 72;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(1113, 178);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 20);
+            this.label14.TabIndex = 73;
+            this.label14.Text = "Months";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(1113, 215);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(24, 20);
+            this.label15.TabIndex = 74;
+            this.label15.Text = "%";
             // 
             // AddRental
             // 
@@ -466,13 +466,13 @@
         private System.Windows.Forms.ComboBox paymentMethod;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox realestateNumber;
-        private System.Windows.Forms.NumericUpDown graceMonth;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown rentPercentage;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckedListBox services;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown graceMonth;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown rentPercentage;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

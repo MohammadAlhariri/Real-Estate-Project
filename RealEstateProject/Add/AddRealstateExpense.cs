@@ -19,7 +19,6 @@ namespace RealEstateProject
         {
             InitializeComponent();
             expences.DataSource = Connection.getRealestateExpenses();
-            getPersons();
             getRealestates();
             getExpenseTypes();
         }
@@ -34,8 +33,9 @@ namespace RealEstateProject
         {
             //realestateNumber
             DataTable dataTable = Connection.getRealEstates();
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
             realestateNumber.DataSource = dataTable;
-            realestateNumber.DisplayMember = "estateNumber";
+            realestateNumber.DisplayMember = "realestate";
             realestateNumber.ValueMember = "ID";
         }
         private void getExpenseTypes()
@@ -51,13 +51,7 @@ namespace RealEstateProject
             expenseType.DisplayMember = "expenseType";
             expenseType.ValueMember = "expenseType";
         }
-        private void getPersons()
-        {
-            DataTable dataTable = Connection.getAllPerson();
-            person.DataSource = dataTable;
-            person.DisplayMember = "name";
-            person.ValueMember = "idperson";
-        }
+
 
         private void AddRealstateExpense_Load(object sender, EventArgs e)
         {
@@ -71,14 +65,32 @@ namespace RealEstateProject
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            int results=0;
             string message="";
             Color color = Color.White;
             try
             {
+                if(mMonth.Checked)
+                {
+                    var dat = new DateTime((int)year.Value, month.SelectedIndex, 1);
 
-                int results = Connection.insertRealEstateExpense(
+                    for (int ctr = 1; ctr <= numberOfMonths.Value; ctr++)
+                    {
+                        dat = dat.AddMonths(1);
+                        //Console.WriteLine(dat.Year);
+                       // Console.WriteLine(dat.ToString("MMMM"));
+                        results=Connection.insertRealEstateExpense(
+                    realestateNumber.SelectedValue.ToString(),
+                   expenseType.Text, ((amount.Value)/numberOfMonths.Value)+"",
+                    date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                   detail.Text, receiptNumber.Text, dat.ToString("MMMM"), dat.Year+"");
+                    }
+                }
+            
+                else
+                results = Connection.insertRealEstateExpense(
                      realestateNumber.SelectedValue.ToString(),
-                     person.SelectedValue.ToString(), expenseType.Text,amount.Value.ToString(),
+                     expenseType.Text,amount.Value.ToString(),
                      date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
                     detail.Text, receiptNumber.Text,month.Text,year.Value.ToString());
 
@@ -103,7 +115,7 @@ namespace RealEstateProject
                 expences.DataSource = Connection.getRealestateExpenses();
 
 
-            }
+           }
             catch
             {
                color = Color.Red;
@@ -131,6 +143,20 @@ namespace RealEstateProject
                 {
                     predefinedOptions.Close();
                 }
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                numberOfMonths.Visible = true;
+                startMonth.Text = "Start Month";
+                startYear.Text = "Start Year";
+            }  else    {
+                numberOfMonths.Visible = false;
+                startMonth.Text = "Month";
+                startYear.Text = "Year";
             }
         }
     }

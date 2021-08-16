@@ -243,8 +243,9 @@
             // 
             this.persons.AllowUserToAddRows = false;
             this.persons.AllowUserToDeleteRows = false;
-            this.persons.AllowUserToResizeColumns = false;
-            this.persons.AllowUserToResizeRows = false;
+            this.persons.AllowUserToOrderColumns = true;
+            this.persons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.persons.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.persons.BackgroundColor = System.Drawing.Color.White;
             this.persons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.persons.Location = new System.Drawing.Point(52, 312);

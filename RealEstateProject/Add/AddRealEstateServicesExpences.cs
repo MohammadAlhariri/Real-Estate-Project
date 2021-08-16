@@ -25,8 +25,10 @@ namespace RealEstateProject.Add
         {
             //realestateNumber
             DataTable dataTable = Connection.getRealEstates();
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
+
             realestateNumber.DataSource = dataTable;
-            realestateNumber.DisplayMember = "estateNumber";
+            realestateNumber.DisplayMember = "realestate";
             realestateNumber.ValueMember = "ID";
         }
         private void AddRealEstateServicesExpences_Load(object sender, EventArgs e)
@@ -74,15 +76,39 @@ namespace RealEstateProject.Add
             //addRealestateServicesExpences
             string message = "";
             Color color = Color.White;
-            try
+            int results = 0;
+            if (mMonth.Checked)
             {
+                var dat = new DateTime((int)year.Value, month.SelectedIndex, 1);
 
-                int results = Connection.addRealestateServicesExpences(
+                for (int ctr = 1; ctr <= numberOfMonths.Value; ctr++)
+                {
+                    dat = dat.AddMonths(1);
+                    //Console.WriteLine(dat.Year);
+                    // Console.WriteLine(dat.ToString("MMMM"));
+                    results = Connection.addRealestateServicesExpences(
                      realestateNumber.SelectedValue.ToString(),
-                     services.SelectedValue.ToString() ,amount.Value.ToString(),
+                     services.SelectedValue.ToString(), ((Convert.ToInt32(amount.Text)) / numberOfMonths.Value) + "",
                      date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
-                    detail.Text, receiptNumber.Text, month.Text, year.Value.ToString()) ;
+                    detail.Text, receiptNumber.Text, dat.ToString("MMMM"), dat.Year + "");
+                }
 
+            }
+
+            else
+                try
+                {
+
+                    results = Connection.addRealestateServicesExpences(
+                        realestateNumber.SelectedValue.ToString(),
+                        services.SelectedValue.ToString(), amount.Value.ToString(),
+                        date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                       detail.Text, receiptNumber.Text, month.Text, year.Value.ToString());
+                }catch
+                {
+                    color = Color.Red;
+                    message = "There are error, please correct it";
+                }
                 if (results == 0)
                 {
                     message = "There are error";
@@ -109,14 +135,31 @@ namespace RealEstateProject.Add
                 }
 
 
-            }
-            catch
-            {
-                color = Color.Red;
-                message = "There are error, please correct it";
-            }
+            
+         
             Notification notification = new Notification(message, color);
             notification.Show();
+
+        }
+
+        private void mMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                numberOfMonths.Visible = true;
+                startMonth.Text = "Start Month";
+                startYear.Text = "Start Year";
+            }
+            else
+            {
+                numberOfMonths.Visible = false;
+                startMonth.Text = "Month";
+                startYear.Text = "Year";
+            }
+        }
+
+        private void month_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
 
         }
     }

@@ -35,9 +35,9 @@ namespace RealEstateProject.Reports
             RealEstateModel realEstateModel;
             foreach (var item in rows)
             {
-                string address = item["country"].ToString() + " / " + item["state"].ToString() + " / " + item["city"].ToString() + " / " + item["address"].ToString();
+                //string address = item["country"].ToString() + " / " + item["state"].ToString() + " / " + item["city"].ToString() + " / " + item["address"].ToString();
 
-                realEstateModel = new RealEstateModel(getOwnerName(item["ownerID"].ToString()), item["ID"].ToString(), address, item["estateNumber"].ToString());
+                realEstateModel = new RealEstateModel(item["Owner"].ToString(), item["ID"].ToString(), item["Location"].ToString(), item["estateNumber"].ToString());
 
                 new RealEstateRow(realEstateModel).Parent = flowLayoutPanel1;
             }

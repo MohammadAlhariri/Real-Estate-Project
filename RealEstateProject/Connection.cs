@@ -766,17 +766,16 @@ namespace RealEstateProject
 
         }
         public int insertRealEstateExpense
-            (string realestateID, string personID, string ExpenseType, string amount, string date, string detail, 
+            (string realestateID, string ExpenseType, string amount, string date, string detail, 
             string receiptNumber, string text, string v)
         {
-            if (!checkEmpty(realestateID, personID, ExpenseType, amount, date, detail))
+            if (!checkEmpty(realestateID,"person", ExpenseType, amount, date, detail))
             {
                 //inserRealEstate
                 MySqlCommand sqlCommand = new MySqlCommand("addRealestaeExpence");
                 sqlCommand.Connection = realEstate;
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("realestateID", realestateID);
-                sqlCommand.Parameters.AddWithValue("personID", personID);
                 sqlCommand.Parameters.AddWithValue("ExpenseType", ExpenseType);
                 sqlCommand.Parameters.AddWithValue("amount", amount);
                 sqlCommand.Parameters.AddWithValue("date", date);

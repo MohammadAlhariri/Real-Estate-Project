@@ -29,12 +29,8 @@ namespace RealEstateProject.Add
         /// </summary>
         private void InitializeComponent()
         {
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.year = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.realestateNumber = new System.Windows.Forms.ComboBox();
-            this.month = new System.Windows.Forms.ComboBox();
             this.details = new System.Windows.Forms.TextBox();
             this.amount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,58 +46,17 @@ namespace RealEstateProject.Add
             this.label2 = new System.Windows.Forms.Label();
             this.rentalNumber = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
+            this.numberOfMonths = new System.Windows.Forms.NumericUpDown();
+            this.mMonth = new System.Windows.Forms.RadioButton();
+            this.sMonth = new System.Windows.Forms.RadioButton();
+            this.startYear = new System.Windows.Forms.Label();
+            this.startMonth = new System.Windows.Forms.Label();
+            this.year = new System.Windows.Forms.NumericUpDown();
+            this.month = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyPayments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfMonths)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1040, 203);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 20);
-            this.label12.TabIndex = 179;
-            this.label12.Text = "Year";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(765, 203);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 20);
-            this.label13.TabIndex = 178;
-            this.label13.Text = "Month";
-            // 
-            // year
-            // 
-            this.year.BackColor = System.Drawing.Color.White;
-            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.year.Location = new System.Drawing.Point(1114, 200);
-            this.year.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.year.Minimum = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(80, 26);
-            this.year.TabIndex = 177;
-            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.year.Value = new decimal(new int[] {
-            2021,
-            0,
-            0,
-            0});
             // 
             // label10
             // 
@@ -129,32 +84,6 @@ namespace RealEstateProject.Add
             this.realestateNumber.TabIndex = 172;
             this.realestateNumber.ValueMember = "(none)";
             this.realestateNumber.SelectedIndexChanged += new System.EventHandler(this.realestateNumber_SelectedIndexChanged);
-            // 
-            // month
-            // 
-            this.month.BackColor = System.Drawing.Color.White;
-            this.month.DisplayMember = "(none)";
-            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.month.FormattingEnabled = true;
-            this.month.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.month.Location = new System.Drawing.Point(850, 199);
-            this.month.Name = "month";
-            this.month.Size = new System.Drawing.Size(159, 28);
-            this.month.TabIndex = 176;
-            this.month.ValueMember = "(none)";
             // 
             // details
             // 
@@ -324,20 +253,150 @@ namespace RealEstateProject.Add
             this.label3.TabIndex = 183;
             this.label3.Text = "Rental";
             // 
+            // numberOfMonths
+            // 
+            this.numberOfMonths.BackColor = System.Drawing.Color.White;
+            this.numberOfMonths.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfMonths.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.numberOfMonths.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.numberOfMonths.Location = new System.Drawing.Point(1163, 154);
+            this.numberOfMonths.Maximum = new decimal(new int[] {
+            -402653184,
+            -1613725636,
+            54210108,
+            0});
+            this.numberOfMonths.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numberOfMonths.Name = "numberOfMonths";
+            this.numberOfMonths.Size = new System.Drawing.Size(78, 26);
+            this.numberOfMonths.TabIndex = 203;
+            this.numberOfMonths.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numberOfMonths.Visible = false;
+            // 
+            // mMonth
+            // 
+            this.mMonth.AutoSize = true;
+            this.mMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mMonth.Location = new System.Drawing.Point(1001, 157);
+            this.mMonth.Name = "mMonth";
+            this.mMonth.Size = new System.Drawing.Size(124, 21);
+            this.mMonth.TabIndex = 202;
+            this.mMonth.Text = "Multiple Months";
+            this.mMonth.UseVisualStyleBackColor = true;
+            this.mMonth.CheckedChanged += new System.EventHandler(this.mMonth_CheckedChanged);
+            // 
+            // sMonth
+            // 
+            this.sMonth.AutoSize = true;
+            this.sMonth.Checked = true;
+            this.sMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sMonth.Location = new System.Drawing.Point(818, 157);
+            this.sMonth.Name = "sMonth";
+            this.sMonth.Size = new System.Drawing.Size(108, 21);
+            this.sMonth.TabIndex = 201;
+            this.sMonth.TabStop = true;
+            this.sMonth.Text = "Single Month";
+            this.sMonth.UseVisualStyleBackColor = true;
+            // 
+            // startYear
+            // 
+            this.startYear.AutoSize = true;
+            this.startYear.BackColor = System.Drawing.Color.Transparent;
+            this.startYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startYear.Location = new System.Drawing.Point(1047, 203);
+            this.startYear.Name = "startYear";
+            this.startYear.Size = new System.Drawing.Size(43, 20);
+            this.startYear.TabIndex = 200;
+            this.startYear.Text = "Year";
+            // 
+            // startMonth
+            // 
+            this.startMonth.AutoSize = true;
+            this.startMonth.BackColor = System.Drawing.Color.Transparent;
+            this.startMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startMonth.Location = new System.Drawing.Point(785, 203);
+            this.startMonth.Name = "startMonth";
+            this.startMonth.Size = new System.Drawing.Size(54, 20);
+            this.startMonth.TabIndex = 199;
+            this.startMonth.Text = "Month";
+            // 
+            // year
+            // 
+            this.year.BackColor = System.Drawing.Color.White;
+            this.year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.year.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.year.Location = new System.Drawing.Point(1163, 200);
+            this.year.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.year.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(80, 26);
+            this.year.TabIndex = 198;
+            this.year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.year.Value = new decimal(new int[] {
+            2021,
+            0,
+            0,
+            0});
+            // 
+            // month
+            // 
+            this.month.BackColor = System.Drawing.Color.White;
+            this.month.DisplayMember = "(none)";
+            this.month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.month.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.month.FormattingEnabled = true;
+            this.month.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.month.Location = new System.Drawing.Point(885, 199);
+            this.month.Name = "month";
+            this.month.Size = new System.Drawing.Size(141, 28);
+            this.month.TabIndex = 197;
+            this.month.ValueMember = "(none)";
+            // 
             // AddAppartmentServicesExpences
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1253, 521);
+            this.Controls.Add(this.numberOfMonths);
+            this.Controls.Add(this.mMonth);
+            this.Controls.Add(this.sMonth);
+            this.Controls.Add(this.startYear);
+            this.Controls.Add(this.startMonth);
+            this.Controls.Add(this.year);
+            this.Controls.Add(this.month);
             this.Controls.Add(this.rentalNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.serviceName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.year);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.realestateNumber);
-            this.Controls.Add(this.month);
             this.Controls.Add(this.details);
             this.Controls.Add(this.amount);
             this.Controls.Add(this.label7);
@@ -353,21 +412,17 @@ namespace RealEstateProject.Add
             this.Text = "AddAppartmentServicesExpences";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AddAppartmentServicesExpences_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthlyPayments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfMonths)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown year;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox realestateNumber;
-        private System.Windows.Forms.ComboBox month;
         private System.Windows.Forms.TextBox details;
         private System.Windows.Forms.TextBox amount;
         private System.Windows.Forms.Label label7;
@@ -383,5 +438,12 @@ namespace RealEstateProject.Add
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox rentalNumber;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numberOfMonths;
+        private System.Windows.Forms.RadioButton mMonth;
+        private System.Windows.Forms.RadioButton sMonth;
+        private System.Windows.Forms.Label startYear;
+        private System.Windows.Forms.Label startMonth;
+        private System.Windows.Forms.NumericUpDown year;
+        private System.Windows.Forms.ComboBox month;
     }
 }

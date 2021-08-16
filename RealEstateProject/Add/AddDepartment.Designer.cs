@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDepartment));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.numberOf = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.details = new System.Windows.Forms.TextBox();
             this.numberOfRooms = new System.Windows.Forms.NumericUpDown();
             this.floor = new System.Windows.Forms.NumericUpDown();
-            this.owner = new System.Windows.Forms.ComboBox();
             this.type = new System.Windows.Forms.ComboBox();
             this.buildingNumber = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,6 +50,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.mInDollar = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.owner = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.floor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appartmentss)).BeginInit();
@@ -71,7 +74,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(434, 139);
+            this.label1.Location = new System.Drawing.Point(410, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 51;
@@ -89,16 +92,16 @@
             this.label3.TabIndex = 52;
             this.label3.Text = "Floor";
             // 
-            // label4
+            // numberOf
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(862, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 20);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Number Of Rooms";
+            this.numberOf.AutoSize = true;
+            this.numberOf.BackColor = System.Drawing.Color.Transparent;
+            this.numberOf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOf.Location = new System.Drawing.Point(862, 139);
+            this.numberOf.Name = "numberOf";
+            this.numberOf.Size = new System.Drawing.Size(141, 20);
+            this.numberOf.TabIndex = 53;
+            this.numberOf.Text = "Number Of Rooms";
             // 
             // label5
             // 
@@ -121,17 +124,6 @@
             this.label9.Size = new System.Drawing.Size(116, 20);
             this.label9.TabIndex = 58;
             this.label9.Text = "Estate Number";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(801, 88);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 20);
-            this.label10.TabIndex = 59;
-            this.label10.Text = "Owner Name";
             // 
             // details
             // 
@@ -158,17 +150,6 @@
             this.floor.Size = new System.Drawing.Size(63, 26);
             this.floor.TabIndex = 66;
             // 
-            // owner
-            // 
-            this.owner.DisplayMember = "ID";
-            this.owner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.owner.FormattingEnabled = true;
-            this.owner.Location = new System.Drawing.Point(951, 84);
-            this.owner.Name = "owner";
-            this.owner.Size = new System.Drawing.Size(161, 28);
-            this.owner.TabIndex = 67;
-            this.owner.ValueMember = "ID";
-            // 
             // type
             // 
             this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,7 +158,7 @@
             "Commercial",
             "Industrial",
             "Residential"});
-            this.type.Location = new System.Drawing.Point(510, 135);
+            this.type.Location = new System.Drawing.Point(486, 135);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(145, 28);
             this.type.TabIndex = 68;
@@ -188,15 +169,17 @@
             this.buildingNumber.DisplayMember = "ID";
             this.buildingNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildingNumber.FormattingEnabled = true;
-            this.buildingNumber.Location = new System.Drawing.Point(607, 84);
+            this.buildingNumber.Location = new System.Drawing.Point(564, 84);
             this.buildingNumber.Name = "buildingNumber";
-            this.buildingNumber.Size = new System.Drawing.Size(161, 28);
+            this.buildingNumber.Size = new System.Drawing.Size(265, 28);
             this.buildingNumber.TabIndex = 69;
             this.buildingNumber.ValueMember = "ID";
+            this.buildingNumber.SelectedIndexChanged += new System.EventHandler(this.buildingNumber_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(897, 193);
@@ -221,9 +204,38 @@
             // 
             // appartmentss
             // 
+            this.appartmentss.AllowUserToAddRows = false;
+            this.appartmentss.AllowUserToDeleteRows = false;
+            this.appartmentss.AllowUserToOrderColumns = true;
+            this.appartmentss.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.appartmentss.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appartmentss.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.appartmentss.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.appartmentss.DefaultCellStyle = dataGridViewCellStyle2;
             this.appartmentss.Location = new System.Drawing.Point(22, 270);
             this.appartmentss.Name = "appartmentss";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.appartmentss.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.appartmentss.Size = new System.Drawing.Size(1243, 345);
             this.appartmentss.TabIndex = 86;
             // 
@@ -245,6 +257,7 @@
             0,
             0,
             0});
+            this.appartmentNumber.ValueChanged += new System.EventHandler(this.appartmentNumber_ValueChanged);
             // 
             // label7
             // 
@@ -276,6 +289,28 @@
             this.mInDollar.Size = new System.Drawing.Size(145, 26);
             this.mInDollar.TabIndex = 89;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(862, 87);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 20);
+            this.label10.TabIndex = 59;
+            this.label10.Text = "Owner Name";
+            // 
+            // owner
+            // 
+            this.owner.DisplayMember = "ID";
+            this.owner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.owner.FormattingEnabled = true;
+            this.owner.Location = new System.Drawing.Point(1020, 80);
+            this.owner.Name = "owner";
+            this.owner.Size = new System.Drawing.Size(161, 28);
+            this.owner.TabIndex = 67;
+            this.owner.ValueMember = "ID";
+            // 
             // AddDepartment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -298,7 +333,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.numberOf);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -320,14 +355,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label numberOf;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox details;
         private System.Windows.Forms.NumericUpDown numberOfRooms;
         private System.Windows.Forms.NumericUpDown floor;
-        private System.Windows.Forms.ComboBox owner;
         private System.Windows.Forms.ComboBox type;
         private System.Windows.Forms.ComboBox buildingNumber;
         private System.Windows.Forms.Button button1;
@@ -337,5 +370,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox mInDollar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox owner;
     }
 }

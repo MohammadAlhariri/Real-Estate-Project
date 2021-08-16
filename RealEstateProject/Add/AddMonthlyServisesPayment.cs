@@ -17,7 +17,6 @@ namespace RealEstateProject.Add
         public AddMonthlyServisesPayment()
         {
             InitializeComponent();
-            getRenters();
             getRealEstates();
             getAllMonthlyRentalServices();
         }
@@ -81,18 +80,14 @@ namespace RealEstateProject.Add
             catch { }
         }
 
-        private void getRenters()
-        {
-            DataTable dataTable = Connection.getRenterPersons();
-            renterName.DataSource = dataTable;
-            renterName.DisplayMember = "name";
-            renterName.ValueMember = "idperson";
-        }
+
         public void getRealEstates()
         {
             DataTable dataTable = Connection.getRealEstates();
             realestateNumber.DataSource = dataTable;
-            realestateNumber.DisplayMember = "estateNumber";
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
+
+            realestateNumber.DisplayMember = "realestate";
             realestateNumber.ValueMember = "ID";
             dataTable = getAppartments(Convert.ToInt32(realestateNumber.SelectedValue.ToString()));
             AppartmentNumber.DataSource = dataTable;
@@ -136,9 +131,9 @@ namespace RealEstateProject.Add
                 DataTable dataTable = Connection.getRentals().Select("appartmentNumber = " + AppartmentNumber.SelectedValue.ToString()).CopyToDataTable();
                 if (dataTable.Rows.Count != 0)
                 {
-
+                    dataTable.Columns.Add("rental", typeof(string), "idental+' -> '+ name+ ' -> ' + rentDate");
                     rentalNumber.DataSource = dataTable;
-                    rentalNumber.DisplayMember = "idental";
+                    rentalNumber.DisplayMember = "rental";
                     rentalNumber.ValueMember = "idental";
                     getServices();
                 }
@@ -198,9 +193,36 @@ namespace RealEstateProject.Add
         {
             //addMonthlyRentalPayment
             Notification notification = new Notification("Added Successfully", Color.RoyalBlue);
-            /*            try
-                        {*/
-            int results = Connection.addMonthlyRentalServicesPayments(
+
+            DateTime rentalD = Convert.ToDateTime(Connection.getRentals().Select("idental =" + rentalNumber.SelectedValue.ToString())[0]["rentDate"].ToString());
+            if (rentalD.Year > year.Value && rentalD.Month > month.SelectedIndex + 1)
+            {
+                notification = new Notification("You cant Add Payment before person rent", Color.Orange);
+                notification.Show();
+
+                return;
+            }
+            try
+                        {
+
+
+                int results = 0;
+                if (mMonth.Checked)
+                {
+                    var dat = new DateTime((int)year.Value, month.SelectedIndex, 1);
+
+                    for (int ctr = 1; ctr <= numberOfMonths.Value; ctr++)
+                    {
+                        dat = dat.AddMonths(1);
+                          results=Connection.addMonthlyRentalServicesPayments(
+                 rentalNumber.SelectedValue.ToString(), (Convert.ToInt32(amount.Text) / numberOfMonths.Value)+"", payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                 details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, dat.ToString("MMMM"), dat.Year+"", serviceName.SelectedValue.ToString());
+                    }
+                }
+
+                else
+
+                    results = Connection.addMonthlyRentalServicesPayments(
                 rentalNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
                 details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, month.Text, year.Value.ToString(), serviceName.SelectedValue.ToString());
                 if (results == 0)
@@ -222,12 +244,12 @@ namespace RealEstateProject.Add
                 }
             getAllMonthlyRentalServices();
 
-/*            }
+            }
             catch
             {
 
                 notification = new Notification("There are error, please correct it", Color.Red);
-            }*/
+            }
 
             notification.Show();
         }
@@ -236,6 +258,28 @@ namespace RealEstateProject.Add
         {
             getAllMonthlyRentalServices();
            
+
+        }
+
+        private void mMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                numberOfMonths.Visible = true;
+                startMonth.Text = "Start Month";
+                startYear.Text = "Start Year";
+            }
+            else
+            {
+                numberOfMonths.Visible = false;
+                startMonth.Text = "Month";
+                startYear.Text = "Year";
+            }
+        }
+
+        private void month_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            getAllMonthlyRentalServices();
 
         }
     }

@@ -44,8 +44,9 @@ namespace RealEstateProject
         public void getBuildings()
         {
             DataTable dataTable = Connection.getRealEstates();
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
             buildingNumber.DataSource = dataTable;
-            buildingNumber.DisplayMember = "estateNumber";
+            buildingNumber.DisplayMember = "realestate";
             buildingNumber.ValueMember = "ID";
         }
  
@@ -97,6 +98,7 @@ namespace RealEstateProject
             Notification notification = new Notification(message, color);
 
             notification.Show();
+            checkIfExist();
 
 
         }
@@ -119,6 +121,25 @@ namespace RealEstateProject
         private void type_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buildingNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            owner.Text = ((DataTable)buildingNumber.DataSource).Select("ID =" + buildingNumber.SelectedValue.ToString())[0][4].ToString();
+            checkIfExist();
+        }
+
+        private void appartmentNumber_ValueChanged(object sender, EventArgs e)
+        {
+            checkIfExist();
+        }
+        public void checkIfExist()
+        {
+            DataRow[] dataRows = Connection.getAppartments().Select("buildingID=" + buildingNumber.SelectedValue.ToString() + " AND appartmentNumber= " + appartmentNumber.Value);
+            if (dataRows.Length != 0)
+                button1.Enabled = false;
+            else
+                button1.Enabled = true;
         }
     }
 }

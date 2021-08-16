@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,11 +60,36 @@ namespace RealEstateProject
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
             Notification notification = new Notification("Added Successfully", Color.RoyalBlue);
+
+            DateTime rentalD = Convert.ToDateTime(Connection.getRentals().Select("idental =" + rentalNumber.SelectedValue.ToString())[0]["rentDate"].ToString());
+            if (rentalD.Year > year.Value && rentalD.Month > month.SelectedIndex + 1)
+            {
+                notification = new Notification("You cant Add Payment before person rent", Color.Orange);
+                notification.Show();
+
+                return;
+            }
             try
             {
-                int results = Connection.insertMonthlyRentalPayments(
+                int results = 0;
+                if (mMonth.Checked)
+                {
+                    var dat = new DateTime((int)year.Value, month.SelectedIndex, 1);
+
+                    for (int ctr = 1; ctr <= numberOfMonths.Value; ctr++)
+                    {
+                        dat = dat.AddMonths(1);
+                        //Console.WriteLine(dat.Year);
+                        // Console.WriteLine(dat.ToString("MMMM"));
+                        results = Connection.insertMonthlyRentalPayments(
+                    rentalNumber.SelectedValue.ToString(), ((Convert.ToInt32(amount.Text))/numberOfMonths.Value)+"", payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                    details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, dat.ToString("MMMM"), dat.Year + "");
+                    }
+                }
+
+                else
+                    results = Connection.insertMonthlyRentalPayments(
                     rentalNumber.SelectedValue.ToString(), amount.Text, payDate.Value.Date.ToString("yyyy-MM-dd HH:mm"),
                     details.Text, payMethod.Text, checkNumber.Text, bank.Text, receiptNumber.Text, month.Text, year.Value.ToString());
                 if (results == 0)
@@ -118,8 +144,10 @@ namespace RealEstateProject
         {
             //realestateNumber
             DataTable dataTable = Connection.getRealEstates();
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
+
             realestateNumber.DataSource = dataTable;
-            realestateNumber.DisplayMember = "estateNumber";
+            realestateNumber.DisplayMember = "realestate";
             realestateNumber.ValueMember = "ID";
         }
 
@@ -197,8 +225,11 @@ namespace RealEstateProject
                     if (dataTable.Length != 0)
                     {
 
-                        rentalNumber.DataSource = dataTable.CopyToDataTable();
-                        rentalNumber.DisplayMember = "idental";
+                        DataTable dataTable1 = dataTable.CopyToDataTable();
+                        dataTable1.Columns.Add("rental", typeof(string), "idental+' -> '+ name+ ' -> ' + rentDate");
+
+                        rentalNumber.DataSource = dataTable1;
+                        rentalNumber.DisplayMember = "rental";
                         rentalNumber.ValueMember = "idental";
                     }
                     else
@@ -215,6 +246,27 @@ namespace RealEstateProject
                 }
             }
             catch { }
+        }
+
+        private void mMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                numberOfMonths.Visible = true;
+                startMonth.Text = "Start Month";
+                startYear.Text = "Start Year";
+            }
+            else
+            {
+                numberOfMonths.Visible = false;
+                startMonth.Text = "Month";
+                startYear.Text = "Year";
+            }
+        }
+
+        private void rentalNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,10 +63,14 @@ namespace RealEstateProject
         }
         private void getServices()
         {
-            DataTable dataTable = Connection.getRealestateServices().Select("ID ='" + realestateNumber.SelectedValue.ToString()+"'").CopyToDataTable();
-            services.DataSource = dataTable;
-            services.DisplayMember = "name";
-            services.ValueMember = "idservices";
+            try
+            {
+                DataTable dataTable = Connection.getRealestateServices().Select("ID ='" + realestateNumber.SelectedValue.ToString() + "'").CopyToDataTable();
+                services.DataSource = dataTable;
+                services.DisplayMember = "name";
+                services.ValueMember = "idservices";
+            }
+            catch { services.DataSource = null; }
         }
         private void getAppartments()
         {
@@ -90,10 +94,12 @@ namespace RealEstateProject
         }
         private void getRealestates()
         {
+
             //realestateNumber
             DataTable dataTable = Connection.getRealEstates();
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
             realestateNumber.DataSource = dataTable;
-            realestateNumber.DisplayMember = "estateNumber";
+            realestateNumber.DisplayMember = "realestate";
             realestateNumber.ValueMember = "ID";
         }
 

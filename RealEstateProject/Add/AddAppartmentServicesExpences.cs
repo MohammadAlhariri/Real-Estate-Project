@@ -47,8 +47,10 @@ namespace RealEstateProject.Add
         public void getRealEstates()
         {
             DataTable dataTable = Connection.getRealEstates();
+            dataTable.Columns.Add("realestate", typeof(string), "estateNumber + ' -> ' + Owner");
+
             realestateNumber.DataSource = dataTable;
-            realestateNumber.DisplayMember = "estateNumber";
+            realestateNumber.DisplayMember = "realestate";
             realestateNumber.ValueMember = "ID";
             dataTable = getAppartments(Convert.ToInt32(realestateNumber.SelectedValue.ToString()));
             AppartmentNumber.DataSource = dataTable;
@@ -58,38 +60,62 @@ namespace RealEstateProject.Add
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //addMonthlyAppartmentServiseExpences
             Notification notification = new Notification("Added Successfully", Color.RoyalBlue);
+
+            int results = 0;
+            //addMonthlyAppartmentServiseExpences
+            if (mMonth.Checked)
+            {
+                var dat = new DateTime((int)year.Value, month.SelectedIndex, 1);
+
+                for (int ctr = 1; ctr <= numberOfMonths.Value; ctr++)
+                {
+                    dat = dat.AddMonths(1);
+                    //Console.WriteLine(dat.Year);
+                    // Console.WriteLine(dat.ToString("MMMM"));
+                    /* results = Connection.addRealestateServicesExpences(
+                      realestateNumber.SelectedValue.ToString(),
+                      services.SelectedValue.ToString(), ((Convert.ToInt32(amount.Text)) / numberOfMonths.Value) + "",
+                      date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                     detail.Text, receiptNumber.Text, dat.ToString("MMMM"), dat.Year + "");*/
+                    results = Connection.addMonthlyAppartmentServiseExpences(
+                      rentalNumber.SelectedValue.ToString(), ((Convert.ToInt32(amount.Text)) / numberOfMonths.Value) + "", serviceName.SelectedValue.ToString(),
+                     details.Text, dat.ToString("MMMM"), dat.Year + "");
+                }
+
+            }
+
+            else
             try
             {
-                int results = Connection.addMonthlyAppartmentServiseExpences(
+                results = Connection.addMonthlyAppartmentServiseExpences(
                      rentalNumber.SelectedValue.ToString(), amount.Text, serviceName.SelectedValue.ToString(),
                     details.Text, month.Text, year.Value.ToString());
-                if (results == 0)
-                {
-
-                    notification = new Notification("There are error", Color.Red);
-                }
-                else if (results == 1)
-                {
-
-                    notification = new Notification("Added Successfully", Color.Green);
-
-                }
-                else
-                {
-
-                    notification = new Notification("Please fill all Required fields", Color.Yellow);
-
-                }
-                monthlyPayments.DataSource = Connection.getMonthlyAppartmentServiseExpences();
-
+                
             }
             catch
             {
 
                 notification = new Notification("There are error, please correct it", Color.Red);
             }
+            if (results == 0)
+            {
+
+                notification = new Notification("There are error", Color.Red);
+            }
+            else if (results == 1)
+            {
+
+                notification = new Notification("Added Successfully", Color.Green);
+
+            }
+            else
+            {
+
+                notification = new Notification("Please fill all Required fields", Color.Yellow);
+
+            }
+            monthlyPayments.DataSource = Connection.getMonthlyAppartmentServiseExpences();
 
             notification.Show();
         }
@@ -134,6 +160,23 @@ namespace RealEstateProject.Add
                     rentalNumber.DisplayMember = "idental";
                     rentalNumber.ValueMember = "idental";
                 }
+            }
+        }
+
+        private void mMonth_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (((RadioButton)sender).Checked)
+            {
+                numberOfMonths.Visible = true;
+                startMonth.Text = "Start Month";
+                startYear.Text = "Start Year";
+            }
+            else
+            {
+                numberOfMonths.Visible = false;
+                startMonth.Text = "Month";
+                startYear.Text = "Year";
             }
         }
     }
