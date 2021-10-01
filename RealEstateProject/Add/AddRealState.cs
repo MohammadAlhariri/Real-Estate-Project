@@ -63,8 +63,8 @@ namespace RealEstateProject
         {
             string message = "";
             Color color = Color.White;
-            try
-            {
+        /*    try
+            {*/
             int results = Connection.insertRealEstate(
                 estateNumber.Text, buildingNumber.Text, country.Text, states.Text, city.Text, neigborhood.Text, address.Text, currentState.Text, value.Text,  owner.SelectedValue.ToString());
             if (results == 0)
@@ -72,7 +72,7 @@ namespace RealEstateProject
                 message = "There are error";
                 color = Color.Red;
             }
-            else if (results == 1)
+            else if (results == 1|| true)
             {
                 message = "Added Succefully";
                 color = Color.Green;
@@ -91,12 +91,12 @@ namespace RealEstateProject
             Connection.addRealestateService(id, services.CheckedItems);
 
 
-            }
+        /*    }
              catch
              {
                  message = "There are error, please correct it";
                  color = Color.Red;
-             }
+             }*/
             Notification notification = new Notification(message, color);
             notification.Show();
 

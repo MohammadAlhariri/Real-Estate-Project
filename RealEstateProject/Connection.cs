@@ -1,26 +1,160 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RealEstateProject
 {
 
+
     public class Connection
     {
 
         MySqlConnection countryList = new MySqlConnection("server=localhost;user=root;database=CountryList;port=3306;password=;");
         MySqlConnection realEstate = new MySqlConnection("server=localhost;user=root;database=realestate;port=3306;password=;convert zero datetime=True;CHARSET=utf8");
+        string host = "http://localhost/";
+
+
+        //Start Realestate Methods
+        public DataTable getRealEstates()
+        {
+
+            /*    string Reply = new WebClient()
+                    .DownloadString("https://mohammadalhariri.000webhostapp.com/RealEstateProject/getRealEstates.php");
+                {*/
+            string Reply = new WebClient()
+                .DownloadString(host + "/realestateProject/realestates/realEstates.php");
+
+            return GetJSONToDataTableUsingMethod(Reply);
+            /*DataSet dataset = new DataSet();
+            MySqlCommand sqlCommand = new MySqlCommand("realEstates");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+            sqlDataAdapter.Fill(dataset);
+            return dataset.Tables[0];*/
+
+        }
+        public int insertRealEstate(string estateNumber, string buildingNumber, string country, string state, string city, string neigborhood,
+            string address, string currentState, string value, string ownerID)
+        {
+            using (WebClient client = new WebClient())
+            {
+
+                byte[] response =
+                client.UploadValues(host + "realestateProject/realestates/addRealestate.php", new NameValueCollection()
+                {
+
+                {"estateNumber", estateNumber},
+                {"buildingNumber", buildingNumber},
+                {"country", country},
+                {"state", state},
+                {"city", city},
+                {"neigborhood", neigborhood},
+                {"address", address},
+                {"currentState", currentState},
+                {"value", value},
+                {"ownerID", ownerID},
+            });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                Console.WriteLine(result);
+            }
+
+            /* MySqlCommand sqlCommand = new MySqlCommand("addRealEstate");
+             sqlCommand.Connection = realEstate;
+             sqlCommand.CommandType = CommandType.StoredProcedure;
+             sqlCommand.Parameters.AddWithValue("estateNumber", estateNumber);
+             sqlCommand.Parameters.AddWithValue("buildingNumber", buildingNumber);
+             sqlCommand.Parameters.AddWithValue("country", country);
+             sqlCommand.Parameters.AddWithValue("state", state);
+             sqlCommand.Parameters.AddWithValue("city", city);
+             sqlCommand.Parameters.AddWithValue("neigborhood", neigborhood);
+             sqlCommand.Parameters.AddWithValue("address", address);
+             sqlCommand.Parameters.AddWithValue("currentState", currentState);
+             sqlCommand.Parameters.AddWithValue("value", value);
+             sqlCommand.Parameters.AddWithValue("ownerID", ownerID);
+             int a = sqlCommand.ExecuteNonQuery();*/
+            return 1;
+
+        }
+        internal int updateRealEstate(string v1, string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8, string v3)
+        {
+            using (WebClient client = new WebClient())
+            {
+
+                byte[] response =
+                client.UploadValues(host + "realestateProject/realestates/updateRealestate.php", new NameValueCollection()
+                {
+
+                {"estateID", v1},
+                {"buildingNumber", text1},
+                {"country", text2},
+                {"state", text3},
+                {"city", text4},
+                {"neigborhood", text5},
+                {"address", text6},
+                { "currentState", text7 },
+                {"value", text8},
+                {"ownerID", v3 }
+            });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                Console.WriteLine(result);
+            }
+            /*MySqlCommand sqlCommand = new MySqlCommand("updateRealEstate");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("estateID", v1);
+            sqlCommand.Parameters.AddWithValue("buildingNumber", text1);
+            sqlCommand.Parameters.AddWithValue("country", text2);
+            sqlCommand.Parameters.AddWithValue("state", text3);
+            sqlCommand.Parameters.AddWithValue("city", text4);
+            sqlCommand.Parameters.AddWithValue("neigborhood", text5);
+            sqlCommand.Parameters.AddWithValue("address", text6);
+            sqlCommand.Parameters.AddWithValue("currentState", text7);
+            sqlCommand.Parameters.AddWithValue("value", text8);
+            sqlCommand.Parameters.AddWithValue("ownerID", v3);
+            int a = sqlCommand.ExecuteNonQuery();*/
+            return 1;
+        }
+
+        internal int deleteRealEstate(string id)
+        {
+            using (WebClient client = new WebClient())
+            {
+
+                byte[] response =
+                client.UploadValues(host + "realestateProject/realestates/deleteRealestate.php", new NameValueCollection()
+                {
+
+                {"realEstateID", id},
+
+            });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                Console.WriteLine(result);
+            }
+            /*            MySqlCommand sqlCommand = new MySqlCommand("deleteRealEstate");
+                        sqlCommand.Connection = realEstate;
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("realEsateID", id);
+                        int a = sqlCommand.ExecuteNonQuery();*/
+            return 1;
+        }
 
         internal DataTable getMonthlyAppartmentServiseExpences()
         {
-            DataSet dataset = new DataSet();
 
+            DataSet dataset = new DataSet();
             MySqlCommand sqlCommand = new MySqlCommand("getMonthlyAppartmentServiseExpences");
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -87,23 +221,23 @@ namespace RealEstateProject
 
         internal int addRealestateServicesExpences(string v1, string v2, string v3, string v4, string text1, string text2, string text3, string v5)
         {
-          
-                //inserRealEstate
-                MySqlCommand sqlCommand = new MySqlCommand("addRealestateServicesExpences");
-                sqlCommand.Connection = realEstate;
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("realestateID", v1);
-                sqlCommand.Parameters.AddWithValue("serviceID", v2);
-                sqlCommand.Parameters.AddWithValue("amount", v3);
-                sqlCommand.Parameters.AddWithValue("date", v4);
-                sqlCommand.Parameters.AddWithValue("detail", text1);
-                sqlCommand.Parameters.AddWithValue("receiptNumber", text2);
-                sqlCommand.Parameters.AddWithValue("month", text3);
-                sqlCommand.Parameters.AddWithValue("year", v5);
 
-                int a = sqlCommand.ExecuteNonQuery();
-                return a;
-          
+            //inserRealEstate
+            MySqlCommand sqlCommand = new MySqlCommand("addRealestateServicesExpences");
+            sqlCommand.Connection = realEstate;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("realestateID", v1);
+            sqlCommand.Parameters.AddWithValue("serviceID", v2);
+            sqlCommand.Parameters.AddWithValue("amount", v3);
+            sqlCommand.Parameters.AddWithValue("date", v4);
+            sqlCommand.Parameters.AddWithValue("detail", text1);
+            sqlCommand.Parameters.AddWithValue("receiptNumber", text2);
+            sqlCommand.Parameters.AddWithValue("month", text3);
+            sqlCommand.Parameters.AddWithValue("year", v5);
+
+            int a = sqlCommand.ExecuteNonQuery();
+            return a;
+
         }
 
         internal DataTable getMonthlyAppartmentServicesPaymentsReport(string realEstateID)
@@ -132,7 +266,8 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
-        }internal DataTable getRealestateServicesExpencesReport()
+        }
+        internal DataTable getRealestateServicesExpencesReport()
         {
             DataSet dataset = new DataSet();
 
@@ -347,7 +482,8 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
-        }        internal DataTable monthly_expense_report(string v)
+        }
+        internal DataTable monthly_expense_report(string v)
         {
             DataSet dataset = new DataSet();
             MySqlCommand sqlCommand = new MySqlCommand("expense_report");
@@ -541,7 +677,7 @@ namespace RealEstateProject
             return a;
         }
 
-        internal int updateDepartment(string v1, string v2, string text1, string v3, string text2, string v4,  string text4, string text9)
+        internal int updateDepartment(string v1, string v2, string text1, string v3, string text2, string v4, string text4, string text9)
         {
             MySqlCommand sqlCommand = new MySqlCommand("updateAppartment");
             sqlCommand.Connection = realEstate;
@@ -571,15 +707,6 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
-        internal int deleteRealEstate(string id)
-        {
-            MySqlCommand sqlCommand = new MySqlCommand("deleteRealEstate");
-            sqlCommand.Connection = realEstate;
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("realEsateID", id);
-            int a = sqlCommand.ExecuteNonQuery();
-            return a;
-        }
 
         public DataTable getStates(string id)
         {
@@ -600,39 +727,8 @@ namespace RealEstateProject
 
         }
 
-        internal int updateRealEstate(string v1, string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8,string v3)
-        {
-            MySqlCommand sqlCommand = new MySqlCommand("updateRealEstate");
-            sqlCommand.Connection = realEstate;
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("estateID", v1);
-            sqlCommand.Parameters.AddWithValue("buildingNumber", text1);
-            sqlCommand.Parameters.AddWithValue("country", text2);
-            sqlCommand.Parameters.AddWithValue("state", text3);
-            sqlCommand.Parameters.AddWithValue("city", text4);
-            sqlCommand.Parameters.AddWithValue("neigborhood", text5);
-            sqlCommand.Parameters.AddWithValue("address", text6);
-            sqlCommand.Parameters.AddWithValue("currentState", text7);
-            sqlCommand.Parameters.AddWithValue("value", text8);
-            sqlCommand.Parameters.AddWithValue("ownerID", v3);
-            int a = sqlCommand.ExecuteNonQuery();
-            return a;
-        }
 
-        public DataTable getRealEstates()
-        {
-
-            DataSet dataset = new DataSet();
-
-            MySqlCommand sqlCommand = new MySqlCommand("realEstates");
-            sqlCommand.Connection = realEstate;
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
-            sqlDataAdapter.Fill(dataset);
-            return dataset.Tables[0];
-
-
-        }        public DataTable getFullRealEstates()
+        public DataTable getFullRealEstates()
         {
 
             /*            DataSet dataset = new DataSet();
@@ -648,7 +744,7 @@ namespace RealEstateProject
             MySqlDataAdapter returnVal = new MySqlDataAdapter(query, realEstate);
             DataTable dt = new DataTable("CharacterInfo");
             returnVal.Fill(dt);
-            
+
             return dt;
 
         }
@@ -665,7 +761,8 @@ namespace RealEstateProject
             return dataset.Tables[0];
 
 
-        }        public DataTable getFullAllPerson()
+        }
+        public DataTable getFullAllPerson()
         {
 
             string query = "SELECT * FROM realestate.person;";
@@ -701,7 +798,8 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
-        }        public DataTable getFullAppartments()
+        }
+        public DataTable getFullAppartments()
         {
             DataSet dataset = new DataSet();
             string query = "SELECT * FROM realestate.appartment;";
@@ -738,7 +836,8 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
-        }        public DataTable getFullRentals()
+        }
+        public DataTable getFullRentals()
         {
             DataSet dataset = new DataSet();
             string query = "SELECT * FROM realestate.rental;";
@@ -761,7 +860,8 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
-        }        public DataTable getMonthlyAppartmentServicesPayments()
+        }
+        public DataTable getMonthlyAppartmentServicesPayments()
         {
             DataSet dataset = new DataSet();
 
@@ -796,7 +896,8 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
-        }        public DataTable getFullRealestateExpenses()
+        }
+        public DataTable getFullRealestateExpenses()
         {
             DataSet dataset = new DataSet();
             string query = "SELECT * FROM realestate.realestate_expenses;";
@@ -807,32 +908,12 @@ namespace RealEstateProject
 
             return dt;
         }
-        public int insertRealEstate(string estateNumber, string buildingNumber, string country, string state, string city, string neigborhood,
-            string address, string currentState, string value,string ownerID)
-        {
 
-            MySqlCommand sqlCommand = new MySqlCommand("addRealEstate");
-            sqlCommand.Connection = realEstate;
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("estateNumber", estateNumber);
-            sqlCommand.Parameters.AddWithValue("buildingNumber", buildingNumber);
-            sqlCommand.Parameters.AddWithValue("country", country);
-            sqlCommand.Parameters.AddWithValue("state", state);
-            sqlCommand.Parameters.AddWithValue("city", city);
-            sqlCommand.Parameters.AddWithValue("neigborhood", neigborhood);
-            sqlCommand.Parameters.AddWithValue("address", address);
-            sqlCommand.Parameters.AddWithValue("currentState", currentState);
-            sqlCommand.Parameters.AddWithValue("value", value);
-            sqlCommand.Parameters.AddWithValue("ownerID", ownerID);
-            int a = sqlCommand.ExecuteNonQuery();
-            return a;
-
-        }
         public int insertRealEstateExpense
-            (string realestateID, string ExpenseType, string amount, string date, string detail, 
+            (string realestateID, string ExpenseType, string amount, string date, string detail,
             string receiptNumber, string text, string v)
         {
-            if (!checkEmpty(realestateID,"person", ExpenseType, amount, date, detail))
+            if (!checkEmpty(realestateID, "person", ExpenseType, amount, date, detail))
             {
                 //inserRealEstate
                 MySqlCommand sqlCommand = new MySqlCommand("addRealestaeExpence");
@@ -900,7 +981,7 @@ namespace RealEstateProject
             return a;
 
         }
-        public int insertRental(string renterID, string appartmentNumber, 
+        public int insertRental(string renterID, string appartmentNumber,
             string rentDuration, string rentalType, string details, string rentDate,
             string paymentMethod, string v, string v1)
 
@@ -926,7 +1007,7 @@ namespace RealEstateProject
 
 
         }
-        public int insertMonthlyRentalPayments( string rentalID, string amount,
+        public int insertMonthlyRentalPayments(string rentalID, string amount,
             string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v)
 
         {
@@ -950,8 +1031,9 @@ namespace RealEstateProject
 
 
 
-        }        public int addMonthlyRentalServicesPayments(string rentalID, string amount,
-            string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v, string v1)
+        }
+        public int addMonthlyRentalServicesPayments(string rentalID, string amount,
+   string date, string details, string payMethod, string checkNumber, string bank, string text, string text1, string v, string v1)
 
         {
 
@@ -1061,6 +1143,58 @@ namespace RealEstateProject
             else
                 merged = dataTable.Clone();
             return merged;
+        }
+        public DataTable GetJSONToDataTableUsingMethod(string JSONData)
+        {
+            DataTable dtUsingMethodReturn = new DataTable();
+            string[] jsonStringArray = Regex.Split(JSONData.Replace("[", "").Replace("]", ""), "},{");
+            List<string> ColumnsName = new List<string>();
+            foreach (string strJSONarr in jsonStringArray)
+            {
+                string[] jsonStringData = Regex.Split(strJSONarr.Replace("{", "").Replace("}", ""), ",");
+                foreach (string ColumnsNameData in jsonStringData)
+                {
+                    try
+                    {
+                        int idx = ColumnsNameData.IndexOf(":");
+                        string ColumnsNameString = ColumnsNameData.Substring(0, idx).Replace("\"", "").Trim();
+                        if (!ColumnsName.Contains(ColumnsNameString))
+                        {
+                            ColumnsName.Add(ColumnsNameString);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(string.Format("Error Parsing Column Name : {0}", ColumnsNameData));
+                    }
+                }
+                break;
+            }
+            foreach (string AddColumnName in ColumnsName)
+            {
+                dtUsingMethodReturn.Columns.Add(AddColumnName);
+            }
+            foreach (string strJSONarr in jsonStringArray)
+            {
+                string[] RowData = Regex.Split(strJSONarr.Replace("{", "").Replace("}", ""), ",");
+                DataRow nr = dtUsingMethodReturn.NewRow();
+                foreach (string rowData in RowData)
+                {
+                    try
+                    {
+                        int idx = rowData.IndexOf(":");
+                        string RowColumns = rowData.Substring(0, idx).Replace("\"", "").Trim();
+                        string RowDataString = rowData.Substring(idx + 1).Replace("\"", "").Trim();
+                        nr[RowColumns] = RowDataString;
+                    }
+                    catch (Exception ex)
+                    {
+                        continue;
+                    }
+                }
+                dtUsingMethodReturn.Rows.Add(nr);
+            }
+            return dtUsingMethodReturn;
         }
 
     }

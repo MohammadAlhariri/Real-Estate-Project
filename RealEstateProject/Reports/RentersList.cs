@@ -36,6 +36,7 @@ namespace RealEstateProject.Reports
             //getAppartmentReportMonthly();
 
             renters.DataSource = Connection.getAppartmentReportMonthly().Select("buildingID =" + realEstateModel.RealEstateID).CopyToDataTable();
+            
             DataGridViewButtonColumn uninstallButtonColumn = new DataGridViewButtonColumn();
             uninstallButtonColumn.Name = "ShowInfo";
             uninstallButtonColumn.Text = "Show";
