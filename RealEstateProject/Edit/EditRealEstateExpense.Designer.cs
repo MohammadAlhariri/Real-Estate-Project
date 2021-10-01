@@ -34,6 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.year = new System.Windows.Forms.NumericUpDown();
@@ -51,7 +52,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.receiptNumber = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
@@ -146,6 +146,17 @@
             this.groupBox1.TabIndex = 114;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1048, 192);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 20);
+            this.label10.TabIndex = 127;
+            this.label10.Text = "$$";
             // 
             // label8
             // 
@@ -331,6 +342,7 @@
             this.person.Size = new System.Drawing.Size(199, 28);
             this.person.TabIndex = 112;
             this.person.ValueMember = "name";
+            this.person.Visible = false;
             // 
             // label7
             // 
@@ -364,6 +376,7 @@
             this.label2.Size = new System.Drawing.Size(105, 20);
             this.label2.TabIndex = 109;
             this.label2.Text = "Person Name";
+            this.label2.Visible = false;
             // 
             // receiptNumber
             // 
@@ -377,17 +390,6 @@
             this.receiptNumber.Size = new System.Drawing.Size(199, 28);
             this.receiptNumber.TabIndex = 123;
             this.receiptNumber.ValueMember = "(none)";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1048, 192);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 20);
-            this.label10.TabIndex = 127;
-            this.label10.Text = "$$";
             // 
             // EditRealEstateExpense
             // 

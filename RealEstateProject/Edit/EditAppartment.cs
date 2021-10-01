@@ -84,7 +84,7 @@ namespace RealEstateProject.Edit
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            DataRow[] dataRows = Connection.getAppartments().Select("iddepartment = " + AppartmentNumber.SelectedValue.ToString());
+            DataRow[] dataRows = Connection.getFullAppartments().Select("iddepartment = " + AppartmentNumber.SelectedValue.ToString());
             DataRow dataRow = dataRows[0];
             mInDollar.Text = dataRow["monthlyRentalInDollar"].ToString();
             type.Text = dataRow["type"].ToString();

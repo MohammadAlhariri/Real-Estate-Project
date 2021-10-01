@@ -24,7 +24,7 @@ namespace RealEstateProject.Edit
 
         private void getPersons()
         {
-            DataTable dt = Connection.getAllPerson();
+            DataTable dt = Connection.getFullAllPerson();
             dt.Columns.Add("FullName", typeof(string), "fName + ' ' + mName+' '+lName");
 
             person.DataSource = dt;
@@ -81,7 +81,7 @@ namespace RealEstateProject.Edit
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            DataRow[] dataRows = Connection.getAllPerson().Select("idperson = " + person.SelectedValue.ToString());
+            DataRow[] dataRows = Connection.getFullAllPerson().Select("idperson = " + person.SelectedValue.ToString());
             DataRow dataRow = dataRows[0];
             fName.Text = dataRow["fName"].ToString();
             mName.Text = dataRow["mName"].ToString();

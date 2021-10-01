@@ -34,7 +34,7 @@ namespace RealEstateProject.Edit
 
         private void getServices()
         {
-            DataRow[] dataTable = Connection.getRealestateServices().Select("idrealestate =" + realestateNumber.SelectedValue.ToString());
+            DataRow[] dataTable = Connection.getRealestateServices().Select("ID =" + realestateNumber.SelectedValue.ToString());
             DataTable dataTable1 = Connection.getRealestateServices().Clone();
 
             for (int i = 0; i < dataTable.Length; i++)
@@ -116,19 +116,19 @@ namespace RealEstateProject.Edit
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            try
-            {
+           /* try
+            {*/
                 // get Rentel
                 if (rentalNumber.SelectedValue != null)
                 {
-                    DataRow[] dataRows = Connection.getRentals().Select("idental = " + rentalNumber.SelectedValue.ToString());
+                    DataRow[] dataRows = Connection.getFullRentals().Select("idental = " + rentalNumber.SelectedValue.ToString());
                     DataRow dataRow = dataRows[0];
                     renter.SelectedValue = dataRow["renterID"].ToString();
                     detail.Text = dataRow["details"].ToString();
                     rentDuration.Text = dataRow["rentDuration"].ToString();
                     rentalType.Text = dataRow["rentalType"].ToString();
                     paymentMethod.Text = dataRow["paymentMethod"].ToString();
-                    startDate.Value = Convert.ToDateTime(dataRow["rentDate"]);
+                try { startDate.Value = Convert.ToDateTime(dataRow["rentDate"]); } catch { }
                     graceMonth.Value = Convert.ToInt32(dataRow["graceMonth"]);
                     rentPercentage.Value = Convert.ToInt32(dataRow["rentPercentage"]);
                     DataRow[] data = Connection.getRentalServices().Select("idrental = " + rentalNumber.SelectedValue.ToString());
@@ -140,7 +140,7 @@ namespace RealEstateProject.Edit
                         if (data.Length != 0)
                             foreach (DataRow item1 in data)
                             {
-                                if (item1["idservice"].ToString().Equals(row["idservices"].ToString()))
+                                if (item1["idservices"].ToString().Equals(row["idservices"].ToString()))
                                 {
                                     services.SetItemChecked(i, true);
                                 }
@@ -154,12 +154,12 @@ namespace RealEstateProject.Edit
 
                     }
                 }
-           }
+       /*    }
             catch
             {
                 Notification notification = new Notification("This Appartment have no rental", Color.Red);
                 notification.Show();
-            }
+            }*/
 
         }
 

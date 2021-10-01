@@ -99,10 +99,10 @@ namespace RealEstateProject.Edit
         }
         public DataRow getRealEstate(int id)
         {
-            for (int i = 0; i < Connection.getRealEstates().Rows.Count; i++)
+            for (int i = 0; i < Connection.getFullRealEstates().Rows.Count; i++)
             {
-                if (Convert.ToInt32(Connection.getRealEstates().Rows[i]["ID"]) == id)
-                    return Connection.getRealEstates().Rows[i];
+                if (Convert.ToInt32(Connection.getFullRealEstates().Rows[i]["ID"]) == id)
+                    return Connection.getFullRealEstates().Rows[i];
             }
             return null;
         }
@@ -174,11 +174,11 @@ namespace RealEstateProject.Edit
         }
         public void getText()
         {
-            DataRow dataRow = getRealEstate(Convert.ToInt32(realEstateNumber.SelectedValue.ToString()));
+            DataRow dataRow = Connection.getFullRealEstates().Select("ID = "+realEstateNumber.SelectedValue.ToString())[0];
             buildingNumber.Text = dataRow["buildingNumber"].ToString();
             country.Text = dataRow["country"].ToString();
             states.Text = dataRow["state"].ToString();
-            city.SelectedValue = dataRow["city"].ToString();
+            city.Text = dataRow["city"].ToString();
             value.Text = dataRow["value"].ToString();
             address.Text = dataRow["address"].ToString();
             neigborhood.Text = dataRow["neigborhood"].ToString();
@@ -192,7 +192,7 @@ namespace RealEstateProject.Edit
                 if (data.Length != 0)
                     foreach (DataRow item1 in data)
                     {
-                        if (item1["idservice"].ToString().Equals(row["idservices"].ToString()))
+                        if (item1["idservices"].ToString().Equals(row["idservices"].ToString()))
                         {
                             services.SetItemChecked(i, true);
                         }

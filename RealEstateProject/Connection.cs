@@ -454,13 +454,12 @@ namespace RealEstateProject
             return dataset.Tables[0];
         }
 
-        internal int updateRealEstateExpense(string v1, string v2, string text1, string v3, string v4, string text2, string v, string text, string v5)
+        internal int updateRealEstateExpense(string v1, string text1, string v3, string v4, string text2, string v, string text, string v5)
         {
             MySqlCommand sqlCommand = new MySqlCommand("updateRealestaeExpence");
             sqlCommand.Connection = realEstate;
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("realestateID", v1);
-            sqlCommand.Parameters.AddWithValue("personID", v2);
             sqlCommand.Parameters.AddWithValue("ExpenseType", text1);
             sqlCommand.Parameters.AddWithValue("amount", v3);
             sqlCommand.Parameters.AddWithValue("date", v4);
@@ -633,6 +632,25 @@ namespace RealEstateProject
             return dataset.Tables[0];
 
 
+        }        public DataTable getFullRealEstates()
+        {
+
+            /*            DataSet dataset = new DataSet();
+
+                        MySqlCommand sqlCommand = new MySqlCommand("realEstates");
+                        sqlCommand.Connection = realEstate;
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
+                        sqlDataAdapter.Fill(dataset);
+                        return dataset.Tables[0];*/
+            string query = "SELECT * FROM realestate.realestate;";
+            MySqlCommand cmd = new MySqlCommand(query, realEstate);
+            MySqlDataAdapter returnVal = new MySqlDataAdapter(query, realEstate);
+            DataTable dt = new DataTable("CharacterInfo");
+            returnVal.Fill(dt);
+            
+            return dt;
+
         }
         public DataTable getAllPerson()
         {
@@ -645,6 +663,18 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
+
+
+        }        public DataTable getFullAllPerson()
+        {
+
+            string query = "SELECT * FROM realestate.person;";
+            MySqlCommand cmd = new MySqlCommand(query, realEstate);
+            MySqlDataAdapter returnVal = new MySqlDataAdapter(query, realEstate);
+            DataTable dt = new DataTable("CharacterInfo");
+            returnVal.Fill(dt);
+
+            return dt;
 
 
         }
@@ -671,7 +701,19 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
+        }        public DataTable getFullAppartments()
+        {
+            DataSet dataset = new DataSet();
+            string query = "SELECT * FROM realestate.appartment;";
+            MySqlCommand cmd = new MySqlCommand(query, realEstate);
+            MySqlDataAdapter returnVal = new MySqlDataAdapter(query, realEstate);
+            DataTable dt = new DataTable("CharacterInfo");
+            returnVal.Fill(dt);
+
+            return dt;
+
         }
+
         public DataTable getAppartments(string id)
         {
             DataSet dataset = new DataSet();
@@ -695,6 +737,17 @@ namespace RealEstateProject
             MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sqlCommand);
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
+
+        }        public DataTable getFullRentals()
+        {
+            DataSet dataset = new DataSet();
+            string query = "SELECT * FROM realestate.rental;";
+            MySqlCommand cmd = new MySqlCommand(query, realEstate);
+            MySqlDataAdapter returnVal = new MySqlDataAdapter(query, realEstate);
+            DataTable dt = new DataTable("CharacterInfo");
+            returnVal.Fill(dt);
+
+            return dt;
 
         }
         public DataTable getMonthlyRentalpayments()
@@ -743,6 +796,16 @@ namespace RealEstateProject
             sqlDataAdapter.Fill(dataset);
             return dataset.Tables[0];
 
+        }        public DataTable getFullRealestateExpenses()
+        {
+            DataSet dataset = new DataSet();
+            string query = "SELECT * FROM realestate.realestate_expenses;";
+            MySqlCommand cmd = new MySqlCommand(query, realEstate);
+            MySqlDataAdapter returnVal = new MySqlDataAdapter(query, realEstate);
+            DataTable dt = new DataTable("CharacterInfo");
+            returnVal.Fill(dt);
+
+            return dt;
         }
         public int insertRealEstate(string estateNumber, string buildingNumber, string country, string state, string city, string neigborhood,
             string address, string currentState, string value,string ownerID)

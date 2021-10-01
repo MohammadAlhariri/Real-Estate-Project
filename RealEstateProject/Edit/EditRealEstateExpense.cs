@@ -99,9 +99,9 @@ namespace RealEstateProject.Edit
         private void Button3_Click(object sender, EventArgs e)
         {
             //get
-            DataRow[] dataRows = Connection.getRealestateExpenses().Select("id = " + receiptNumber.SelectedValue.ToString());
+            DataRow[] dataRows = Connection.getFullRealestateExpenses().Select("id = " + receiptNumber.SelectedValue.ToString());
             DataRow dataRow = dataRows[0];
-            person.SelectedValue = dataRow["personID"].ToString();
+            //person.SelectedValue = dataRow["personID"].ToString();
             realestateNumber.SelectedValue = dataRow["realestateID"].ToString();
             expenseType.Text = dataRow["ExpenseType"].ToString();
             amount.Text = dataRow["amount"].ToString();
@@ -136,7 +136,7 @@ namespace RealEstateProject.Edit
             {
 
                 int results = Connection.updateRealEstateExpense(
-                     realestateNumber.SelectedValue.ToString(), person.SelectedValue.ToString(), expenseType.Text, amount.Value.ToString(), date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
+                     realestateNumber.SelectedValue.ToString(), expenseType.Text, amount.Value.ToString(), date.Value.Date.ToString("yyyy-MM-dd HH:mm"),
                     detail.Text,  receiptNumber.SelectedValue.ToString(),month.Text,year.Value.ToString());
 
                 if (results == 0)
